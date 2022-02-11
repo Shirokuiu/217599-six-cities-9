@@ -1,4 +1,4 @@
-import AdvertCard from 'src/components/advert-card/advert-card';
+import AdvertPreview from 'src/components/advert-preview/advert-preview';
 
 interface MainPageProps {
   placesFound: number;
@@ -116,11 +116,11 @@ function MainPage({ placesFound }: MainPageProps) {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {<AdvertCard />}
-                {<AdvertCard />}
-                {<AdvertCard />}
-                {<AdvertCard />}
-                {<AdvertCard />}
+                {<AdvertPreview />}
+                {<AdvertPreview />}
+                {<AdvertPreview />}
+                {<AdvertPreview />}
+                {<AdvertPreview />}
               </div>
             </section>
             <div className="cities__right-section">

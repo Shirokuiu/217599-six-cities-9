@@ -1,4 +1,4 @@
-function AdvertCard() {
+function AdvertPreview() {
   return (
     <article className="cities__place-card place-card">
       <div className="place-card__mark">
@@ -43,4 +43,4 @@ function AdvertCard() {
   );
 }
 
-export default AdvertCard;
+export default AdvertPreview;

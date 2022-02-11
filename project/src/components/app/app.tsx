@@ -1,7 +1,11 @@
 import MainPage from 'src/components/main-page/main-page';
 
-function App(): JSX.Element {
-  return <MainPage />;
+interface AppProps {
+  placesFound: number;
+}
+
+function App(props: AppProps) {
+  return <MainPage {...props} />;
 }
 
 export default App;

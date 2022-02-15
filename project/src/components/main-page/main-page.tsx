@@ -1,8 +1,5 @@
 import OfferPreview from 'src/components/offer-preview/offer-preview';
-
-interface MainPageProps {
-  placesFound: number;
-}
+import { MainPageProps } from 'src/types';
 
 function MainPage({ placesFound }: MainPageProps) {
   return (

@@ -1,8 +1,5 @@
 import MainPage from 'src/components/main-page/main-page';
-
-interface AppProps {
-  placesFound: number;
-}
+import { AppProps } from 'src/types';
 
 function App(props: AppProps) {
   return <MainPage {...props} />;

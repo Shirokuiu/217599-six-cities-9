@@ -1,4 +1,4 @@
-import OfferPreview from 'src/components/offer-preview/offer-preview';
+import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
 import { MainPageProps } from 'src/types';
 
 function MainPage({ placesFound }: MainPageProps) {

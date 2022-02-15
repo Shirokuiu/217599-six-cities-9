@@ -1,14 +1,19 @@
 import { RouteObject, useRoutes } from 'react-router-dom';
 import MainPage from 'src/components/pages/main-page/main-page';
-import React from 'react';
+import { lazy, Suspense } from 'react';
 
 import { AppProps, AppRoutingPath } from 'src/types';
 import NotFoundPage from 'src/components/pages/not-found-page/not-found-page';
 import LoginPage from 'src/components/pages/login-page/login-page';
-import FavoritesPage from 'src/components/pages/favorites-page/favorites-page';
-import OfferPage from 'src/components/pages/offer-page/offer-page';
 
 function AppRouting({ placesFound }: AppProps) {
+  const FavoritesPage = lazy(
+    () => import('src/components/pages/favorites-page/favorites-page')
+  );
+  const OfferPage = lazy(
+    () => import('src/components/pages/offer-page/offer-page')
+  );
+
   const routes: RouteObject[] = [
     {
       path: AppRoutingPath.Index,
@@ -23,11 +28,19 @@ function AppRouting({ placesFound }: AppProps) {
         },
         {
           path: AppRoutingPath.Favorites,
-          element: <FavoritesPage />,
+          element: (
+            <Suspense fallback={<>...</>}>
+              <FavoritesPage />
+            </Suspense>
+          ),
         },
         {
           path: AppRoutingPath.Offer,
-          element: <OfferPage />,
+          element: (
+            <Suspense fallback={<>...</>}>
+              <OfferPage />
+            </Suspense>
+          ),
         },
         {
           path: AppRoutingPath.NotFound,

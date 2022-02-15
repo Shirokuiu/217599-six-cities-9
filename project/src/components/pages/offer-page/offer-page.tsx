@@ -1,4 +1,4 @@
-function Offer() {
+function OfferPage() {
   return (
     <div className="page">
       <header className="header">
@@ -485,4 +485,4 @@ function Offer() {
   );
 }
 
-export default Offer;
+export default OfferPage;

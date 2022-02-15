@@ -1,1 +1,1 @@
-export * from './app/app';
+export * from './pages/app/app';

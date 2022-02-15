@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'src/components/app/app';
+import App from 'src/components/pages/app/app';
 
 const Config = {
   PLACES_FOUND: 6,

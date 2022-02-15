@@ -7,4 +7,5 @@ export enum AppRoutingPath {
   NotFound = '*',
   Login = 'login',
   Favorites = 'favorites',
+  Offer = 'offer/:id',
 }

@@ -1,4 +1,4 @@
-import MainPage from 'src/components/main-page/main-page';
+import MainPage from 'src/components/pages/main-page/main-page';
 import { AppProps } from 'src/types';
 
 function App(props: AppProps) {

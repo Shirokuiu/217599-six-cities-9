@@ -1,4 +1,4 @@
-function AdvertPreview() {
+function OfferPreview() {
   return (
     <article className="cities__place-card place-card">
       <div className="place-card__mark">
@@ -43,4 +43,4 @@ function AdvertPreview() {
   );
 }
 
-export default AdvertPreview;
+export default OfferPreview;

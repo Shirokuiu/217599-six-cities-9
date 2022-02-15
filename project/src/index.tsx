@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+
 import App from 'src/components/pages/app/app';
 
 const Config = {
   PLACES_FOUND: 6,
 };
 
-/* eslint-disable */
 ReactDOM.render(
   <React.StrictMode>
-    <App placesFound={Config.PLACES_FOUND} />
+    <BrowserRouter>
+      <App placesFound={Config.PLACES_FOUND} />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

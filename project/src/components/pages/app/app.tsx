@@ -1,8 +1,8 @@
-import MainPage from 'src/components/pages/main-page/main-page';
 import { AppProps } from 'src/types';
+import appRouting from 'src/components/pages/app/app-routing';
 
 function App(props: AppProps) {
-  return <MainPage {...props} />;
+  return appRouting(props);
 }
 
 export default App;

@@ -7,7 +7,7 @@ import { AuthorizationStatus } from 'src/types';
 
 const Config = {
   PLACES_FOUND: 6,
-  AUTHORIZATION_STATUS: AuthorizationStatus.Auth,
+  AUTHORIZATION_STATUS: AuthorizationStatus.NoAuth,
 };
 
 ReactDOM.render(

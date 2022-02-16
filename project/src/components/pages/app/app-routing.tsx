@@ -1,12 +1,13 @@
 import { RouteObject, useRoutes } from 'react-router-dom';
-import MainPage from 'src/components/pages/main-page/main-page';
 import { lazy, Suspense } from 'react';
 
+import MainPage from 'src/components/pages/main-page/main-page';
 import { AppProps, AppRoutingPath } from 'src/types';
 import NotFoundPage from 'src/components/pages/not-found-page/not-found-page';
 import LoginPage from 'src/components/pages/login-page/login-page';
+import PrivateRoute from 'src/hocs/private-route/private-route';
 
-function AppRouting({ placesFound }: AppProps) {
+function AppRouting({ placesFound, authorizationStatus }: AppProps) {
   const FavoritesPage = lazy(
     () => import('src/components/pages/favorites-page/favorites-page')
   );
@@ -29,9 +30,11 @@ function AppRouting({ placesFound }: AppProps) {
         {
           path: AppRoutingPath.Favorites,
           element: (
-            <Suspense fallback={<>...</>}>
-              <FavoritesPage />
-            </Suspense>
+            <PrivateRoute authorizationStatus={authorizationStatus}>
+              <Suspense fallback={<>...</>}>
+                <FavoritesPage />
+              </Suspense>
+            </PrivateRoute>
           ),
         },
         {

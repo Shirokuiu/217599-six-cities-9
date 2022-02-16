@@ -1,6 +1,6 @@
 import { AuthorizationStatus } from 'src/types/auth';
-import { PropsWithChildren } from 'react';
 
-export type PrivateRouteProps = PropsWithChildren<{
+export type PrivateRouteProps = {
   authorizationStatus: AuthorizationStatus;
-}>;
+  children: JSX.Element;
+};

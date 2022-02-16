@@ -8,9 +8,7 @@ function PrivateRoute({
   children,
 }: PrivateRouteProps): JSX.Element {
   return authorizationStatus === AuthorizationStatus.Auth ? (
-    // NOTE - https://github.com/DefinitelyTyped/DefinitelyTyped/issues/18051#issuecomment-449628575
-    // eslint-disable-next-line react/jsx-no-useless-fragment
-    <>{children}</>
+    children
   ) : (
     <Navigate to={AppRoutingPath.Login} />
   );

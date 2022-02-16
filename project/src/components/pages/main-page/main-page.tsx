@@ -1,6 +1,8 @@
-import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
-import { AppRoutingPath, MainPageProps } from 'src/types';
 import { Link } from 'react-router-dom';
+
+import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
+import { AppRoutingPath } from 'src/types/app';
+import { MainPageProps } from 'src/types/main-page';
 
 function MainPage({ placesFound }: MainPageProps) {
   return (

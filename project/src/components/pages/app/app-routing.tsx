@@ -2,10 +2,10 @@ import { RouteObject, useRoutes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 import MainPage from 'src/components/pages/main-page/main-page';
-import { AppProps, AppRoutingPath } from 'src/types';
 import NotFoundPage from 'src/components/pages/not-found-page/not-found-page';
 import LoginPage from 'src/components/pages/login-page/login-page';
 import PrivateRoute from 'src/hocs/private-route/private-route';
+import { AppProps, AppRoutingPath } from 'src/types/app';
 
 const FavoritesPage = lazy(
   () => import('src/components/pages/favorites-page/favorites-page'),

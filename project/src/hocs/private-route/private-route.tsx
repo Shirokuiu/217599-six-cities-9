@@ -1,10 +1,7 @@
 import { Navigate } from 'react-router-dom';
-
-import {
-  AppRoutingPath,
-  AuthorizationStatus,
-  PrivateRouteProps,
-} from 'src/types';
+import { PrivateRouteProps } from 'src/types/private-route';
+import { AuthorizationStatus } from 'src/types/auth';
+import { AppRoutingPath } from 'src/types/app';
 
 function PrivateRoute({
   authorizationStatus,

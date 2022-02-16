@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from 'src/components/pages/app/app';
-import { AuthorizationStatus } from 'src/types';
+import { AuthorizationStatus } from 'src/types/auth';
 
 const Config = {
   PLACES_FOUND: 6,
@@ -19,5 +19,5 @@ ReactDOM.render(
       />
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

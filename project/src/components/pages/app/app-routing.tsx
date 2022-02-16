@@ -7,14 +7,14 @@ import NotFoundPage from 'src/components/pages/not-found-page/not-found-page';
 import LoginPage from 'src/components/pages/login-page/login-page';
 import PrivateRoute from 'src/hocs/private-route/private-route';
 
-function AppRouting({ placesFound, authorizationStatus }: AppProps) {
-  const FavoritesPage = lazy(
-    () => import('src/components/pages/favorites-page/favorites-page')
-  );
-  const OfferPage = lazy(
-    () => import('src/components/pages/offer-page/offer-page')
-  );
+const FavoritesPage = lazy(
+  () => import('src/components/pages/favorites-page/favorites-page'),
+);
+const OfferPage = lazy(
+  () => import('src/components/pages/offer-page/offer-page'),
+);
 
+function AppRouting({ placesFound, authorizationStatus }: AppProps) {
   const routes: RouteObject[] = [
     {
       path: AppRoutingPath.Index,

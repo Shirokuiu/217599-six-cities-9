@@ -1,4 +1,4 @@
-function AdvertCard() {
+function OfferPage() {
   return (
     <div className="page">
       <header className="header">
@@ -485,4 +485,4 @@ function AdvertCard() {
   );
 }
 
-export default AdvertCard;
+export default OfferPage;

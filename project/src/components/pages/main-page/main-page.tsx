@@ -1,8 +1,8 @@
-import AdvertPreview from 'src/components/advert-preview/advert-preview';
+import { Link } from 'react-router-dom';
 
-interface MainPageProps {
-  placesFound: number;
-}
+import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
+import { AppRoutingPath } from 'src/types/app';
+import { MainPageProps } from 'src/types/main-page';
 
 function MainPage({ placesFound }: MainPageProps) {
   return (
@@ -24,15 +24,15 @@ function MainPage({ placesFound }: MainPageProps) {
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <a
+                  <Link
                     className="header__nav-link header__nav-link--profile"
-                    href="#"
+                    to={AppRoutingPath.Favorites}
                   >
                     <div className="header__avatar-wrapper user__avatar-wrapper"></div>
                     <span className="header__user-name user__name">
                       Oliver.conner@gmail.com
                     </span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="header__nav-item">
                   <a className="header__nav-link" href="#">
@@ -116,11 +116,11 @@ function MainPage({ placesFound }: MainPageProps) {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {<AdvertPreview />}
-                {<AdvertPreview />}
-                {<AdvertPreview />}
-                {<AdvertPreview />}
-                {<AdvertPreview />}
+                {<OfferPreview />}
+                {<OfferPreview />}
+                {<OfferPreview />}
+                {<OfferPreview />}
+                {<OfferPreview />}
               </div>
             </section>
             <div className="cities__right-section">

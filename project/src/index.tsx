@@ -8,7 +8,7 @@ import { offers } from 'src/mocks/offers';
 
 const Config = {
   PLACES_FOUND: 6,
-  AUTHORIZATION_STATUS: AuthorizationStatus.NoAuth,
+  AUTHORIZATION_STATUS: AuthorizationStatus.Auth,
   offers,
 };
 

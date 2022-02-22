@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
 import { AppRoutingPath } from 'src/types/app';
 import { MainPageProps } from 'src/types/main-page';
 import { offers } from 'src/mocks/offers';
-import { Offer } from 'src/types/offer';
+import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
 
 function MainPage({ placesFound }: MainPageProps) {
   return (
@@ -30,7 +29,7 @@ function MainPage({ placesFound }: MainPageProps) {
                     className="header__nav-link header__nav-link--profile"
                     to={AppRoutingPath.Favorites}
                   >
-                    <div className="header__avatar-wrapper user__avatar-wrapper"></div>
+                    <div className="header__avatar-wrapper user__avatar-wrapper" />
                     <span className="header__user-name user__name">
                       Oliver.conner@gmail.com
                     </span>
@@ -117,15 +116,7 @@ function MainPage({ placesFound }: MainPageProps) {
                   </li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {offers.map((offer: Offer) => (
-                  <OfferPreview
-                    key={offer.id}
-                    offer={offer}
-                    classNames={['cities__place-card']}
-                  />
-                ))}
-              </div>
+              <MainPageOffersList offers={offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" />

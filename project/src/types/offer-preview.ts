@@ -4,4 +4,5 @@ export type OfferPreviewProps = {
   offer: Offer;
   classNames?: string[];
   key?: number;
+  onImgMouseEnter?: (offer: Offer) => void;
 };

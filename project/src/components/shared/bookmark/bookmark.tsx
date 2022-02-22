@@ -1,5 +1,5 @@
 import { BookmarkProps } from 'src/types/bookmark';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const getAriaText = (isActive: boolean): string =>
   isActive ? 'In bookmarks' : 'To bookmarks';
@@ -22,11 +22,7 @@ function Bookmark({
   classNames,
   classNameActive,
 }: BookmarkProps) {
-  const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    setIsActive(inBookmark);
-  }, [inBookmark]);
+  const [isActive, setIsActive] = useState(inBookmark);
 
   const handleBookmarkClick = () => {
     setIsActive((prevState) => !prevState);

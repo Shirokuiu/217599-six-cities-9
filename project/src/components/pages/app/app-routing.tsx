@@ -14,14 +14,14 @@ const OfferPage = lazy(
   () => import('src/components/pages/offer-page/offer-page'),
 );
 
-function AppRouting({ placesFound, authorizationStatus }: AppProps) {
+function AppRouting({ placesFound, authorizationStatus, offers }: AppProps) {
   const routes: RouteObject[] = [
     {
       path: AppRoutingPath.Index,
       children: [
         {
           index: true,
-          element: <MainPage placesFound={placesFound} />,
+          element: <MainPage placesFound={placesFound} offers={offers} />,
         },
         {
           path: AppRoutingPath.Login,
@@ -38,7 +38,7 @@ function AppRouting({ placesFound, authorizationStatus }: AppProps) {
           ),
         },
         {
-          path: AppRoutingPath.Offer,
+          path: AppRoutingPath.OfferPage,
           element: (
             <Suspense fallback={<>...</>}>
               <OfferPage />

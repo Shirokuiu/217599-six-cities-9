@@ -1,14 +1,23 @@
-function OfferPreview() {
+import { OfferPreviewProps } from 'src/types/offer-preview';
+import { getClassName } from 'src/helpers/get-class-name';
+import Bookmark from 'src/components/shared/bookmark/bookmark';
+import Rating from 'src/components/shared/rating/rating';
+
+function OfferPreview({ classNames, offer }: OfferPreviewProps) {
+  const articleClass = getClassName({ classNames, defaultClass: 'place-card' });
+
   return (
-    <article className="cities__place-card place-card">
-      <div className="place-card__mark">
-        <span>Premium</span>
-      </div>
-      <div className="cities__image-wrapper place-card__image-wrapper">
+    <article className={articleClass}>
+      {offer.isPremium ? (
+        <div className="place-card__mark">
+          <span>Premium</span>
+        </div>
+      ) : null}
+      <div className="place-card__image-wrapper">
         <a href="#">
           <img
             className="place-card__image"
-            src="img/apartment-01.jpg"
+            src={offer.previewImage}
             width={260}
             height={200}
             alt="Place image"
@@ -18,26 +27,26 @@ function OfferPreview() {
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">€120</b>
+            <b className="place-card__price-value">€{offer.price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          <button className="place-card__bookmark-button button" type="button">
-            <svg className="place-card__bookmark-icon" width={18} height={19}>
-              <use xlinkHref="#icon-bookmark" />
-            </svg>
-            <span className="visually-hidden">To bookmarks</span>
-          </button>
+          {
+            <Bookmark
+              classNames={['place-card__bookmark-button']}
+              classNameActive={'place-card__bookmark-button--active'}
+              isActive={offer.isFavorite}
+            />
+          }
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: '80%' }} />
-            <span className="visually-hidden">Rating</span>
+            <Rating rate={offer.rating} />
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">Beautiful &amp; luxurious apartment at great location</a>
+          <a href="#">{offer.title}</a>
         </h2>
-        <p className="place-card__type">Apartment</p>
+        <p className="place-card__type">{offer.type}</p>
       </div>
     </article>
   );

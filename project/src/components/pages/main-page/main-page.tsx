@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
 import { AppRoutingPath } from 'src/types/app';
 import { MainPageProps } from 'src/types/main-page';
+import { offers } from 'src/mocks/offers';
+import { Offer } from 'src/types/offer';
 
 function MainPage({ placesFound }: MainPageProps) {
   return (
@@ -116,11 +118,13 @@ function MainPage({ placesFound }: MainPageProps) {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {<OfferPreview />}
-                {<OfferPreview />}
-                {<OfferPreview />}
-                {<OfferPreview />}
-                {<OfferPreview />}
+                {offers.map((offer: Offer) => (
+                  <OfferPreview
+                    key={offer.id}
+                    offer={offer}
+                    classNames={['cities__place-card']}
+                  />
+                ))}
               </div>
             </section>
             <div className="cities__right-section">

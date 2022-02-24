@@ -17,9 +17,7 @@ function FavoritesPageList({ groupedOffers }: FavoritesPageListProps) {
           </div>
           <div className="favorites__places">
             {offers.map((offer: Offer) => (
-              <article key={offer.id} className="favorites__card place-card">
-                <FavoritePreview offer={offer} />
-              </article>
+              <FavoritePreview key={offer.id} offer={offer} />
             ))}
           </div>
         </li>

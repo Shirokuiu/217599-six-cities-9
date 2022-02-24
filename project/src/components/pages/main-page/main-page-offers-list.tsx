@@ -17,7 +17,6 @@ function MainPageOffersList({ offers }: MainPageOffersListProps) {
         <OfferPreview
           key={offer.id}
           offer={offer}
-          classNames={['cities__place-card']}
           onImgMouseEnter={handleImgMouseEnter}
         />
       ))}

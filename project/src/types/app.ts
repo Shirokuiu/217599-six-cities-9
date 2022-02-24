@@ -12,5 +12,5 @@ export enum AppRoutingPath {
   NotFound = '*',
   Login = '/login',
   Favorites = '/favorites',
-  OfferPage = '/offer/:id',
+  OfferPage = '/offer',
 }

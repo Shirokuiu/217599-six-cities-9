@@ -3,16 +3,14 @@ import React from 'react';
 
 function PreviewImageWrapper({
   isPremium,
-  onImgMouseEnter,
+  onImgMouseEnter = () => undefined,
   wrapperClass,
   children,
 }: PreviewImageWrapperProps) {
   const handleImgMouseEnter = (evt: React.MouseEvent) => {
     evt.preventDefault();
 
-    if (onImgMouseEnter) {
-      onImgMouseEnter();
-    }
+    onImgMouseEnter();
   };
 
   return (

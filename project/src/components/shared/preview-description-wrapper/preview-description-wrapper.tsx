@@ -3,8 +3,15 @@ import Rating from 'src/components/shared/rating/rating';
 import React from 'react';
 import { PreviewDescriptionWrapperProps } from 'src/types/preview-description-wrapper';
 
-function PreviewDescriptionWrapper({ offer }: PreviewDescriptionWrapperProps) {
+function PreviewDescriptionWrapper({
+  offer,
+  onTitleClick = () => undefined,
+}: PreviewDescriptionWrapperProps) {
   const { price, isFavorite, rating, title, type } = offer;
+
+  const handleTitleClick = () => {
+    onTitleClick();
+  };
 
   return (
     <>
@@ -21,7 +28,7 @@ function PreviewDescriptionWrapper({ offer }: PreviewDescriptionWrapperProps) {
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#">{title}</a>
+        <a onClick={handleTitleClick}>{title}</a>
       </h2>
       <p className="place-card__type">{type}</p>
     </>

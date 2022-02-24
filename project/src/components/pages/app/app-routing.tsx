@@ -39,7 +39,7 @@ function AppRouting({ placesFound, authorizationStatus, offers }: AppProps) {
           ),
         },
         {
-          path: AppRoutingPath.OfferPage,
+          path: `${AppRoutingPath.OfferPage}/:id`,
           element: (
             <Suspense fallback={<>...</>}>
               <OfferPage />

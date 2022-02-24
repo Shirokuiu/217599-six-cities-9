@@ -3,8 +3,9 @@ import React from 'react';
 
 function PreviewImageWrapper({
   isPremium,
-  previewImage,
   onImgMouseEnter,
+  wrapperClass,
+  children,
 }: PreviewImageWrapperProps) {
   const handleImgMouseEnter = (evt: React.MouseEvent) => {
     evt.preventDefault();
@@ -16,21 +17,13 @@ function PreviewImageWrapper({
 
   return (
     <>
-      {isPremium ? (
+      {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
-      ) : null}
-      <div className="place-card__image-wrapper">
-        <a onMouseEnter={handleImgMouseEnter}>
-          <img
-            className="place-card__image"
-            src={previewImage}
-            width={260}
-            height={200}
-            alt="Place image"
-          />
-        </a>
+      )}
+      <div className={wrapperClass}>
+        <a onMouseEnter={handleImgMouseEnter}>{children}</a>
       </div>
     </>
   );

@@ -3,17 +3,17 @@ import { getClassName } from 'src/helpers/get-class-name';
 import Bookmark from 'src/components/shared/bookmark/bookmark';
 import Rating from 'src/components/shared/rating/rating';
 import React from 'react';
+import PreviewImageWrapper from 'src/components/shared/preview-image-wrapper/preview-image-wrapper';
 
 function OfferPreview({
   classNames,
   offer,
   onImgMouseEnter,
 }: OfferPreviewProps) {
+  const { isPremium, previewImage } = offer;
   const articleClass = getClassName({ classNames, defaultClass: 'place-card' });
 
-  const handleImgMouseEnter = (evt: React.MouseEvent) => {
-    evt.preventDefault();
-
+  const handleImgMouseEnter = () => {
     if (onImgMouseEnter) {
       onImgMouseEnter(offer);
     }
@@ -21,22 +21,11 @@ function OfferPreview({
 
   return (
     <article className={articleClass}>
-      {offer.isPremium ? (
-        <div className="place-card__mark">
-          <span>Premium</span>
-        </div>
-      ) : null}
-      <div className="place-card__image-wrapper">
-        <a onMouseEnter={handleImgMouseEnter}>
-          <img
-            className="place-card__image"
-            src={offer.previewImage}
-            width={260}
-            height={200}
-            alt="Place image"
-          />
-        </a>
-      </div>
+      <PreviewImageWrapper
+        isPremium={isPremium}
+        previewImage={previewImage}
+        onImgMouseEnter={handleImgMouseEnter}
+      />
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">

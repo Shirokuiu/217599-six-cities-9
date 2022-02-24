@@ -6,6 +6,7 @@ import NotFoundPage from 'src/components/pages/not-found-page/not-found-page';
 import LoginPage from 'src/components/pages/login-page/login-page';
 import PrivateRoute from 'src/hocs/private-route/private-route';
 import { AppProps, AppRoutingPath } from 'src/types/app';
+import { favorites } from 'src/mocks/favorites';
 
 const FavoritesPage = lazy(
   () => import('src/components/pages/favorites-page/favorites-page'),
@@ -32,7 +33,7 @@ function AppRouting({ placesFound, authorizationStatus, offers }: AppProps) {
           element: (
             <PrivateRoute authorizationStatus={authorizationStatus}>
               <Suspense fallback={<>...</>}>
-                <FavoritesPage />
+                <FavoritesPage offers={favorites} />
               </Suspense>
             </PrivateRoute>
           ),

@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 
 import { AppRoutingPath } from 'src/types/app';
-import { MainPageProps } from 'src/types/main-page';
-import { offers } from 'src/mocks/offers';
+import { GroupedOffer, MainPageProps } from 'src/types/main-page';
 import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
+import { groupOffersByCity } from 'src/helpers/group-offers-by-city';
 
-function MainPage({ placesFound }: MainPageProps) {
+function MainPage({ placesFound, offers }: MainPageProps) {
+  const groupedOffers: GroupedOffer[] = groupOffersByCity(offers);
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -116,7 +118,7 @@ function MainPage({ placesFound }: MainPageProps) {
                   </li>
                 </ul>
               </form>
-              <MainPageOffersList offers={offers} />
+              <MainPageOffersList offers={groupedOffers[0].offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" />

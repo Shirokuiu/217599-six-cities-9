@@ -6,22 +6,18 @@ const getAriaText = (isActive: boolean): string =>
 
 const toggleActiveBookmarkClass = ({
   isActive,
-  classNames,
-  classNameActive,
 }: {
   isActive: boolean;
-  classNames: string[];
-  classNameActive: string;
 }): string =>
-  [...classNames, isActive ? classNameActive : undefined, 'button']
+  [
+    'place-card__bookmark-button',
+    isActive ? 'place-card__bookmark-button--active' : undefined,
+    'button',
+  ]
     .filter((className) => className)
     .join(' ');
 
-function Bookmark({
-  isActive: inBookmark,
-  classNames,
-  classNameActive,
-}: BookmarkProps) {
+function Bookmark({ isActive: inBookmark }: BookmarkProps) {
   const [isActive, setIsActive] = useState(inBookmark);
 
   const handleBookmarkClick = () => {
@@ -31,11 +27,7 @@ function Bookmark({
   return (
     <button
       onClick={handleBookmarkClick}
-      className={toggleActiveBookmarkClass({
-        isActive,
-        classNames,
-        classNameActive,
-      })}
+      className={toggleActiveBookmarkClass({ isActive })}
       type="button"
     >
       <svg className="place-card__bookmark-icon" width={18} height={19}>

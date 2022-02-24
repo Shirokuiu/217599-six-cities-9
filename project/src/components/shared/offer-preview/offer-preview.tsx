@@ -43,13 +43,7 @@ function OfferPreview({
             <b className="place-card__price-value">€{offer.price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          {
-            <Bookmark
-              classNames={['place-card__bookmark-button']}
-              classNameActive={'place-card__bookmark-button--active'}
-              isActive={offer.isFavorite}
-            />
-          }
+          {<Bookmark isActive={offer.isFavorite} />}
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">

@@ -31,13 +31,7 @@ function FavoritePreview({ offer }: FavoritePreviewProps) {
             <b className="place-card__price-value">€{price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          {
-            <Bookmark
-              classNames={['place-card__bookmark-button']}
-              classNameActive={'place-card__bookmark-button--active'}
-              isActive={isFavorite}
-            />
-          }
+          {<Bookmark isActive={isFavorite} />}
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">

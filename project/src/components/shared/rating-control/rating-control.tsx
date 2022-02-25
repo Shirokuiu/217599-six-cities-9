@@ -2,7 +2,7 @@ import { buildFormRating } from 'src/helpers/build-form-rating';
 import { ChangeEvent, Fragment } from 'react';
 import { FormRatingProps } from 'src/types/form-rating';
 
-function FormRating({ onRatingChange = () => undefined }: FormRatingProps) {
+function RatingControl({ onRatingChange = () => undefined }: FormRatingProps) {
   const formRatingItems = buildFormRating();
 
   const handleRatingChange = (evt: ChangeEvent<HTMLInputElement>) => {
@@ -36,4 +36,4 @@ function FormRating({ onRatingChange = () => undefined }: FormRatingProps) {
   );
 }
 
-export default FormRating;
+export default RatingControl;

@@ -5,13 +5,9 @@ import { PreviewDescriptionWrapperProps } from 'src/types/preview-description-wr
 
 function PreviewDescriptionWrapper({
   offer,
-  onTitleClick = () => undefined,
+  renderTitle = () => undefined,
 }: PreviewDescriptionWrapperProps) {
-  const { price, isFavorite, rating, title, type } = offer;
-
-  const handleTitleClick = () => {
-    onTitleClick();
-  };
+  const { price, isFavorite, rating, type } = offer;
 
   return (
     <>
@@ -27,9 +23,7 @@ function PreviewDescriptionWrapper({
           <Rating rate={rating} />
         </div>
       </div>
-      <h2 className="place-card__name">
-        <a onClick={handleTitleClick}>{title}</a>
-      </h2>
+      <h2 className="place-card__name">{renderTitle()}</h2>
       <p className="place-card__type">{type}</p>
     </>
   );

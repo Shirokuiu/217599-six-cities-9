@@ -3,9 +3,10 @@ import React from 'react';
 import PreviewImageWrapper from 'src/components/shared/preview-image-wrapper/preview-image-wrapper';
 import PreviewDescriptionWrapper from 'src/components/shared/preview-description-wrapper/preview-description-wrapper';
 import { WrapperClass } from 'src/types/preview-image-wrapper';
+import { renderLinkToOfferPage } from 'src/helpers/render-link-to-offer-page';
 
 function FavoritePreview({ offer }: FavoritePreviewProps) {
-  const { isPremium, previewImage } = offer;
+  const { isPremium, previewImage, title, id } = offer;
 
   return (
     <article key={offer.id} className="favorites__card place-card">
@@ -22,7 +23,10 @@ function FavoritePreview({ offer }: FavoritePreviewProps) {
         />
       </PreviewImageWrapper>
       <div className="favorites__card-info place-card__info">
-        <PreviewDescriptionWrapper offer={offer} />
+        <PreviewDescriptionWrapper
+          offer={offer}
+          renderTitle={() => renderLinkToOfferPage(title, id)}
+        />
       </div>
     </article>
   );

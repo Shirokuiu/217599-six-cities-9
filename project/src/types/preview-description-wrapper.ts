@@ -2,5 +2,5 @@ import { Offer } from 'src/types/offer';
 
 export type PreviewDescriptionWrapperProps = {
   offer: Offer;
-  onTitleClick?: () => void;
+  renderTitle?: () => JSX.Element | undefined;
 };

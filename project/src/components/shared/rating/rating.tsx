@@ -1,23 +1,6 @@
 import { RatingProps } from 'src/types/rating';
-
-const DEFAULT_RATE = 5;
-const MAX_PERCENT = 100;
-
-const getPercentRate = ({
-  rate,
-  maxRate,
-}: {
-  rate: number;
-  maxRate: number;
-}): number => (rate * MAX_PERCENT) / maxRate;
-
-const makeRateStyle = ({
-  rate,
-  maxRate,
-}: {
-  rate: number;
-  maxRate: number;
-}): string => `${getPercentRate({ rate, maxRate })}%`;
+import { DEFAULT_RATE } from 'src/components/shared/rating/constants/constants';
+import { makeRateStyle } from 'src/components/shared/rating/helpers/make-rate-style';
 
 function Rating({ rate, maxRate }: RatingProps) {
   return (

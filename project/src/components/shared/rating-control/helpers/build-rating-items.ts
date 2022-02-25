@@ -10,7 +10,7 @@ const LabelTitles: { [key: string]: string } = {
 
 const ratingValues = ['5', '4', '3', '2', '1'];
 
-export const buildFormRating = (): FormRatingItem[] =>
+export const buildRatingItems = (): FormRatingItem[] =>
   ratingValues.map((value: string) => ({
     id: `${value}-stars`,
     value,

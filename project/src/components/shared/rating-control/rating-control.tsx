@@ -1,10 +1,10 @@
 import { ChangeEvent, Fragment } from 'react';
 
-import { buildFormRating } from 'src/helpers/build-form-rating';
+import { buildRatingItems } from 'src/components/shared/rating-control/helpers/build-rating-items';
 import { FormRatingProps } from 'src/types/form-rating';
 
 function RatingControl({ onRatingChange = () => undefined }: FormRatingProps) {
-  const formRatingItems = buildFormRating();
+  const formRatingItems = buildRatingItems();
 
   const handleRatingChange = (evt: ChangeEvent<HTMLInputElement>) => {
     onRatingChange(evt.target.value);

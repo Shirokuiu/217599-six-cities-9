@@ -4,7 +4,7 @@ import RatingControl from 'src/components/shared/rating-control/rating-control';
 import TextareaControl from 'src/components/shared/textarea-control/textarea-control';
 import Btn from 'src/components/shared/btn/btn';
 import { BtnType } from 'src/types/btn';
-import { checkValidityReviewForm } from 'src/helpers/check-validity-review-form';
+import { checkValidityReviewForm } from 'src/components/shared/review-form/helpers/check-validity-review-form';
 
 function ReviewForm() {
   const [rating, setRating] = useState<string | undefined>(undefined);

@@ -1,22 +1,8 @@
 import { useState } from 'react';
 
 import { BookmarkProps } from 'src/types/bookmark';
-
-const getAriaText = (isActive: boolean): string =>
-  isActive ? 'In bookmarks' : 'To bookmarks';
-
-const toggleActiveBookmarkClass = ({
-  isActive,
-}: {
-  isActive: boolean;
-}): string =>
-  [
-    'place-card__bookmark-button',
-    isActive ? 'place-card__bookmark-button--active' : undefined,
-    'button',
-  ]
-    .filter((className) => className)
-    .join(' ');
+import { getAriaText } from 'src/components/shared/bookmark/helpers/get-aria-text';
+import { toggleActiveBookmarkClass } from 'src/components/shared/bookmark/helpers/toogle-active-bookmark-class';
 
 function Bookmark({ isActive: inBookmark }: BookmarkProps) {
   const [isActive, setIsActive] = useState(inBookmark);

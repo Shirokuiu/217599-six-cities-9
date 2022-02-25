@@ -1,5 +1,6 @@
-import { OfferPreviewProps } from 'src/types/offer-preview';
 import React from 'react';
+
+import { OfferPreviewProps } from 'src/types/offer-preview';
 import PreviewImageWrapper from 'src/components/shared/preview-image-wrapper/preview-image-wrapper';
 import PreviewDescriptionWrapper from 'src/components/shared/preview-description-wrapper/preview-description-wrapper';
 import { WrapperClass } from 'src/types/preview-image-wrapper';

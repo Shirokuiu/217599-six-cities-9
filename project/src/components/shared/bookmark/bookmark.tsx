@@ -1,5 +1,6 @@
-import { BookmarkProps } from 'src/types/bookmark';
 import { useState } from 'react';
+
+import { BookmarkProps } from 'src/types/bookmark';
 
 const getAriaText = (isActive: boolean): string =>
   isActive ? 'In bookmarks' : 'To bookmarks';

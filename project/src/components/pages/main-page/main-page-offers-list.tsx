@@ -1,7 +1,8 @@
+import { useState } from 'react';
+
 import { Offer } from 'src/types/offer';
 import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
 import { MainPageOffersListProps } from 'src/types/main-page-offers-list';
-import { useState } from 'react';
 
 function MainPageOffersList({ offers }: MainPageOffersListProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

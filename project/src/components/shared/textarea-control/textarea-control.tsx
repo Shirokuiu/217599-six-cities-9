@@ -1,5 +1,6 @@
-import { TextareaProps } from 'src/types/textarea';
 import { ChangeEvent } from 'react';
+
+import { TextareaProps } from 'src/types/textarea';
 
 function TextareaControl({
   id,

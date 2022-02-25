@@ -1,5 +1,6 @@
-import { buildFormRating } from 'src/helpers/build-form-rating';
 import { ChangeEvent, Fragment } from 'react';
+
+import { buildFormRating } from 'src/helpers/build-form-rating';
 import { FormRatingProps } from 'src/types/form-rating';
 
 function RatingControl({ onRatingChange = () => undefined }: FormRatingProps) {

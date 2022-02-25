@@ -1,6 +1,7 @@
+import React from 'react';
+
 import Bookmark from 'src/components/shared/bookmark/bookmark';
 import Rating from 'src/components/shared/rating/rating';
-import React from 'react';
 import { PreviewDescriptionWrapperProps } from 'src/types/preview-description-wrapper';
 
 function PreviewDescriptionWrapper({

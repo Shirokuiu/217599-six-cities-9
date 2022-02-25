@@ -1,8 +1,9 @@
+import { FormEvent, useState } from 'react';
+
 import RatingControl from 'src/components/shared/rating-control/rating-control';
 import TextareaControl from 'src/components/shared/textarea-control/textarea-control';
 import Btn from 'src/components/shared/btn/btn';
 import { BtnType } from 'src/types/btn';
-import { FormEvent, useState } from 'react';
 import { checkValidityReviewForm } from 'src/helpers/check-validity-review-form';
 
 function ReviewForm() {

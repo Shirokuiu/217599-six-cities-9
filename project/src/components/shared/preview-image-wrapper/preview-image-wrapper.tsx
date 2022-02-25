@@ -1,5 +1,6 @@
-import { PreviewImageWrapperProps } from 'src/types/preview-image-wrapper';
 import React from 'react';
+
+import { PreviewImageWrapperProps } from 'src/types/preview-image-wrapper';
 
 function PreviewImageWrapper({
   isPremium,

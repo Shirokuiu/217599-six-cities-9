@@ -1,16 +1,15 @@
 export const checkValidityReviewForm = (
   controlValue: { rating?: string; textareaValue?: string },
-  errorCb: () => void = () => undefined,
-  successCb: () => void = () => undefined,
+  cb: (isValid: boolean) => void,
 ): void => {
   const { rating, textareaValue } = controlValue;
 
   // NOTE Пока оставляю проверку на пустой комментарий | пустой рейтинг (потом приведу с требованием ТЗ)
   if (!rating || !textareaValue?.trim().length) {
-    errorCb();
+    cb(false);
 
     return;
   }
 
-  successCb();
+  cb(true);
 };

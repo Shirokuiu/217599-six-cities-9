@@ -20,11 +20,8 @@ function ReviewForm() {
 
     checkValidityReviewForm(
       { rating: currentRating, textareaValue },
-      () => {
-        setDisabled(true);
-      },
-      () => {
-        setDisabled(false);
+      (isValid) => {
+        setDisabled(!isValid);
       },
     );
   };
@@ -32,15 +29,9 @@ function ReviewForm() {
   const handleTextareaChange = (value: string) => {
     setTextareaValue(value);
 
-    checkValidityReviewForm(
-      { textareaValue: value, rating },
-      () => {
-        setDisabled(true);
-      },
-      () => {
-        setDisabled(false);
-      },
-    );
+    checkValidityReviewForm({ textareaValue: value, rating }, (isValid) => {
+      setDisabled(!isValid);
+    });
   };
 
   return (

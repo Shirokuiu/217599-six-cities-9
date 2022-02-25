@@ -1,0 +1,18 @@
+import { FormRatingItem } from 'src/types/form-rating';
+
+const LabelTitles: { [key: string]: string } = {
+  '5': 'perfect',
+  '4': 'good',
+  '3': 'not bad',
+  '2': 'badly',
+  '1': 'terribly',
+};
+
+const ratingValues = ['5', '4', '3', '2', '1'];
+
+export const buildFormRating = (): FormRatingItem[] =>
+  ratingValues.map((value: string) => ({
+    id: `${value}-stars`,
+    value,
+    labelTitle: LabelTitles[value],
+  }));

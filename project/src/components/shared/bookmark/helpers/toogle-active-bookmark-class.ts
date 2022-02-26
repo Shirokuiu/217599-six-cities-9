@@ -8,5 +8,5 @@ export const toggleActiveBookmarkClass = ({
     isActive ? 'place-card__bookmark-button--active' : undefined,
     'button',
   ]
-    .filter((className) => className)
+    .filter(Boolean)
     .join(' ');

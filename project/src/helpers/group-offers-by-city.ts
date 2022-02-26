@@ -1,4 +1,4 @@
-import { Offer, OfferCity } from 'src/types/offer';
+import { Offer } from 'src/types/offer';
 import { GroupedOffer } from 'src/types/main-page';
 
 const filterCity = (cityName: string, offers: Offer[]): Offer[] =>
@@ -16,8 +16,7 @@ export const groupOffersByCity = (offers: Offer[]): GroupedOffer[] => {
 
   return cityNames.map((cityName: string, idx: number) => ({
     id: idx + 1,
-    city: offers.find(({ city }: Offer) => city.name === cityName)
-      ?.city as OfferCity,
+    city: offers.find(({ city }: Offer) => city.name === cityName)!.city,
     offers: filterCity(cityName, offers),
   }));
 };

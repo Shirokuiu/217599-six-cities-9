@@ -29,7 +29,7 @@ function ReviewForm() {
   const handleTextareaChange = (value: string) => {
     setTextareaValue(value);
 
-    checkValidityReviewForm({ textareaValue: value, rating }, (isValid) => {
+    checkValidityReviewForm({ rating, textareaValue: value }, (isValid) => {
       setDisabled(!isValid);
     });
   };

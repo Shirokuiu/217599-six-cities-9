@@ -39,7 +39,7 @@ function ReviewForm() {
       <label className="reviews__label form__label" htmlFor="review">
         Your review
       </label>
-      {<RatingControl onRatingChange={handleRatingChange} />}
+      <RatingControl onRatingChange={handleRatingChange} />
       {
         <TextareaControl
           id="review"

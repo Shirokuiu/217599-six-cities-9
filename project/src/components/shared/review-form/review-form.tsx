@@ -40,15 +40,15 @@ function ReviewForm() {
         Your review
       </label>
       <RatingControl onRatingChange={handleRatingChange} />
-      {
-        <TextareaControl
-          id="review"
-          name="review"
-          placeholder="Tell how was your stay, what you like and what can be improved"
-          defaultValue={textareaValue}
-          onTextareaValueChange={handleTextareaChange}
-        />
-      }
+
+      <TextareaControl
+        id="review"
+        name="review"
+        placeholder="Tell how was your stay, what you like and what can be improved"
+        defaultValue={textareaValue}
+        onTextareaValueChange={handleTextareaChange}
+      />
+
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set{' '}

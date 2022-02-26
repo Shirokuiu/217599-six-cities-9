@@ -4,12 +4,12 @@ import { GroupedOffer } from 'src/types/main-page';
 const filterCity = (cityName: string, offers: Offer[]): Offer[] =>
   offers.filter(({ city }: Offer) => cityName === city.name);
 
-const uniqueCityNames = (cityNames: string[]): string[] => [
+const makeUniqueCityNames = (cityNames: string[]): string[] => [
   ...new Set(cityNames),
 ];
 
 const getAllCityNames = (offers: Offer[]): string[] =>
-  uniqueCityNames(offers.map(({ city }: Offer) => city.name));
+  makeUniqueCityNames(offers.map(({ city }: Offer) => city.name));
 
 export const groupOffersByCity = (offers: Offer[]): GroupedOffer[] => {
   const cityNames: string[] = getAllCityNames(offers);

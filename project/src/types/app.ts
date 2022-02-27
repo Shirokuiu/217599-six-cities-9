@@ -1,8 +1,10 @@
 import { AuthorizationStatus } from 'src/types/auth';
+import { Offer } from 'src/types/offer';
 
 export type AppProps = {
   placesFound: number;
   authorizationStatus: AuthorizationStatus;
+  offers: Offer[];
 };
 
 export enum AppRoutingPath {
@@ -10,5 +12,5 @@ export enum AppRoutingPath {
   NotFound = '*',
   Login = '/login',
   Favorites = '/favorites',
-  Offer = '/offer/:id',
+  OfferPage = '/offer',
 }

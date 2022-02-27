@@ -4,10 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from 'src/components/pages/app/app';
 import { AuthorizationStatus } from 'src/types/auth';
+import { offers } from 'src/mocks/offers';
 
 const Config = {
   PLACES_FOUND: 6,
-  AUTHORIZATION_STATUS: AuthorizationStatus.NoAuth,
+  AUTHORIZATION_STATUS: AuthorizationStatus.Auth,
+  offers,
 };
 
 ReactDOM.render(
@@ -16,6 +18,7 @@ ReactDOM.render(
       <App
         placesFound={Config.PLACES_FOUND}
         authorizationStatus={Config.AUTHORIZATION_STATUS}
+        offers={offers}
       />
     </BrowserRouter>
   </React.StrictMode>,

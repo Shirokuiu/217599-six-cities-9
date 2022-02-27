@@ -1,38 +1,30 @@
 import React from 'react';
 
-import { OfferPreviewProps } from 'src/types/offer-preview';
+import { FavoritePreviewProps } from 'src/types/favorite-preview';
 import PreviewImageWrapper from 'src/components/shared/preview-image-wrapper/preview-image-wrapper';
 import PreviewDescriptionWrapper from 'src/components/shared/preview-description-wrapper/preview-description-wrapper';
 import { WrapperClass } from 'src/types/preview-image-wrapper';
 import { AppRoutingPath } from 'src/types/app';
 import { Link } from 'react-router-dom';
 
-function OfferPreview({
-  offer,
-  onImgMouseEnter = () => undefined,
-}: OfferPreviewProps) {
+function FavoritePreview({ offer }: FavoritePreviewProps) {
   const { isPremium, previewImage, title, id } = offer;
 
-  const handleImgMouseEnter = () => {
-    onImgMouseEnter(offer);
-  };
-
   return (
-    <article className="cities__place-card place-card">
+    <article key={offer.id} className="favorites__card place-card">
       <PreviewImageWrapper
-        wrapperClass={WrapperClass.OfferPreview}
         isPremium={isPremium}
-        onImgMouseEnter={handleImgMouseEnter}
+        wrapperClass={WrapperClass.FavoritePreview}
       >
         <img
           className="place-card__image"
           src={previewImage}
-          width="260"
-          height="200"
+          width="150"
+          height="110"
           alt="Place image"
         />
       </PreviewImageWrapper>
-      <div className="place-card__info">
+      <div className="favorites__card-info place-card__info">
         <PreviewDescriptionWrapper
           offer={offer}
           renderTitle={() => (
@@ -44,4 +36,4 @@ function OfferPreview({
   );
 }
 
-export default OfferPreview;
+export default FavoritePreview;

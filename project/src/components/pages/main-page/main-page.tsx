@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 
-import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
 import { AppRoutingPath } from 'src/types/app';
-import { MainPageProps } from 'src/types/main-page';
+import { GroupedOffer, MainPageProps } from 'src/types/main-page';
+import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
+import { groupOffersByCity } from 'src/helpers/group-offers-by-city';
 
-function MainPage({ placesFound }: MainPageProps) {
+function MainPage({ placesFound, offers }: MainPageProps) {
+  const groupedOffers: GroupedOffer[] = groupOffersByCity(offers);
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -28,7 +31,7 @@ function MainPage({ placesFound }: MainPageProps) {
                     className="header__nav-link header__nav-link--profile"
                     to={AppRoutingPath.Favorites}
                   >
-                    <div className="header__avatar-wrapper user__avatar-wrapper"></div>
+                    <div className="header__avatar-wrapper user__avatar-wrapper" />
                     <span className="header__user-name user__name">
                       Oliver.conner@gmail.com
                     </span>
@@ -115,13 +118,7 @@ function MainPage({ placesFound }: MainPageProps) {
                   </li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {<OfferPreview />}
-                {<OfferPreview />}
-                {<OfferPreview />}
-                {<OfferPreview />}
-                {<OfferPreview />}
-              </div>
+              <MainPageOffersList offers={groupedOffers[0].offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" />

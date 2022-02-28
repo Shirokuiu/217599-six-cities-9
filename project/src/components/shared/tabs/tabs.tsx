@@ -1,5 +1,4 @@
 import { Tab, TabsProps } from 'src/types/tabs';
-// import { Link } from 'react-router-dom';
 
 function Tabs({ tabs, renderTabContent = () => undefined }: TabsProps) {
   return (

@@ -1,6 +1,5 @@
-import { LocationTabName } from 'src/types/main-page';
 import { Tab } from 'src/types/tabs';
-import { DEFAULT_LOCATION_TAB_NAME } from 'src/components/pages/main-page/constants/constants';
+import { LocationTabName } from 'src/types/main-page-location-tabs';
 
 const locationTabNames: LocationTabName[] = [
   LocationTabName.PARIS,
@@ -15,5 +14,4 @@ export const buildLocationTabs = (): Tab[] =>
   locationTabNames.map((locationName: string, idx: number) => ({
     id: idx + 1,
     text: locationName,
-    isActive: locationName === DEFAULT_LOCATION_TAB_NAME,
   }));

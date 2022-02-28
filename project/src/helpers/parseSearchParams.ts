@@ -1,3 +1,2 @@
-export const parseSearchParams = (
-  searchParams: URLSearchParams,
-): Record<string, string> => Object.fromEntries([...searchParams]);
+export const parseSearchParams = <T>(searchParams: URLSearchParams): T =>
+  Object.fromEntries([...searchParams]) as unknown as T;

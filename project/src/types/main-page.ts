@@ -10,12 +10,3 @@ export type GroupedOffer = {
   city: OfferCity;
   offers: Offer[];
 };
-
-export enum LocationTabName {
-  PARIS = 'Paris',
-  COLOGNE = 'Cologne',
-  BRUSSELS = 'Brussels',
-  AMSTERDAM = 'Amsterdam',
-  HAMBURG = 'Hamburg',
-  DUSSELDORF = 'Dusseldorf',
-}

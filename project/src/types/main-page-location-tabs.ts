@@ -1,7 +1,3 @@
-export type MainPageLocationTabsProps = {
-  onCountryChange?: (countryName: string) => void;
-};
-
 export type LocationTabSearchParam = {
   country: LocationTabName;
 };

@@ -1,24 +1,31 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import { AppRoutingPath } from 'src/types/app';
 import { GroupedOffer, MainPageProps } from 'src/types/main-page';
 import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
 import { groupOffersByCity } from 'src/helpers/group-offers-by-city';
 import MainPageLocationTabs from 'src/components/pages/main-page/main-page-location-tabs';
-import { useState } from 'react';
 import { Offer } from 'src/types/offer';
+import MainPageMap from 'src/components/pages/main-page/main-page-map';
+import { parseSearchParams } from 'src/helpers/parseSearchParams';
+import { LocationTabSearchParam } from 'src/types/main-page-location-tabs';
 
 function MainPage({ placesFound, offers }: MainPageProps) {
-  const groupedOffers: GroupedOffer[] = groupOffersByCity(offers);
   const [filteredOffers, setFilteredOffers] = useState<Offer[]>([]);
+  const [searchParams] = useSearchParams();
+  const groupedOffers: GroupedOffer[] = groupOffersByCity(offers);
 
-  const handleCountryChange = (countryName: string) => {
-    const res: GroupedOffer[] = groupedOffers.filter(
-      ({ city: { name } }: GroupedOffer) => name === countryName,
+  useEffect(() => {
+    const parsedSearchParams =
+      parseSearchParams<LocationTabSearchParam>(searchParams);
+
+    const filtered: GroupedOffer[] = groupedOffers.filter(
+      ({ city: { name } }: GroupedOffer) => name === parsedSearchParams.country,
     );
 
-    setFilteredOffers(res[0].offers);
-  };
+    setFilteredOffers(filtered[0].offers);
+  }, [searchParams]);
 
   return (
     <div className="page page--gray page--main">
@@ -61,7 +68,7 @@ function MainPage({ placesFound, offers }: MainPageProps) {
       </header>
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
-        <MainPageLocationTabs onCountryChange={handleCountryChange} />
+        <MainPageLocationTabs />
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
@@ -97,9 +104,7 @@ function MainPage({ placesFound, offers }: MainPageProps) {
               </form>
               <MainPageOffersList offers={filteredOffers} />
             </section>
-            <div className="cities__right-section">
-              <section className="cities__map map" />
-            </div>
+            <MainPageMap offers={filteredOffers} />
           </div>
         </div>
       </main>

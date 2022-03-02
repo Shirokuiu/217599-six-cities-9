@@ -25,7 +25,9 @@ function MainPage({ placesFound, offers }: MainPageProps) {
         groupedOffer.city.name === parsedSearchParams.country,
     );
 
-    setFilteredOffers(filtered[0].offers);
+    if (filtered[0]) {
+      setFilteredOffers(filtered[0].offers);
+    }
   }, [searchParams]);
 
   return (

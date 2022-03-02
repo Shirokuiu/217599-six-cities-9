@@ -19,6 +19,7 @@ function MainPageMap({ offers }: MainPageMapProps) {
 // В принципе понятно, сначало стейт родителя пустой массив,
 // а потом, после изменения квери параметра из адресной строки, массив заполнен контентом с помощью setState()
 // Цель - нормальный ли это кейс, оптимизация дочернего компонента с помощью memo()
+// P.S. Кейс норм
 export default memo(
   MainPageMap,
   (prevProps, nextProps) => prevProps.offers === nextProps.offers,

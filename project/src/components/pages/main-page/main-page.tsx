@@ -21,7 +21,8 @@ function MainPage({ placesFound, offers }: MainPageProps) {
       parseSearchParams<LocationTabSearchParam>(searchParams);
 
     const filtered: GroupedOffer[] = groupedOffers.filter(
-      ({ city: { name } }: GroupedOffer) => name === parsedSearchParams.country,
+      (groupedOffer: GroupedOffer) =>
+        groupedOffer.city.name === parsedSearchParams.country,
     );
 
     setFilteredOffers(filtered[0].offers);

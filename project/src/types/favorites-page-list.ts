@@ -1,5 +1,5 @@
-import { GroupedOffer } from 'src/types/main-page';
+import { GroupedCity } from 'src/types/main-page';
 
 export type FavoritesPageListProps = {
-  groupedOffers: GroupedOffer[];
+  groupedOffers: GroupedCity[];
 };

@@ -1,12 +1,11 @@
 import { Offer, OfferCity } from 'src/types/offer';
 
-export type MainPageProps = {
-  placesFound: number;
+export type GroupedCity = {
+  id: number;
+  city: OfferCity;
   offers: Offer[];
 };
 
-export type GroupedOffer = {
-  id: number;
-  city: OfferCity;
+export type MainPageOffersListProps = {
   offers: Offer[];
 };

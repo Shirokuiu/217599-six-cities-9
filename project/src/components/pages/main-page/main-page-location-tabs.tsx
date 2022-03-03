@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Tabs from 'src/components/shared/tabs/tabs';
 import { buildLocationTabs } from 'src/components/pages/main-page/helpers/build-location-tabs';
 import { Link, useSearchParams } from 'react-router-dom';
-import { parseSearchParams } from 'src/helpers/parseSearchParams';
+import { parseSearchParams } from 'src/helpers/parse-search-params';
 import { LocationTabSearchParam } from 'src/types/main-page-location-tabs';
 import { Tab } from 'src/types/tabs';
 import { DEFAULT_LOCATION_TAB_NAME } from 'src/components/pages/main-page/constants/constants';

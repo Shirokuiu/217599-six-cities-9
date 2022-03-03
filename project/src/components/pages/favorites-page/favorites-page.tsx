@@ -1,10 +1,10 @@
 import FavoritesPageList from 'src/components/pages/favorites-page/favorites-page-list';
 import { FavoritesPageProps } from 'src/types/favorites-page';
-import { GroupedOffer } from 'src/types/main-page';
+import { GroupedCity } from 'src/types/main-page';
 import { groupOffersByCity } from 'src/helpers/group-offers-by-city';
 
 function FavoritesPage({ offers }: FavoritesPageProps) {
-  const groupedOffers: GroupedOffer[] = groupOffersByCity(offers);
+  const groupedOffers: GroupedCity[] = groupOffersByCity(offers);
 
   return (
     <div className="page">

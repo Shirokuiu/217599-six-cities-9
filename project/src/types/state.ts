@@ -1,10 +1,13 @@
 import { store } from 'src/store';
-import { Offer } from 'src/types/offer';
+import { AuthorizationStatus } from 'src/types/auth';
+import { GroupedCity } from 'src/types/main-page';
 
 export type State = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
 
 export type InitialState = {
-  offers: Offer[];
+  authorizationStatus: AuthorizationStatus;
+  groupedCities: GroupedCity[];
+  currentCity?: GroupedCity;
 };

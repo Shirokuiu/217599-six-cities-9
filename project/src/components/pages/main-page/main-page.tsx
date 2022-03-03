@@ -1,34 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 
 import { AppRoutingPath } from 'src/types/app';
-import { GroupedOffer, MainPageProps } from 'src/types/main-page';
-import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
-import { groupOffersByCity } from 'src/helpers/group-offers-by-city';
 import MainPageLocationTabs from 'src/components/pages/main-page/main-page-location-tabs';
-import { Offer } from 'src/types/offer';
-import MainPageMap from 'src/components/pages/main-page/main-page-map';
-import { parseSearchParams } from 'src/helpers/parseSearchParams';
+import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
+import { useAppDispatch, useAppSelector } from 'src/hooks';
+import { groupCities, setCurrentCity } from 'src/store/actions/actions';
+import { parseSearchParams } from 'src/helpers/parse-search-params';
 import { LocationTabSearchParam } from 'src/types/main-page-location-tabs';
+import MainPageMap from 'src/components/pages/main-page/main-page-map';
 
-function MainPage({ placesFound, offers }: MainPageProps) {
-  const [filteredOffers, setFilteredOffers] = useState<Offer[]>([]);
-  const [searchParams] = useSearchParams();
-  const groupedOffers: GroupedOffer[] = groupOffersByCity(offers);
+function MainPage() {
+  const [searchParams] = useSearchParams({});
+  const { currentCity, groupedCities } = useAppSelector((state) => state);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(groupCities());
+  }, []);
 
   useEffect(() => {
     const parsedSearchParams =
       parseSearchParams<LocationTabSearchParam>(searchParams);
 
-    const filtered: GroupedOffer[] = groupedOffers.filter(
-      (groupedOffer: GroupedOffer) =>
-        groupedOffer.city.name === parsedSearchParams.country,
-    );
-
-    if (filtered[0]) {
-      setFilteredOffers(filtered[0].offers);
+    if (groupedCities.length) {
+      dispatch(setCurrentCity(parsedSearchParams.country));
     }
-  }, [searchParams]);
+  }, [searchParams, groupedCities]);
 
   return (
     <div className="page page--gray page--main">
@@ -77,7 +75,7 @@ function MainPage({ placesFound, offers }: MainPageProps) {
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">
-                {placesFound} places to stay in Amsterdam
+                {currentCity?.offers.length ?? 0} places to stay in Amsterdam
               </b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
@@ -105,9 +103,9 @@ function MainPage({ placesFound, offers }: MainPageProps) {
                   </li>
                 </ul>
               </form>
-              <MainPageOffersList offers={filteredOffers} />
+              <MainPageOffersList offers={currentCity?.offers ?? []} />
             </section>
-            <MainPageMap offers={filteredOffers} />
+            <MainPageMap offers={currentCity?.offers ?? []} />
           </div>
         </div>
       </main>

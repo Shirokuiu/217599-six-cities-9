@@ -1,12 +1,32 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import { AppRoutingPath } from 'src/types/app';
 import { GroupedOffer, MainPageProps } from 'src/types/main-page';
 import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
 import { groupOffersByCity } from 'src/helpers/group-offers-by-city';
+import MainPageLocationTabs from 'src/components/pages/main-page/main-page-location-tabs';
+import { Offer } from 'src/types/offer';
+import MainPageMap from 'src/components/pages/main-page/main-page-map';
+import { parseSearchParams } from 'src/helpers/parseSearchParams';
+import { LocationTabSearchParam } from 'src/types/main-page-location-tabs';
 
 function MainPage({ placesFound, offers }: MainPageProps) {
+  const [filteredOffers, setFilteredOffers] = useState<Offer[]>([]);
+  const [searchParams] = useSearchParams();
   const groupedOffers: GroupedOffer[] = groupOffersByCity(offers);
+
+  useEffect(() => {
+    const parsedSearchParams =
+      parseSearchParams<LocationTabSearchParam>(searchParams);
+
+    const filtered: GroupedOffer[] = groupedOffers.filter(
+      (groupedOffer: GroupedOffer) =>
+        groupedOffer.city.name === parsedSearchParams.country,
+    );
+
+    setFilteredOffers(filtered[0].offers);
+  }, [searchParams]);
 
   return (
     <div className="page page--gray page--main">
@@ -49,42 +69,7 @@ function MainPage({ placesFound, offers }: MainPageProps) {
       </header>
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
-        <div className="tabs">
-          <section className="locations container">
-            <ul className="locations__list tabs__list">
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Paris</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Cologne</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Brussels</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item tabs__item--active">
-                  <span>Amsterdam</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Hamburg</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Dusseldorf</span>
-                </a>
-              </li>
-            </ul>
-          </section>
-        </div>
+        <MainPageLocationTabs />
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
@@ -118,11 +103,9 @@ function MainPage({ placesFound, offers }: MainPageProps) {
                   </li>
                 </ul>
               </form>
-              <MainPageOffersList offers={groupedOffers[0].offers} />
+              <MainPageOffersList offers={filteredOffers} />
             </section>
-            <div className="cities__right-section">
-              <section className="cities__map map" />
-            </div>
+            <MainPageMap offers={filteredOffers} />
           </div>
         </div>
       </main>

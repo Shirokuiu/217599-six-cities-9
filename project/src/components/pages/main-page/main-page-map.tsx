@@ -4,9 +4,10 @@ import { buildMapLPoints } from 'src/components/pages/main-page/helpers/build-ma
 import { MapLPoint } from 'src/types/map-l';
 import MapL from 'src/components/shared/map-l/map-l';
 import { useAppSelector } from 'src/hooks';
+import { setActiveMapLPoint } from 'src/components/pages/main-page/helpers/set-active-map-l-point';
 
 function MainPageMap() {
-  const { currentCity } = useAppSelector((state) => state);
+  const { currentCity, currentOffer } = useAppSelector((state) => state);
   const [points, setPoints] = useState<MapLPoint[]>([]);
 
   useEffect(() => {
@@ -14,6 +15,10 @@ function MainPageMap() {
       setPoints(buildMapLPoints(currentCity.offers));
     }
   }, [currentCity]);
+
+  useEffect(() => {
+    setPoints(setActiveMapLPoint({ points, activeOffer: currentOffer }));
+  }, [currentOffer]);
 
   return (
     <div className="cities__right-section">

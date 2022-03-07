@@ -3,16 +3,16 @@ import { useSearchParams } from 'react-router-dom';
 
 import { Offer } from 'src/types/offer';
 import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
-import { useAppSelector } from 'src/hooks';
+import { useAppDispatch, useAppSelector } from 'src/hooks';
 import { parseSearchParams } from 'src/helpers/parse-search-params';
 import { MainPageSortSearchParamType } from 'src/types/main-page';
 import { sortOffers } from 'src/components/pages/main-page/helpers/sort-offers';
+import { setCurrentOffer } from 'src/store/actions/actions';
 
 function MainPageOffersList() {
   const [searchParams] = useSearchParams();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [activeOffer, setActiveOffer] = useState<Offer>();
   const { currentCity } = useAppSelector((state) => state);
+  const dispatch = useAppDispatch();
   const [sortedOffers, setSortedOffers] = useState<Offer[]>([]); // eslint-disable-line
   const parsedSearchParams =
     parseSearchParams<MainPageSortSearchParamType>(searchParams);
@@ -29,7 +29,11 @@ function MainPageOffersList() {
   }, [currentCity, searchParams]);
 
   const handleImgMouseEnter = (offer: Offer) => {
-    setActiveOffer(offer);
+    dispatch(setCurrentOffer(offer));
+  };
+
+  const handleImgMouseLeave = () => {
+    dispatch(setCurrentOffer(undefined));
   };
 
   return (
@@ -39,6 +43,7 @@ function MainPageOffersList() {
           key={offer.id}
           offer={offer}
           onImgMouseEnter={handleImgMouseEnter}
+          onImgMouseLeave={handleImgMouseLeave}
         />
       ))}
     </div>

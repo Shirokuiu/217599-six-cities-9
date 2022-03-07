@@ -4,14 +4,23 @@ import { PreviewImageWrapperProps } from 'src/types/preview-image-wrapper';
 
 function PreviewImageWrapper({
   isPremium,
-  onImgMouseEnter = () => undefined,
   wrapperClass,
   children,
+  onImgMouseEnter = () => undefined,
+  onImgMouseLeave = () => undefined,
 }: PreviewImageWrapperProps) {
   const handleImgMouseEnter = (evt: React.MouseEvent) => {
-    evt.preventDefault();
-
+    preventDefault(evt);
     onImgMouseEnter();
+  };
+
+  const handleMouseLeave = (evt: React.MouseEvent) => {
+    preventDefault(evt);
+    onImgMouseLeave();
+  };
+
+  const preventDefault = (evt: React.MouseEvent) => {
+    evt.preventDefault();
   };
 
   return (
@@ -22,7 +31,9 @@ function PreviewImageWrapper({
         </div>
       )}
       <div className={wrapperClass}>
-        <a onMouseEnter={handleImgMouseEnter}>{children}</a>
+        <a onMouseEnter={handleImgMouseEnter} onMouseLeave={handleMouseLeave}>
+          {children}
+        </a>
       </div>
     </>
   );

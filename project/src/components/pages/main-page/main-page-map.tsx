@@ -1,12 +1,19 @@
-import { memo } from 'react';
+import { useEffect, useState } from 'react';
 
-import { MainPageMapProps } from 'src/types/main-page-map';
 import { buildMapLPoints } from 'src/components/pages/main-page/helpers/build-map-l-points';
 import { MapLPoint } from 'src/types/map-l';
 import MapL from 'src/components/shared/map-l/map-l';
+import { useAppSelector } from 'src/hooks';
 
-function MainPageMap({ offers }: MainPageMapProps) {
-  const points: MapLPoint[] = buildMapLPoints(offers);
+function MainPageMap() {
+  const { currentCity } = useAppSelector((state) => state);
+  const [points, setPoints] = useState<MapLPoint[]>([]);
+
+  useEffect(() => {
+    if (currentCity) {
+      setPoints(buildMapLPoints(currentCity.offers));
+    }
+  }, [currentCity]);
 
   return (
     <div className="cities__right-section">
@@ -15,9 +22,4 @@ function MainPageMap({ offers }: MainPageMapProps) {
   );
 }
 
-// NOTE Тут уточнить, почему он перерендеривает 2 раза
-// В принципе понятно, сначало стейт родителя пустой массив,
-// а потом, после изменения квери параметра из адресной строки, массив заполнен контентом с помощью setState()
-// Цель - нормальный ли это кейс, оптимизация дочернего компонента с помощью memo()
-// P.S. Кейс норм
-export default memo(MainPageMap);
+export default MainPageMap;

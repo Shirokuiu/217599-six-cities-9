@@ -32,7 +32,13 @@ function SortDropdown({
     ) as DropdownItem;
 
     setActiveValue(activeItem.text);
-  }, []);
+    setActiveDropdownItems(
+      setActiveDropdownItem({
+        dropdownItems,
+        currentItem: activeItem,
+      }),
+    );
+  }, [items]);
 
   const handleSortClick = () => {
     toggleShow((prevState) => !prevState);

@@ -6,13 +6,15 @@ const sortingTypes = [
   MainPageSortOfferType.Popular,
   MainPageSortOfferType.PriceDown,
   MainPageSortOfferType.PriceUp,
-  MainPageSortOfferType.Rated,
+  MainPageSortOfferType.RatedUp,
 ];
 
-export const buildDropdownItems = (): DropdownItem[] =>
+export const buildDropdownItems = (
+  activeSortingType: MainPageSortOfferType = DEFAULT_SORTING_OFFER_TYPE,
+): DropdownItem[] =>
   sortingTypes.map((sortingType: MainPageSortOfferType, idx: number) => ({
     id: idx + 1,
     text: sortingType,
     value: sortingType,
-    isActive: sortingType === DEFAULT_SORTING_OFFER_TYPE,
+    isActive: sortingType === activeSortingType,
   }));

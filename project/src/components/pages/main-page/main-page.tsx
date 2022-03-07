@@ -1,41 +1,21 @@
-import { memo, useEffect } from 'react'; // eslint-disable-line
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AppRoutingPath } from 'src/types/app';
 import MainPageLocationTabs from 'src/components/pages/main-page/main-page-location-tabs';
-// import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
-import { useAppDispatch, useAppSelector } from 'src/hooks'; // eslint-disable-line
-import { groupCities, setCurrentCity } from 'src/store/actions/actions'; // eslint-disable-line
-// import MainPageMap from 'src/components/pages/main-page/main-page-map';
+import { useAppDispatch } from 'src/hooks';
+import { groupCities } from 'src/store/actions/actions';
 import MainPageSortOffers from 'src/components/pages/main-page/main-page-sort-offers';
+import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
+import MainPagePlacesFound from 'src/components/pages/main-page/main-page-places-found';
+import MainPageMap from 'src/components/pages/main-page/main-page-map';
 
 function MainPage() {
-  // eslint-disable-next-line
-  const groupedCities = useAppSelector((state) => state.groupedCities);
-  const dispatch = useAppDispatch(); // eslint-disable-line
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(groupCities());
   }, []);
-
-  console.log(groupedCities);
-
-  // useEffect(() => {
-  //   if (groupedCities.length) {
-  //     dispatch(setCurrentCity('Paris'));
-  //   }
-  // }, [groupedCities]);
-
-  // useEffect(() => {
-  //   const parsedSearchParams =
-  //     parseSearchParams<LocationTabSearchParam>(searchParams);
-  //
-  //   if (groupedCities.length) {
-  //     dispatch(setCurrentCity(parsedSearchParams.country));
-  //   }
-  // }, [searchParams, groupedCities]);
-
-  // console.log(currentCity);
 
   return (
     <div className="page page--gray page--main">
@@ -83,13 +63,11 @@ function MainPage() {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">
-                {/*{currentCity?.offers.length ?? 0} places to stay in Amsterdam*/}
-              </b>
+              <MainPagePlacesFound />
               <MainPageSortOffers />
-              {/*<MainPageOffersList offers={currentCity?.offers ?? []} />*/}
+              <MainPageOffersList />
             </section>
-            {/*<MainPageMap offers={currentCity?.offers ?? []} />*/}
+            <MainPageMap />
           </div>
         </div>
       </main>

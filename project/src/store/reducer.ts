@@ -8,7 +8,7 @@ import { getCurrentOffer } from 'src/store/helpers/get-current-offer';
 import {
   groupCities,
   setCurrentCity,
-  setCurrentOffer,
+  setCurrentOffer
 } from 'src/store/actions/actions';
 
 const initialState: InitialState = {

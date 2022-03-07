@@ -3,7 +3,7 @@ import { createAction } from '@reduxjs/toolkit';
 import {
   GROUP_CITIES,
   SET_CURRENT_CITY,
-  SET_CURRENT_OFFER,
+  SET_CURRENT_OFFER
 } from 'src/store/actions/action-types';
 import { Offer } from 'src/types/offer';
 

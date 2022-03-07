@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Dropdown from 'src/components/shared/dropdown/dropdown';
 import { SortDropdownProps } from 'src/types/sort-dropdown';
 import { DropdownItem } from 'src/types/dropdown';
+import { useClickOutside } from 'src/hooks/use-click-outside';
 
 const setActiveDropdownItem = ({
   dropdownItems,
@@ -25,6 +26,11 @@ function SortDropdown({
   const [dropdownItems, setActiveDropdownItems] = useState<DropdownItem[]>([
     ...items,
   ]);
+  const ref = useRef<HTMLFormElement>(null);
+
+  useClickOutside(ref, () => {
+    toggleShow(false);
+  });
 
   useEffect(() => {
     const activeItem: DropdownItem = items.find(
@@ -58,7 +64,7 @@ function SortDropdown({
   };
 
   return (
-    <form className="places__sorting" action="#" method="get">
+    <form ref={ref} className="places__sorting" action="#" method="get">
       <span className="places__sorting-caption">Sort by</span>
       <span
         onClick={handleSortClick}

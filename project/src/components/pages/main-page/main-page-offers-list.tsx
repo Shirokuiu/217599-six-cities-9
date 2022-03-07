@@ -13,7 +13,7 @@ function MainPageOffersList() {
   const [searchParams] = useSearchParams();
   const { currentCity } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
-  const [sortedOffers, setSortedOffers] = useState<Offer[]>([]); // eslint-disable-line
+  const [sortedOffers, setSortedOffers] = useState<Offer[]>([]);
   const parsedSearchParams =
     parseSearchParams<MainPageSortSearchParamType>(searchParams);
 

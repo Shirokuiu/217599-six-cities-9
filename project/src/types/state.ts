@@ -9,6 +9,7 @@ export type AppDispatch = typeof store.dispatch;
 
 export type InitialState = {
   authorizationStatus: AuthorizationStatus;
+  offers: Offer[];
   groupedCities: GroupedCity[];
   currentCity?: GroupedCity;
   currentOffer?: Offer;

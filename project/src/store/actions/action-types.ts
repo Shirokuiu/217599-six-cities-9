@@ -1,3 +1,3 @@
-export const GROUP_CITIES = 'groupCities';
-export const SET_CURRENT_CITY = 'setCurrentCity';
-export const SET_CURRENT_OFFER = 'setCurrentOffer';
+export const GROUP_CITIES = 'offers/groupCities';
+export const SET_CURRENT_CITY = 'offers/setCurrentCity';
+export const SET_CURRENT_OFFER = 'offers/setCurrentOffer';

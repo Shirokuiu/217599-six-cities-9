@@ -1,2 +1,2 @@
-export const BACKEND_URL = 'https://9.react.pages.academy/guess-melody';
+export const BACKEND_URL = 'https://9.react.pages.academy/six-cities';
 export const REQUEST_TIMEOUT = 5000;

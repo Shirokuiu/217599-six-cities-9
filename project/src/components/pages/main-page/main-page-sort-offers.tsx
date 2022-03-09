@@ -22,11 +22,11 @@ function MainPageSortOffers() {
         ...parsedSearchParams,
         sort: DEFAULT_SORTING_OFFER_TYPE,
       });
+
+      return;
     }
 
-    if (parsedSearchParams.sort) {
-      setActiveDropdownItems(buildDropdownItems(parsedSearchParams.sort));
-    }
+    setActiveDropdownItems(buildDropdownItems(parsedSearchParams.sort));
   }, [searchParams]);
 
   const handleDropdownItemClick = ({ value }: DropdownItem) => {

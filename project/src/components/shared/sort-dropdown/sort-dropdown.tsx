@@ -36,14 +36,13 @@ function SortDropdown({
     const activeItem: DropdownItem = items.find(
       ({ isActive }: DropdownItem) => isActive,
     ) as DropdownItem;
+    const _dropdownItems: DropdownItem[] = setActiveDropdownItem({
+      dropdownItems,
+      currentItem: activeItem,
+    });
 
     setActiveValue(activeItem.text);
-    setActiveDropdownItems(
-      setActiveDropdownItem({
-        dropdownItems,
-        currentItem: activeItem,
-      }),
-    );
+    setActiveDropdownItems(_dropdownItems);
   }, [items]);
 
   const handleSortClick = () => {

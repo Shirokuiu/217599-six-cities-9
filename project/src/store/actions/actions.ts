@@ -4,7 +4,7 @@ import {
   GROUP_CITIES,
   SET_CURRENT_CITY,
   SET_CURRENT_OFFER,
-  SET_OFFERS,
+  SET_OFFERS
 } from 'src/store/actions/action-types';
 import { Offer } from 'src/types/offer';
 

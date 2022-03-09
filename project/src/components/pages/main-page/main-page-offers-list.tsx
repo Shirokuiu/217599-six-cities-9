@@ -19,12 +19,12 @@ function MainPageOffersList() {
 
   useEffect(() => {
     if (currentCity && parsedSearchParams.sort) {
-      setSortedOffers(
-        sortOffers({
-          offers: currentCity.offers,
-          sortBy: parsedSearchParams.sort,
-        }),
-      );
+      const _sortedOffers: Offer[] = sortOffers({
+        offers: currentCity.offers,
+        sortBy: parsedSearchParams.sort,
+      });
+
+      setSortedOffers(_sortedOffers);
     }
   }, [currentCity, searchParams]);
 

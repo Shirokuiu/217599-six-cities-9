@@ -1,26 +1,30 @@
-import { memo } from 'react';
+import { useEffect, useState } from 'react';
 
-import { MainPageMapProps } from 'src/types/main-page-map';
 import { buildMapLPoints } from 'src/components/pages/main-page/helpers/build-map-l-points';
 import { MapLPoint } from 'src/types/map-l';
-import MapLeaflet from 'src/components/shared/map-l/map-l';
+import MapL from 'src/components/shared/map-l/map-l';
+import { useAppSelector } from 'src/hooks';
+import { setActiveMapLPoint } from 'src/components/pages/main-page/helpers/set-active-map-l-point';
 
-function MainPageMap({ offers }: MainPageMapProps) {
-  const points: MapLPoint[] = buildMapLPoints(offers);
+function MainPageMap() {
+  const { currentCity, currentOffer } = useAppSelector((state) => state);
+  const [points, setPoints] = useState<MapLPoint[]>([]);
+
+  useEffect(() => {
+    if (currentCity) {
+      setPoints(buildMapLPoints(currentCity.offers));
+    }
+  }, [currentCity]);
+
+  useEffect(() => {
+    setPoints(setActiveMapLPoint({ points, activeOffer: currentOffer }));
+  }, [currentOffer]);
 
   return (
     <div className="cities__right-section">
-      {points.length && <MapLeaflet points={points} />}
+      {points.length && <MapL points={points} />}
     </div>
   );
 }
 
-// NOTE Тут уточнить, почему он перерендеривает 2 раза
-// В принципе понятно, сначало стейт родителя пустой массив,
-// а потом, после изменения квери параметра из адресной строки, массив заполнен контентом с помощью setState()
-// Цель - нормальный ли это кейс, оптимизация дочернего компонента с помощью memo()
-// P.S. Кейс норм
-export default memo(
-  MainPageMap,
-  (prevProps, nextProps) => prevProps.offers === nextProps.offers,
-);
+export default MainPageMap;

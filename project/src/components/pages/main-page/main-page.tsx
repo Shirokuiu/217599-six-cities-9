@@ -1,32 +1,21 @@
-import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { AppRoutingPath } from 'src/types/app';
-import { GroupedOffer, MainPageProps } from 'src/types/main-page';
-import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
-import { groupOffersByCity } from 'src/helpers/group-offers-by-city';
 import MainPageLocationTabs from 'src/components/pages/main-page/main-page-location-tabs';
-import { Offer } from 'src/types/offer';
+import { useAppDispatch } from 'src/hooks';
+import { groupCities } from 'src/store/actions/actions';
+import MainPageSortOffers from 'src/components/pages/main-page/main-page-sort-offers';
+import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
+import MainPagePlacesFound from 'src/components/pages/main-page/main-page-places-found';
 import MainPageMap from 'src/components/pages/main-page/main-page-map';
-import { parseSearchParams } from 'src/helpers/parseSearchParams';
-import { LocationTabSearchParam } from 'src/types/main-page-location-tabs';
 
-function MainPage({ placesFound, offers }: MainPageProps) {
-  const [filteredOffers, setFilteredOffers] = useState<Offer[]>([]);
-  const [searchParams] = useSearchParams();
-  const groupedOffers: GroupedOffer[] = groupOffersByCity(offers);
+function MainPage() {
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const parsedSearchParams =
-      parseSearchParams<LocationTabSearchParam>(searchParams);
-
-    const filtered: GroupedOffer[] = groupedOffers.filter(
-      (groupedOffer: GroupedOffer) =>
-        groupedOffer.city.name === parsedSearchParams.country,
-    );
-
-    setFilteredOffers(filtered[0].offers);
-  }, [searchParams]);
+    dispatch(groupCities());
+  }, []);
 
   return (
     <div className="page page--gray page--main">
@@ -74,38 +63,11 @@ function MainPage({ placesFound, offers }: MainPageProps) {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">
-                {placesFound} places to stay in Amsterdam
-              </b>
-              <form className="places__sorting" action="#" method="get">
-                <span className="places__sorting-caption">Sort by</span>
-                <span className="places__sorting-type" tabIndex={0}>
-                  Popular
-                  <svg className="places__sorting-arrow" width={7} height={4}>
-                    <use xlinkHref="#icon-arrow-select" />
-                  </svg>
-                </span>
-                <ul className="places__options places__options--custom places__options--opened">
-                  <li
-                    className="places__option places__option--active"
-                    tabIndex={0}
-                  >
-                    Popular
-                  </li>
-                  <li className="places__option" tabIndex={0}>
-                    Price: low to high
-                  </li>
-                  <li className="places__option" tabIndex={0}>
-                    Price: high to low
-                  </li>
-                  <li className="places__option" tabIndex={0}>
-                    Top rated first
-                  </li>
-                </ul>
-              </form>
-              <MainPageOffersList offers={filteredOffers} />
+              <MainPagePlacesFound />
+              <MainPageSortOffers />
+              <MainPageOffersList />
             </section>
-            <MainPageMap offers={filteredOffers} />
+            <MainPageMap />
           </div>
         </div>
       </main>

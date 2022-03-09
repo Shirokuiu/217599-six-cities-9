@@ -4,6 +4,7 @@ export type PreviewImageWrapperProps = PropsWithChildren<{
   wrapperClass: WrapperClass;
   isPremium: boolean;
   onImgMouseEnter?: () => void;
+  onImgMouseLeave?: () => void;
 }>;
 
 export enum WrapperClass {

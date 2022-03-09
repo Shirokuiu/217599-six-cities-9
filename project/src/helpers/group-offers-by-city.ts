@@ -1,5 +1,5 @@
 import { Offer } from 'src/types/offer';
-import { GroupedOffer } from 'src/types/main-page';
+import { GroupedCity } from 'src/types/main-page';
 
 const filterCity = (cityName: string, offers: Offer[]): Offer[] =>
   offers.filter(({ city }: Offer) => cityName === city.name);
@@ -11,7 +11,7 @@ const makeUniqueCityNames = (cityNames: string[]): string[] => [
 const getAllCityNames = (offers: Offer[]): string[] =>
   makeUniqueCityNames(offers.map(({ city }: Offer) => city.name));
 
-export const groupOffersByCity = (offers: Offer[]): GroupedOffer[] => {
+export const groupOffersByCity = (offers: Offer[]): GroupedCity[] => {
   const cityNames: string[] = getAllCityNames(offers);
 
   return cityNames.map((cityName: string, idx: number) => ({

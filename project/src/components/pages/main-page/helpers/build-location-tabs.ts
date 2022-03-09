@@ -1,5 +1,5 @@
 import { Tab } from 'src/types/tabs';
-import { LocationTabName } from 'src/types/main-page-location-tabs';
+import { LocationTabName } from 'src/types/main-page';
 
 const locationTabNames: LocationTabName[] = [
   LocationTabName.PARIS,

@@ -1,7 +1,14 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
-import { BACKEND_URL, REQUEST_TIMEOUT } from 'src/services/constants/constants';
+import {
+  APIErrorCode,
+  BACKEND_URL,
+  REQUEST_TIMEOUT,
+} from 'src/services/constants/constants';
 import Token from 'src/services/token';
+import { store } from 'src/store';
+import { setAuthStatus } from 'src/store/actions/actions';
+import { AuthorizationStatus } from 'src/types/auth';
 
 export const createAPI = (): AxiosInstance => {
   const api = axios.create({
@@ -18,6 +25,21 @@ export const createAPI = (): AxiosInstance => {
 
     return config;
   });
+
+  api.interceptors.response.use(
+    (response) => response,
+    (err) => {
+      const {
+        response: { status },
+      } = err;
+
+      switch (status) {
+        case APIErrorCode.Unauthorized:
+          store.dispatch(setAuthStatus(AuthorizationStatus.NoAuth));
+          break;
+      }
+    },
+  );
 
   return api;
 };

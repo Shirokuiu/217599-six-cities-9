@@ -7,7 +7,7 @@ import {
 } from 'src/services/constants/constants';
 import Token from 'src/services/token';
 import { store } from 'src/store';
-import { setAuthStatus } from 'src/store/actions/actions';
+import { setAuthStatus, setMe } from 'src/store/actions/actions';
 import { AuthorizationStatus } from 'src/types/auth';
 
 export const createAPI = (): AxiosInstance => {
@@ -36,6 +36,7 @@ export const createAPI = (): AxiosInstance => {
       switch (status) {
         case APIErrorCode.Unauthorized:
           store.dispatch(setAuthStatus(AuthorizationStatus.NoAuth));
+          store.dispatch(setMe(undefined));
           break;
       }
     },

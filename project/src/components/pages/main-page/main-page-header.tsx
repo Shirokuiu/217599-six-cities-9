@@ -1,4 +1,5 @@
 import MainPageUserBlock from 'src/components/pages/main-page/main-page-user-block';
+import LogoLink from 'src/components/shared/logo-link/logo-link';
 
 function MainPageHeader() {
   return (
@@ -6,15 +7,7 @@ function MainPageHeader() {
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
-            <a className="header__logo-link header__logo-link--active">
-              <img
-                className="header__logo"
-                src="img/logo.svg"
-                alt="6 cities logo"
-                width={81}
-                height={41}
-              />
-            </a>
+            <LogoLink isActive />
           </div>
           <nav className="header__nav">
             <MainPageUserBlock />

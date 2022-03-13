@@ -4,11 +4,10 @@ import { AuthorizationStatus } from 'src/types/auth';
 import { Navigate } from 'react-router-dom';
 import { AppRoutingPath } from 'src/types/app';
 
-function PrivateLoginRoute({ children }: PrivateRouteProps) {
+function PrivateNoAuthRoute({ children }: PrivateRouteProps) {
   const authorizationStatus = useAppSelector(
     (state) => state.authorizationStatus,
   );
-  console.log(authorizationStatus);
 
   return authorizationStatus === AuthorizationStatus.NoAuth ? (
     children
@@ -17,4 +16,4 @@ function PrivateLoginRoute({ children }: PrivateRouteProps) {
   );
 }
 
-export default PrivateLoginRoute;
+export default PrivateNoAuthRoute;

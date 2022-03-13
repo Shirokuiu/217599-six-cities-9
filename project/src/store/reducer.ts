@@ -14,7 +14,7 @@ import {
 } from 'src/store/actions/actions';
 
 const initialState: InitialState = {
-  authorizationStatus: AuthorizationStatus.Unknown,
+  authorizationStatus: AuthorizationStatus.NoAuth,
   me: undefined,
   offers: [],
   groupedCities: [],

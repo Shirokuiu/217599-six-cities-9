@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { offers } from 'src/mocks/offers';
 
 import { InitialState } from 'src/types/state';
 import { AuthorizationStatus } from 'src/types/auth';
@@ -8,11 +7,13 @@ import { getCurrentOffer } from 'src/store/helpers/get-current-offer';
 import {
   groupCities,
   setCurrentCity,
-  setCurrentOffer
+  setCurrentOffer,
+  setOffers
 } from 'src/store/actions/actions';
 
 const initialState: InitialState = {
   authorizationStatus: AuthorizationStatus.Auth,
+  offers: [],
   groupedCities: [],
   currentCity: undefined,
   currentOffer: undefined,
@@ -20,8 +21,11 @@ const initialState: InitialState = {
 
 const reducer = createReducer(initialState, (builder) => {
   builder
+    .addCase(setOffers, (state, { payload: offerItems }) => {
+      state.offers = offerItems;
+    })
     .addCase(groupCities, (state) => {
-      state.groupedCities = groupOffersByCity(offers);
+      state.groupedCities = groupOffersByCity(state.offers);
     })
     .addCase(setCurrentCity, (state, { payload: country }) => {
       state.currentCity = getCurrentOffer({

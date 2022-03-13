@@ -9,12 +9,16 @@ import MainPageSortOffers from 'src/components/pages/main-page/main-page-sort-of
 import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
 import MainPagePlacesFound from 'src/components/pages/main-page/main-page-places-found';
 import MainPageMap from 'src/components/pages/main-page/main-page-map';
+import { fetchOffers } from 'src/store/actions/api-actions';
 
 function MainPage() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(groupCities());
+    (async () => {
+      await dispatch(fetchOffers());
+      dispatch(groupCities());
+    })();
   }, []);
 
   return (

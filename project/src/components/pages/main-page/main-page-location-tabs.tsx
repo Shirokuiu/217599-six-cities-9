@@ -30,7 +30,7 @@ function MainPageLocationTabs() {
     if (parsedSearchParams.country && groupedCities.length) {
       dispatch(setCurrentCity(parsedSearchParams.country));
     }
-  }, [searchParams, groupedCities]);
+  }, [searchParams.get('country'), groupedCities]);
 
   return (
     <Tabs

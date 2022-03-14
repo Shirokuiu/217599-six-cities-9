@@ -10,7 +10,7 @@ import {
   setCurrentCity,
   setCurrentOffer,
   setOffers,
-  setMe,
+  setMe
 } from 'src/store/actions/actions';
 
 const initialState: InitialState = {

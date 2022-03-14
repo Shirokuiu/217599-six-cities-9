@@ -6,7 +6,7 @@ import {
   SET_CURRENT_CITY,
   SET_CURRENT_OFFER,
   SET_OFFERS,
-  SET_ME,
+  SET_ME
 } from 'src/store/actions/action-types';
 import { Offer } from 'src/types/offer';
 import { AuthorizationStatus } from 'src/types/auth';

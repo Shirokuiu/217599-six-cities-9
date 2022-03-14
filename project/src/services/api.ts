@@ -3,7 +3,7 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import {
   APIErrorCode,
   BACKEND_URL,
-  REQUEST_TIMEOUT,
+  REQUEST_TIMEOUT
 } from 'src/services/constants/constants';
 import Token from 'src/services/token';
 import { store } from 'src/store';

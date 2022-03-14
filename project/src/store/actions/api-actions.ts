@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { CHECK_AUTH, FETCH_OFFERS, LOGIN } from 'src/store/actions/action-types';
+import { CHECK_AUTH, FETCH_OFFERS, LOGIN, LOGOUT } from 'src/store/actions/action-types';
 import { api, store } from 'src/store/index';
 import { Offer } from 'src/types/offer';
 import { APIRoute } from 'src/services/constants/constants';
@@ -27,4 +27,11 @@ export const login = createAsyncThunk(LOGIN, async (body: LoginPageFormBody) => 
   Token.set(data.token);
   store.dispatch(setAuthStatus(AuthorizationStatus.Auth));
   store.dispatch(setMe(data));
+});
+export const logout = createAsyncThunk(LOGOUT, async () => {
+  await api.delete(APIRoute.Logout);
+
+  Token.remove();
+  store.dispatch(setAuthStatus(AuthorizationStatus.NoAuth));
+  store.dispatch(setMe(undefined));
 });

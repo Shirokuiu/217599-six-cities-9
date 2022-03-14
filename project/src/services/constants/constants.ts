@@ -5,6 +5,7 @@ export const TOKEN_KEY_LOCAL_STORAGE = 'authToken';
 export enum APIRoute {
   Hotels = '/hotels',
   Login = '/login',
+  Logout = '/logout',
 }
 
 export enum APIErrorCode {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AppRoutingPath } from 'src/types/app';
 import { UserLoggedInProps } from 'src/types/user-logged-in';
 
-function UserLoggedIn({ user }: UserLoggedInProps) {
+function UserLoggedIn({ user, onLogoutClick = () => undefined }: UserLoggedInProps) {
   return (
     <>
       <li className="header__nav-item user">
@@ -13,7 +13,7 @@ function UserLoggedIn({ user }: UserLoggedInProps) {
         </Link>
       </li>
       <li className="header__nav-item">
-        <a className="header__nav-link" href="#">
+        <a onClick={onLogoutClick} className="header__nav-link">
           <span className="header__signout">Sign out</span>
         </a>
       </li>

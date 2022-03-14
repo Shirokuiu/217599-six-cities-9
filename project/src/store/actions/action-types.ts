@@ -7,3 +7,4 @@ export const SET_AUTH_STATUS = 'user/setAuthStatus';
 export const CHECK_AUTH = 'user/checkAuth';
 export const SET_ME = 'user/setMe';
 export const LOGIN = 'user/login';
+export const LOGOUT = 'user/logout';

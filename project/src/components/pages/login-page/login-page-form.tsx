@@ -4,18 +4,26 @@ import LoginPageEmailControl from 'src/components/pages/login-page/login-page-em
 import LoginPagePasswordControl from 'src/components/pages/login-page/login-page-password-control';
 import { LoginPageFormKey } from 'src/types/login-page';
 import { buildDefaultForm } from 'src/components/pages/login-page/helpers/build-default-form';
+import { useAppDispatch } from 'src/hooks';
+import { login } from 'src/store/actions/api-actions';
+import { useNavigate } from 'react-router-dom';
+import { AppRoutingPath } from 'src/types/app';
 
 function LoginPageForm() {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const form = buildDefaultForm();
 
   const handleFormChange = ({ key, value }: { key: LoginPageFormKey; value: string }) => {
     form[key] = value;
   };
 
-  const handleSubmitForm = (evt: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmitForm = async (evt: React.ChangeEvent<HTMLFormElement>) => {
     evt.preventDefault();
 
-    console.log(form);
+    await dispatch(login(form));
+
+    navigate(AppRoutingPath.Index);
   };
 
   return (

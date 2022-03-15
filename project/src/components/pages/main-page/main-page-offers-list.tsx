@@ -11,11 +11,10 @@ import { setCurrentOffer } from 'src/store/actions/actions';
 
 function MainPageOffersList() {
   const [searchParams] = useSearchParams();
-  const { currentCity } = useAppSelector((state) => state);
+  const currentCity = useAppSelector((state) => state.currentCity);
   const dispatch = useAppDispatch();
   const [sortedOffers, setSortedOffers] = useState<Offer[]>([]);
-  const parsedSearchParams =
-    parseSearchParams<MainPageSortSearchParamType>(searchParams);
+  const parsedSearchParams = parseSearchParams<MainPageSortSearchParamType>(searchParams);
 
   useEffect(() => {
     if (currentCity && parsedSearchParams.sort) {

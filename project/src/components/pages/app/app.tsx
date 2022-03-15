@@ -1,7 +1,7 @@
-import appRouting from 'src/components/pages/app/app-routing';
+import AppRouting from 'src/components/pages/app/app-routing';
 
 function App() {
-  return appRouting();
+  return <AppRouting />;
 }
 
 export default App;

@@ -8,7 +8,7 @@ import { logout } from 'src/store/actions/api-actions';
 const switchAuthUserComponent = (
   authStatus: AuthorizationStatus,
   cb: () => void,
-  me?: User,
+  me: User,
 ): JSX.Element => {
   switch (authStatus) {
     case AuthorizationStatus.Auth:
@@ -21,7 +21,8 @@ const switchAuthUserComponent = (
 };
 
 function MainPageUserBlock() {
-  const { authorizationStatus, me } = useAppSelector((state) => state);
+  const authorizationStatus = useAppSelector((state) => state.authorizationStatus);
+  const me = useAppSelector((state) => state.me);
   const dispatch = useAppDispatch();
 
   const handleLogoutClick = () => {
@@ -30,7 +31,7 @@ function MainPageUserBlock() {
 
   return (
     <ul className="header__nav-list">
-      {switchAuthUserComponent(authorizationStatus, handleLogoutClick, me)}
+      {me && switchAuthUserComponent(authorizationStatus, handleLogoutClick, me)}
     </ul>
   );
 }

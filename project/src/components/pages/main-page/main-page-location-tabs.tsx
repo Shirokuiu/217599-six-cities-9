@@ -14,10 +14,9 @@ const locationTabs: Tab[] = buildLocationTabs();
 
 function MainPageLocationTabs() {
   const [searchParams, setSearchParams] = useSearchParams({});
-  const { groupedCities } = useAppSelector((state) => state);
+  const groupedCities = useAppSelector((state) => state.groupedCities);
   const dispatch = useAppDispatch();
-  const parsedSearchParams =
-    parseSearchParams<LocationTabSearchParam>(searchParams);
+  const parsedSearchParams = parseSearchParams<LocationTabSearchParam>(searchParams);
 
   useEffect(() => {
     if (!parsedSearchParams.country) {

@@ -3,11 +3,14 @@ import { lazy, Suspense } from 'react';
 
 import MainPage from 'src/components/pages/main-page/main-page';
 import NotFoundPage from 'src/components/pages/not-found-page/not-found-page';
-import LoginPage from 'src/components/pages/login-page/login-page';
-import PrivateRoute from 'src/hocs/private-route/private-route';
+import PrivateAuthRoute from 'src/hocs/private-auth-route/private-auth-route';
 import { AppRoutingPath } from 'src/types/app';
 import { favorites } from 'src/mocks/favorites';
+import PrivateNoAuthRoute from 'src/hocs/private-no-auth-route/private-no-auth-route';
 
+const LoginPage = lazy(
+  () => import('src/components/pages/login-page/login-page'),
+);
 const FavoritesPage = lazy(
   () => import('src/components/pages/favorites-page/favorites-page'),
 );
@@ -26,16 +29,22 @@ function AppRouting() {
         },
         {
           path: AppRoutingPath.Login,
-          element: <LoginPage />,
+          element: (
+            <PrivateNoAuthRoute>
+              <Suspense fallback={<>...</>}>
+                <LoginPage />
+              </Suspense>
+            </PrivateNoAuthRoute>
+          ),
         },
         {
           path: AppRoutingPath.Favorites,
           element: (
-            <PrivateRoute>
+            <PrivateAuthRoute>
               <Suspense fallback={<>...</>}>
                 <FavoritesPage offers={favorites} />
               </Suspense>
-            </PrivateRoute>
+            </PrivateAuthRoute>
           ),
         },
         {

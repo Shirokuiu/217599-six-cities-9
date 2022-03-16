@@ -6,13 +6,16 @@ import { groupOffersByCity } from 'src/helpers/group-offers-by-city';
 import { getCurrentOffer } from 'src/store/helpers/get-current-offer';
 import {
   groupCities,
+  setAuthStatus,
   setCurrentCity,
   setCurrentOffer,
-  setOffers
+  setOffers,
+  setMe
 } from 'src/store/actions/actions';
 
 const initialState: InitialState = {
-  authorizationStatus: AuthorizationStatus.Auth,
+  authorizationStatus: AuthorizationStatus.NoAuth,
+  me: undefined,
   offers: [],
   groupedCities: [],
   currentCity: undefined,
@@ -35,6 +38,12 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setCurrentOffer, (state, { payload: currentOffer }) => {
       state.currentOffer = currentOffer;
+    })
+    .addCase(setAuthStatus, (state, { payload: authorizationStatus }) => {
+      state.authorizationStatus = authorizationStatus;
+    })
+    .addCase(setMe, (state, { payload: user }) => {
+      state.me = user;
     });
 });
 

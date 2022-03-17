@@ -6,9 +6,7 @@ import { AppRoutingPath } from 'src/types/app';
 import { useAppSelector } from 'src/hooks';
 
 function PrivateAuthRoute({ children }: PrivateRouteProps): JSX.Element {
-  const authorizationStatus = useAppSelector(
-    (state) => state.authorizationStatus,
-  );
+  const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
 
   return authorizationStatus === AuthorizationStatus.Auth ? (
     children

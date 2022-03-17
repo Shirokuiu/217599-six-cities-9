@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import App from 'src/components/pages/app/app';
 import { store } from 'src/store';
-import { checkAuth } from 'src/store/actions/api-actions';
+import { checkAuth } from 'src/store/api-actions/user/user';
 
 // NOTE Пока тут, так как надо проверить,
 // почему App перерендеривается несколько раз на каждое изменение маршрута

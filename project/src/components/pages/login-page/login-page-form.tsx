@@ -1,13 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import LoginPageEmailControl from 'src/components/pages/login-page/login-page-email-control';
 import LoginPagePasswordControl from 'src/components/pages/login-page/login-page-password-control';
 import { LoginPageFormKey } from 'src/types/login-page';
 import { buildDefaultForm } from 'src/components/pages/login-page/helpers/build-default-form';
 import { useAppDispatch } from 'src/hooks';
-import { login } from 'src/store/actions/api-actions';
-import { useNavigate } from 'react-router-dom';
 import { AppRoutingPath } from 'src/types/app';
+import { login } from 'src/store/api-actions/user/user';
 
 function LoginPageForm() {
   const navigate = useNavigate();

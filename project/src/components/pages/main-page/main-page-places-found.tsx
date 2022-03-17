@@ -1,7 +1,7 @@
 import { useAppSelector } from 'src/hooks';
 
 function MainPagePlacesFound() {
-  const currentCity = useAppSelector((state) => state.currentCity);
+  const currentCity = useAppSelector((state) => state.MAIN_PAGE.currentCity);
 
   return (
     <b className="places__found">

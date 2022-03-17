@@ -3,7 +3,7 @@ import { AuthorizationStatus } from 'src/types/auth';
 import UserLoggedIn from 'src/components/shared/user-logged-in/user-logged-in';
 import UserLoggedOut from 'src/components/shared/user-logged-out/user-logged-out';
 import { User } from 'src/types/user';
-import { logout } from 'src/store/actions/api-actions';
+import { logout } from 'src/store/api-actions/user/user';
 
 const switchAuthUserComponent = (
   authStatus: AuthorizationStatus,
@@ -21,8 +21,8 @@ const switchAuthUserComponent = (
 };
 
 function MainPageUserBlock() {
-  const authorizationStatus = useAppSelector((state) => state.authorizationStatus);
-  const me = useAppSelector((state) => state.me);
+  const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
+  const me = useAppSelector((state) => state.USER.me);
   const dispatch = useAppDispatch();
 
   const handleLogoutClick = () => {

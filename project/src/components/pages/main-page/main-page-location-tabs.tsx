@@ -13,6 +13,7 @@ import { LocationTabSearchParam } from 'src/types/main-page';
 const locationTabs: Tab[] = buildLocationTabs();
 
 function MainPageLocationTabs() {
+  // NOTE Уточнить, как оптимизировать searchParams, который перерендеривает компонент на любое изменение строки, даже из другого компонента
   const [searchParams, setSearchParams] = useSearchParams({});
   const groupedCities = useAppSelector((state) => state.groupedCities);
   const dispatch = useAppDispatch();

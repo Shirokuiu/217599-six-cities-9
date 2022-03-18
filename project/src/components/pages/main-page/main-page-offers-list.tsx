@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from 'src/hooks';
 import { parseSearchParams } from 'src/helpers/parse-search-params';
 import { MainPageSortSearchParamType } from 'src/types/main-page';
 import { sortOffers } from 'src/components/pages/main-page/helpers/sort-offers';
-import { setCurrentOffer } from 'src/store/main-page-process/main-page-process';
+import { toggleHoverOffer } from 'src/store/main-page-process/main-page-process';
 
 function MainPageOffersList() {
   const [searchParams] = useSearchParams();
@@ -28,11 +28,11 @@ function MainPageOffersList() {
   }, [currentCity, searchParams]);
 
   const handleImgMouseEnter = (offer: Offer) => {
-    dispatch(setCurrentOffer(offer));
+    dispatch(toggleHoverOffer(offer));
   };
 
   const handleImgMouseLeave = () => {
-    dispatch(setCurrentOffer(undefined));
+    dispatch(toggleHoverOffer(undefined));
   };
 
   return (

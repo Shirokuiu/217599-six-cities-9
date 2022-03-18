@@ -1,7 +1,7 @@
 export enum ActionType {
   GroupCities = 'groupCities',
   SetCurrentCity = 'setCurrentCity',
-  SetCurrentOffer = 'setCurrentOffer',
+  ToggleHoverOffer = 'toggleHoverOffer',
   SetOffers = 'setOffers',
   GetOffers = 'getOffers',
 }

@@ -8,7 +8,7 @@ import { setActiveMapLPoint } from 'src/components/pages/main-page/helpers/set-a
 
 function MainPageMap() {
   const currentCity = useAppSelector((state) => state.MAIN_PAGE.currentCity);
-  const currentOffer = useAppSelector((state) => state.MAIN_PAGE.currentOffer);
+  const currentHoveredOffer = useAppSelector((state) => state.MAIN_PAGE.currentHoveredOffer);
   const [points, setPoints] = useState<MapLPoint[]>([]);
 
   useEffect(() => {
@@ -18,8 +18,10 @@ function MainPageMap() {
   }, [currentCity]);
 
   useEffect(() => {
-    setPoints(setActiveMapLPoint({ points, activeOffer: currentOffer }));
-  }, [currentOffer]);
+    if (currentHoveredOffer !== 'unknown') {
+      setPoints(setActiveMapLPoint({ points, activeOffer: currentHoveredOffer }));
+    }
+  }, [currentHoveredOffer]);
 
   return <div className="cities__right-section">{points.length && <MapL points={points} />}</div>;
 }

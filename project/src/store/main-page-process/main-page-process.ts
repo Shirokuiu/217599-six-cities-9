@@ -3,14 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ActionType } from 'src/store/main-page-process/action-type';
 import { groupOffersByCity } from 'src/helpers/group-offers-by-city';
 import { getCurrentOffer } from 'src/store/helpers/get-current-offer';
-import { InitialState } from 'src/types/main-page-process';
+import { HoveredOfferState, InitialState } from 'src/types/main-page-process';
 import { NameSpace } from 'src/store/constants/constants';
 
 const initialState: InitialState = {
   offers: [],
   groupedCities: [],
   currentCity: undefined,
-  currentOffer: undefined,
+  currentHoveredOffer: 'unknown',
 };
 
 export const mainPageProcess = createSlice({
@@ -29,10 +29,13 @@ export const mainPageProcess = createSlice({
         groupedCities: state.groupedCities,
       });
     },
-    [ActionType.SetCurrentOffer](state, { payload: currentOffer }) {
-      state.currentOffer = currentOffer;
+    [ActionType.ToggleHoverOffer](
+      state,
+      { payload: currentOffer }: { payload: HoveredOfferState },
+    ) {
+      state.currentHoveredOffer = currentOffer;
     },
   },
 });
 
-export const { setOffers, groupCities, setCurrentCity, setCurrentOffer } = mainPageProcess.actions;
+export const { setOffers, groupCities, setCurrentCity, toggleHoverOffer } = mainPageProcess.actions;

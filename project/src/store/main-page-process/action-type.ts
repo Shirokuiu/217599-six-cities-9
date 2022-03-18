@@ -3,4 +3,5 @@ export enum ActionType {
   SetCurrentCity = 'setCurrentCity',
   SetCurrentOffer = 'setCurrentOffer',
   SetOffers = 'setOffers',
+  GetOffers = 'getOffers',
 }

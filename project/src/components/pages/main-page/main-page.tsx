@@ -7,7 +7,7 @@ import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-
 import MainPagePlacesFound from 'src/components/pages/main-page/main-page-places-found';
 import MainPageMap from 'src/components/pages/main-page/main-page-map';
 import MainPageHeader from 'src/components/pages/main-page/main-page-header';
-import { getOffers } from 'src/store/api-actions/offers/offers';
+import { getOffers } from 'src/store/main-page-process/api-actions';
 import { groupCities } from 'src/store/main-page-process/main-page-process';
 
 function MainPage() {

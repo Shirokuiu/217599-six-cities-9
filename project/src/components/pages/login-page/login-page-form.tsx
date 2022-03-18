@@ -7,7 +7,7 @@ import { LoginPageFormKey } from 'src/types/login-page';
 import { buildDefaultForm } from 'src/components/pages/login-page/helpers/build-default-form';
 import { useAppDispatch } from 'src/hooks';
 import { AppRoutingPath } from 'src/types/app';
-import { login } from 'src/store/api-actions/user/user';
+import { login } from 'src/store/user-process/api-actions';
 
 function LoginPageForm() {
   const navigate = useNavigate();

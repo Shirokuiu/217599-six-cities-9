@@ -3,7 +3,7 @@ import { AuthorizationStatus } from 'src/types/auth';
 import UserLoggedIn from 'src/components/shared/user-logged-in/user-logged-in';
 import UserLoggedOut from 'src/components/shared/user-logged-out/user-logged-out';
 import { User } from 'src/types/user';
-import { logout } from 'src/store/api-actions/user/user';
+import { logout } from 'src/store/user-process/api-actions';
 
 const switchAuthUserComponent = (
   authStatus: AuthorizationStatus,

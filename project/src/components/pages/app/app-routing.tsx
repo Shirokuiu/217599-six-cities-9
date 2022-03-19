@@ -1,4 +1,4 @@
-import { RouteObject, useRoutes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 import MainPage from 'src/components/pages/main-page/main-page';
@@ -8,62 +8,47 @@ import { AppRoutingPath } from 'src/types/app';
 import { favorites } from 'src/mocks/favorites';
 import PrivateNoAuthRoute from 'src/hocs/private-no-auth-route/private-no-auth-route';
 
-const LoginPage = lazy(
-  () => import('src/components/pages/login-page/login-page'),
-);
-const FavoritesPage = lazy(
-  () => import('src/components/pages/favorites-page/favorites-page'),
-);
-const OfferPage = lazy(
-  () => import('src/components/pages/offer-page/offer-page'),
-);
+const LoginPage = lazy(() => import('src/components/pages/login-page/login-page'));
+const FavoritesPage = lazy(() => import('src/components/pages/favorites-page/favorites-page'));
+const OfferPage = lazy(() => import('src/components/pages/offer-page/offer-page'));
 
 function AppRouting() {
-  const routes: RouteObject[] = [
-    {
-      path: AppRoutingPath.Index,
-      children: [
-        {
-          index: true,
-          element: <MainPage />,
-        },
-        {
-          path: AppRoutingPath.Login,
-          element: (
+  return (
+    <Routes>
+      <Route path={AppRoutingPath.Index}>
+        <Route index element={<MainPage />} />
+        <Route
+          path={AppRoutingPath.Login}
+          element={
             <PrivateNoAuthRoute>
               <Suspense fallback={<>...</>}>
                 <LoginPage />
               </Suspense>
             </PrivateNoAuthRoute>
-          ),
-        },
-        {
-          path: AppRoutingPath.Favorites,
-          element: (
+          }
+        />
+        <Route
+          path={AppRoutingPath.Favorites}
+          element={
             <PrivateAuthRoute>
               <Suspense fallback={<>...</>}>
                 <FavoritesPage offers={favorites} />
               </Suspense>
             </PrivateAuthRoute>
-          ),
-        },
-        {
-          path: `${AppRoutingPath.OfferPage}/:id`,
-          element: (
+          }
+        />
+        <Route
+          path={`${AppRoutingPath.OfferPage}/:id`}
+          element={
             <Suspense fallback={<>...</>}>
               <OfferPage />
             </Suspense>
-          ),
-        },
-        {
-          path: AppRoutingPath.NotFound,
-          element: <NotFoundPage />,
-        },
-      ],
-    },
-  ];
-
-  return useRoutes(routes);
+          }
+        />
+        <Route path={AppRoutingPath.NotFound} element={<NotFoundPage />} />
+      </Route>
+    </Routes>
+  );
 }
 
 export default AppRouting;

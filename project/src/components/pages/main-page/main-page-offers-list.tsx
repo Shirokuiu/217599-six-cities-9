@@ -7,15 +7,14 @@ import { useAppDispatch, useAppSelector } from 'src/hooks';
 import { parseSearchParams } from 'src/helpers/parse-search-params';
 import { MainPageSortSearchParamType } from 'src/types/main-page';
 import { sortOffers } from 'src/components/pages/main-page/helpers/sort-offers';
-import { setCurrentOffer } from 'src/store/actions/actions';
+import { setCurrentOffer } from 'src/store/main-page-process/main-page-process';
 
 function MainPageOffersList() {
   const [searchParams] = useSearchParams();
-  const { currentCity } = useAppSelector((state) => state);
+  const currentCity = useAppSelector((state) => state.MAIN_PAGE.currentCity);
   const dispatch = useAppDispatch();
   const [sortedOffers, setSortedOffers] = useState<Offer[]>([]);
-  const parsedSearchParams =
-    parseSearchParams<MainPageSortSearchParamType>(searchParams);
+  const parsedSearchParams = parseSearchParams<MainPageSortSearchParamType>(searchParams);
 
   useEffect(() => {
     if (currentCity && parsedSearchParams.sort) {

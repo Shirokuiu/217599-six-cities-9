@@ -2,20 +2,20 @@ import { useEffect } from 'react';
 
 import MainPageLocationTabs from 'src/components/pages/main-page/main-page-location-tabs';
 import { useAppDispatch } from 'src/hooks';
-import { groupCities } from 'src/store/actions/actions';
 import MainPageSortOffers from 'src/components/pages/main-page/main-page-sort-offers';
 import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
 import MainPagePlacesFound from 'src/components/pages/main-page/main-page-places-found';
 import MainPageMap from 'src/components/pages/main-page/main-page-map';
-import { fetchOffers } from 'src/store/actions/api-actions';
 import MainPageHeader from 'src/components/pages/main-page/main-page-header';
+import { getOffers } from 'src/store/api-actions/offers/offers';
+import { groupCities } from 'src/store/main-page-process/main-page-process';
 
 function MainPage() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     (async () => {
-      await dispatch(fetchOffers());
+      await dispatch(getOffers());
       dispatch(groupCities());
     })();
   }, []);

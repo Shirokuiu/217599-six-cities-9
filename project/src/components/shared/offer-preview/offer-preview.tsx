@@ -11,6 +11,7 @@ function OfferPreview({
   offer,
   onImgMouseEnter = () => undefined,
   onImgMouseLeave = () => undefined,
+  onToggleBookmark = () => undefined,
 }: OfferPreviewProps) {
   const { isPremium, previewImage, title, id } = offer;
 
@@ -41,9 +42,8 @@ function OfferPreview({
       <div className="place-card__info">
         <PreviewDescriptionWrapper
           offer={offer}
-          renderTitle={() => (
-            <Link to={`${AppRoutingPath.OfferPage}/${id}`}>{title}</Link>
-          )}
+          renderTitle={() => <Link to={`${AppRoutingPath.OfferPage}/${id}`}>{title}</Link>}
+          onToggleBookmark={onToggleBookmark}
         />
       </div>
     </article>

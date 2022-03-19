@@ -13,3 +13,7 @@ export type InitialState = {
 };
 
 export type HoveredOfferState = HoveredOfferUnknown | HoveredOffer | NoHoveredOffer;
+export type ToggleFavoriteProps = {
+  groupedCityId: number;
+  offerId: number;
+};

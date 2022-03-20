@@ -15,10 +15,7 @@ const locationTabs: Tab[] = buildLocationTabs();
 function MainPageLocationTabs() {
   // NOTE Уточнить, как оптимизировать searchParams, который перерендеривает компонент на любое изменение строки, даже из другого компонента
   const [searchParams, setSearchParams] = useSearchParams({});
-  const groupedCities = useAppSelector(
-    (state) => state.MAIN_PAGE.groupedCities,
-    (prev, next) => prev !== next,
-  );
+  const groupedCities = useAppSelector((state) => state.MAIN_PAGE.groupedCities);
   const dispatch = useAppDispatch();
   const parsedSearchParams = parseSearchParams<LocationTabSearchParam>(searchParams);
 

@@ -28,15 +28,16 @@ function MainPageLocationTabs() {
       });
     }
 
-    // NOTE Из-за того, что groupedCity изменяется срабатывает setCurrentCity
+    // NOTE Из-за того, что groupedCity изменяется при
+    // Добавлении/удланеии из избранного, срабатывает setCurrentCity
     // который в свою очередь переписывает массив currentCity
     // и за-за этого перерендеривается весь список предложений
-    // при нажатии на - Добавить в избранное/убрать
     // в компоненте main-page-offers-list.
     // Чтобы этого избежать, завел системную переменную - prevCityName
     // которая позволит перерендеривать currentCity
     // только в том случае, когда это действительно нужно,
     // когда изменяется активная вкладка города
+
     if (
       prevCityName !== parsedSearchParams.country &&
       parsedSearchParams.country &&

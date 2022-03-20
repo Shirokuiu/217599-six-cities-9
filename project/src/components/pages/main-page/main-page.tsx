@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import MainPageLocationTabs from 'src/components/pages/main-page/main-page-location-tabs';
+import MainPageLocationTabsWrap from 'src/components/pages/main-page/main-page-location-tabs-wrap';
 import { useAppDispatch } from 'src/hooks';
 import MainPageHeader from 'src/components/pages/main-page/main-page-header';
 import { getOffers } from 'src/store/main-page-process/api-actions';
@@ -22,7 +22,7 @@ function MainPage() {
       <MainPageHeader />
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
-        <MainPageLocationTabs />
+        <MainPageLocationTabsWrap />
         <MainPageOffersContainer />
       </main>
     </div>

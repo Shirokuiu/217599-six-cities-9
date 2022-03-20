@@ -1,4 +1,5 @@
 import { Offer, OfferCity } from 'src/types/offer';
+import { Tab } from 'src/types/tabs';
 
 export type GroupedCity = {
   id: number;
@@ -19,6 +20,11 @@ export enum MainPageSortOfferType {
 
 export type LocationTabSearchParam = {
   country: LocationTabName;
+};
+
+export type MainPageLocationTabsProps = {
+  locationTabs: Tab[];
+  currentCountry: string;
 };
 
 export enum LocationTabName {

@@ -1,5 +1,5 @@
 import MainPagePlacesFound from 'src/components/pages/main-page/main-page-places-found';
-import MainPageSortOffers from 'src/components/pages/main-page/main-page-sort-offers';
+import MainPageSortOffersWrap from 'src/components/pages/main-page/main-page-sort-offers-wrap';
 import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
 import MainPageMap from 'src/components/pages/main-page/main-page-map';
 
@@ -10,7 +10,7 @@ export function MainPageOffers() {
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
           <MainPagePlacesFound />
-          <MainPageSortOffers />
+          <MainPageSortOffersWrap />
           <MainPageOffersList />
         </section>
         <MainPageMap />

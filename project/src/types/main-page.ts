@@ -1,5 +1,6 @@
 import { Offer, OfferCity } from 'src/types/offer';
 import { Tab } from 'src/types/tabs';
+import { DropdownItem } from 'src/types/dropdown';
 
 export type GroupedCity = {
   id: number;
@@ -25,6 +26,11 @@ export type LocationTabSearchParam = {
 export type MainPageLocationTabsProps = {
   locationTabs: Tab[];
   currentCountry: string;
+};
+
+export type MainPageSortOffersProps = {
+  dropdownItems: DropdownItem[];
+  onDropdownItemClick?: (dropdownItem: DropdownItem) => void;
 };
 
 export enum LocationTabName {

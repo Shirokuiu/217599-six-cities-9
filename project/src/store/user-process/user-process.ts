@@ -5,9 +5,11 @@ import { AuthorizationStatus } from 'src/types/auth';
 import { NameSpace } from 'src/store/constants/constants';
 import { ActionType } from 'src/store/user-process/action-type';
 import { User } from 'src/types/user';
+import { AppRoutingPath } from 'src/types/app';
 
 const initialState: InitialState = {
-  authorizationStatus: AuthorizationStatus.NoAuth,
+  authorizationStatus: AuthorizationStatus.Unknown,
+  redirectingRoute: AppRoutingPath.Index,
   me: undefined,
 };
 

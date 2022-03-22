@@ -5,14 +5,19 @@ import { AppRoutingPath } from 'src/types/app';
 
 export const switchAuthComponent = (
   authStatus: AuthorizationStatus,
-  childern: JSX.Element,
+  locationPathName: string,
+  children: JSX.Element,
 ): JSX.Element => {
+  const state = {
+    from: locationPathName,
+  };
+
   switch (authStatus) {
     case AuthorizationStatus.Unknown:
       return <div>Loading...</div>;
     case AuthorizationStatus.Auth:
-      return childern;
+      return children;
     default:
-      return <Navigate to={AppRoutingPath.Login} />;
+      return <Navigate to={AppRoutingPath.Login} state={state} />;
   }
 };

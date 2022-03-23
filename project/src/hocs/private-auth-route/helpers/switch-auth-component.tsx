@@ -2,6 +2,7 @@ import { Navigate } from 'react-router-dom';
 
 import { AuthorizationStatus } from 'src/types/auth';
 import { AppRoutingPath } from 'src/types/app';
+import Loader from 'src/components/shared/loader/loader';
 
 export const switchAuthComponent = (
   authStatus: AuthorizationStatus,
@@ -14,7 +15,7 @@ export const switchAuthComponent = (
 
   switch (authStatus) {
     case AuthorizationStatus.Unknown:
-      return <div>Loading...</div>;
+      return <Loader />;
     case AuthorizationStatus.Auth:
       return children;
     default:

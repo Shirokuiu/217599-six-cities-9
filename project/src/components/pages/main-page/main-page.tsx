@@ -4,7 +4,7 @@ import MainPageLocationTabsWrap from 'src/components/pages/main-page/main-page-l
 import { useAppDispatch } from 'src/hooks';
 import MainPageHeader from 'src/components/pages/main-page/main-page-header';
 import { getOffers } from 'src/store/main-page-process/api-actions';
-import { groupCities } from 'src/store/main-page-process/main-page-process';
+import { groupCitiesAction } from 'src/store/main-page-process/main-page-process';
 import MainPageOffersContainer from 'src/components/pages/main-page/main-page-offers-container';
 
 function MainPage() {
@@ -13,7 +13,7 @@ function MainPage() {
   useEffect(() => {
     (async () => {
       await dispatch(getOffers());
-      dispatch(groupCities());
+      dispatch(groupCitiesAction());
     })();
   }, []);
 

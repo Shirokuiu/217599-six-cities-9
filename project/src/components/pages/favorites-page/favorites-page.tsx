@@ -1,11 +1,14 @@
+import { Link } from 'react-router-dom';
+
 import FavoritesPageList from 'src/components/pages/favorites-page/favorites-page-list';
 import { FavoritesPageProps } from 'src/types/favorites-page';
 import { GroupedCity } from 'src/types/main-page';
-import { groupOffersByCity } from 'src/helpers/group-offers-by-city';
+import { groupCities } from 'src/helpers/group-cities';
 import FavoritesPageHeader from 'src/components/pages/favorites-page/favorites-page-header';
+import { AppRoutingPath } from 'src/types/app';
 
 function FavoritesPage({ offers }: FavoritesPageProps) {
-  const groupedOffers: GroupedCity[] = groupOffersByCity(offers);
+  const groupedOffers: GroupedCity[] = groupCities(offers);
 
   return (
     <div className="page">
@@ -19,7 +22,7 @@ function FavoritesPage({ offers }: FavoritesPageProps) {
         </div>
       </main>
       <footer className="footer container">
-        <a className="footer__logo-link" href="main.html">
+        <Link to={AppRoutingPath.Index} className="footer__logo-link">
           <img
             className="footer__logo"
             src="img/logo.svg"
@@ -27,7 +30,7 @@ function FavoritesPage({ offers }: FavoritesPageProps) {
             width={64}
             height={33}
           />
-        </a>
+        </Link>
       </footer>
     </div>
   );

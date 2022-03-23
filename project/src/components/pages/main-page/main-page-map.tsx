@@ -13,15 +13,15 @@ function MainPageMap() {
 
   useEffect(() => {
     if (currentCity) {
-      setPoints(buildMapLPoints(currentCity.offers));
-    }
-  }, [currentCity]);
+      const newPoints = buildMapLPoints(currentCity.offers);
 
-  useEffect(() => {
-    if (currentHoveredOffer !== 'unknown') {
-      setPoints(setActiveMapLPoint({ points, activeOffer: currentHoveredOffer }));
+      setPoints(newPoints);
+
+      if (currentHoveredOffer && currentHoveredOffer !== 'unknown') {
+        setPoints(setActiveMapLPoint({ points, activeOffer: currentHoveredOffer }));
+      }
     }
-  }, [currentHoveredOffer]);
+  }, [currentCity, currentHoveredOffer]);
 
   return <div className="cities__right-section">{points.length && <MapL points={points} />}</div>;
 }

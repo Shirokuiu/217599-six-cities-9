@@ -6,18 +6,11 @@ import UserLoggedOut from 'src/components/shared/user-logged-out/user-logged-out
 export const switchUserComponent = (
   authStatus: AuthorizationStatus,
   onLogoutClick: () => void,
-  onFavoriteNavigate: () => void,
   me?: User,
 ): JSX.Element => {
   switch (authStatus) {
     case AuthorizationStatus.Auth:
-      return (
-        <UserLoggedIn
-          user={me}
-          onLogoutClick={onLogoutClick}
-          onFavoriteNavigate={onFavoriteNavigate}
-        />
-      );
+      return <UserLoggedIn user={me} onLogoutClick={onLogoutClick} />;
     case AuthorizationStatus.NoAuth:
       return <UserLoggedOut />;
     default:

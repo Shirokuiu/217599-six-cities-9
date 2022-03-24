@@ -4,7 +4,7 @@ import { store } from 'src/store/index';
 import {
   markFavoriteOffer,
   setOffers,
-  unmarkFavoriteOffer,
+  unmarkFavoriteOffer
 } from 'src/store/main-page-process/main-page-process';
 import HotelsService from 'src/services/hotels-service/hotels-service';
 import { ActionType } from 'src/store/main-page-process/action-type';

@@ -3,4 +3,5 @@ export enum ActionType {
   FetchFavorites = 'fetchFavorites',
   ApiUnmark = 'apiUnmark',
   Unmark = 'unmark',
+  ClearState = 'clearState',
 }

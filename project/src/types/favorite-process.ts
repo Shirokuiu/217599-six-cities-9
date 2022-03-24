@@ -1,7 +1,10 @@
 import { GroupedCity } from 'src/types/main-page';
 
 export type InitialState = {
-  favorites: FavoritesState.Unknown | GroupedCity[];
+  favorite: {
+    favoriteState: FavoritesState;
+    items: GroupedCity[];
+  };
 };
 
 export enum FavoritesState {

@@ -1,15 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { InitialState, UnmarkPayload } from 'src/types/favorite-process';
-import { FavoritesState } from 'src/types/favorite-process';
+import { FavoritesState, InitialState, UnmarkPayload } from 'src/types/favorite-process';
 import { NameSpace } from 'src/store/constants/constants';
 import { ActionType } from 'src/store/favorite-page-process/action-type';
 import { Favorite } from 'src/types/favorite';
 import { groupCities } from 'src/helpers/group-cities';
-import { GroupedCity } from 'src/types/main-page';
+import { getFavoriteState } from 'src/store/favorite-page-process/helpers/get-favorite-state';
+import { unmarkFavorite } from 'src/store/favorite-page-process/helpers/unmark-city-favorite';
 
 const initialState: InitialState = {
-  favorites: FavoritesState.Unknown,
+  favorite: {
+    favoriteState: FavoritesState.Unknown,
+    items: [],
+  },
 };
 
 export const favoriteProcess = createSlice({
@@ -17,20 +20,18 @@ export const favoriteProcess = createSlice({
   initialState,
   reducers: {
     [ActionType.SetFavorites](state, { payload: favorites }: { payload: Favorite[] }) {
-      state.favorites = groupCities(favorites);
+      state.favorite.items = groupCities(favorites);
+      state.favorite.favoriteState = getFavoriteState(state.favorite.items);
     },
     [ActionType.Unmark](state, { payload: { id, offerId } }: { payload: UnmarkPayload }) {
-      const idxGroupedCity = (state.favorites as GroupedCity[]).findIndex(
-        (groupedCity) => groupedCity.id === id,
-      );
-
-      (state.favorites[idxGroupedCity] as GroupedCity).offers = (
-        state.favorites[idxGroupedCity] as GroupedCity
-      ).offers.filter((offer) => offer.id !== offerId);
-
-      (state.favorites as GroupedCity[]) = (state.favorites as GroupedCity[]).filter(
-        ({ offers }) => offers.length !== 0,
-      );
+      state.favorite.items = unmarkFavorite(state.favorite.items, id, offerId);
+      state.favorite.favoriteState = getFavoriteState(state.favorite.items);
+    },
+    [ActionType.ClearState](state) {
+      state.favorite = {
+        favoriteState: FavoritesState.Unknown,
+        items: [],
+      };
     },
   },
 });

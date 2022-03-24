@@ -11,3 +11,8 @@ export enum FavoritesState {
   Empty = 'empty',
   Filled = 'filled',
 }
+
+export type UnmarkPayload = {
+  id: number;
+  offerId: number;
+};

@@ -3,7 +3,7 @@ import FavoritePageList from 'src/components/pages/favorites-page/favorite-page-
 import { GroupedCity } from 'src/types/main-page';
 
 function FavoritesPageListContainer() {
-  const favorites = useAppSelector((state) => state.USER.favorites);
+  const favorites = useAppSelector((state) => state.FAVORITE_PAGE.favorites);
 
   return <FavoritePageList favorites={favorites as GroupedCity[]} />;
 }

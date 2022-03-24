@@ -4,7 +4,7 @@ import { store } from 'src/store/index';
 import { AuthorizationStatus } from 'src/types/auth';
 import { LoginPageFormBody } from 'src/types/login-page';
 import Token from 'src/services/token';
-import { setAuthStatus, setFavorites, setMe } from 'src/store/user-process/user-process';
+import { setAuthStatus, setMe } from 'src/store/user-process/user-process';
 import UserService from 'src/services/user-service/user-service';
 import { ActionType } from 'src/store/user-process/action-type';
 
@@ -27,10 +27,4 @@ export const logout = createAsyncThunk(ActionType.Logout, async () => {
   Token.remove();
   store.dispatch(setAuthStatus(AuthorizationStatus.NoAuth));
   store.dispatch(setMe(undefined));
-});
-
-export const fetchFavorites = createAsyncThunk(ActionType.FetchFavorites, async () => {
-  const data = await UserService.getFavorites();
-
-  store.dispatch(setFavorites(data));
 });

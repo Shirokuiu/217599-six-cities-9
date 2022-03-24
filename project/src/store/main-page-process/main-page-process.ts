@@ -20,6 +20,13 @@ export const mainPageProcess = createSlice({
   name: NameSpace.MainPage,
   initialState,
   reducers: {
+    [ActionType.ClearStore](state) {
+      // NOTE Хз как по другому почистить стор
+      // state = initialState или функцию передавать ничего не происходит
+      state.offers = [];
+      state.groupedCities = [];
+      state.currentCity = undefined;
+    },
     [ActionType.SetOffers](state, { payload: offers }: { payload: Offer[] }) {
       state.offers = offers;
     },
@@ -74,4 +81,5 @@ export const {
   toggleHoverOffer,
   markFavoriteOffer,
   unmarkFavoriteOffer,
+  clearStore,
 } = mainPageProcess.actions;

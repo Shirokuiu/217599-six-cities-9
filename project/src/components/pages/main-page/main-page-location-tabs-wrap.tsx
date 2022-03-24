@@ -11,7 +11,6 @@ import { setCurrentCity } from 'src/store/main-page-process/main-page-process';
 import MainPageLocationTabs from 'src/components/pages/main-page/main-page-location-tabs';
 
 const locationTabs: Tab[] = buildLocationTabs();
-let prevCityName = 'unknown';
 
 function MainPageLocationTabsWrap() {
   // NOTE Уточнить, как оптимизировать searchParams, который перерендеривает компонент на любое изменение строки, даже из другого компонента
@@ -28,22 +27,8 @@ function MainPageLocationTabsWrap() {
       });
     }
 
-    // NOTE Из-за того, что groupedCity изменяется при
-    // Добавлении/удланеии из избранного, срабатывает setCurrentCity
-    // который в свою очередь переписывает массив currentCity
-    // и за-за этого перерендеривается весь список предложений
-    // в компоненте main-page-offers-list.
-    // Чтобы этого избежать, завел системную переменную - prevCityName
-    // которая позволит перерендеривать currentCity
-    // только в том случае, когда это действительно нужно,
-    // когда изменяется активная вкладка города
-    if (
-      prevCityName !== parsedSearchParams.country &&
-      parsedSearchParams.country &&
-      groupedCities.length
-    ) {
+    if (parsedSearchParams.country && groupedCities.length) {
       dispatch(setCurrentCity(parsedSearchParams.country));
-      prevCityName = parsedSearchParams.country;
     }
   }, [searchParams.get('country'), groupedCities]);
 

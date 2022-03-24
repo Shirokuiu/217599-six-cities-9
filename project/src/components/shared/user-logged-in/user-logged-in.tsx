@@ -3,11 +3,19 @@ import { Link } from 'react-router-dom';
 import { AppRoutingPath } from 'src/types/app';
 import { UserLoggedInProps } from 'src/types/user-logged-in';
 
-function UserLoggedIn({ user, onLogoutClick = () => undefined }: UserLoggedInProps) {
+function UserLoggedIn({
+  user,
+  onLogoutClick = () => undefined,
+  onFavoriteNavigate = () => undefined,
+}: UserLoggedInProps) {
   return (
     <>
       <li className="header__nav-item user">
-        <Link className="header__nav-link header__nav-link--profile" to={AppRoutingPath.Favorites}>
+        <Link
+          to={AppRoutingPath.Favorites}
+          onClick={onFavoriteNavigate}
+          className="header__nav-link header__nav-link--profile"
+        >
           <div className="header__avatar-wrapper user__avatar-wrapper" />
           <span className="header__user-name user__name">{user?.email}</span>
         </Link>

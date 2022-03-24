@@ -5,4 +5,5 @@ export type UserBlockProps = {
   authorizationStatus: AuthorizationStatus;
   me?: User;
   onLogoutClick?: () => void;
+  onFavoriteNavigate?: () => void;
 };

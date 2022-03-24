@@ -7,7 +7,7 @@ import PreviewDescriptionWrapper from 'src/components/shared/preview-description
 import { WrapperClass } from 'src/types/preview-image-wrapper';
 import { AppRoutingPath } from 'src/types/app';
 
-function FavoritePreview({ favorite }: FavoritePreviewProps) {
+function FavoritePreview({ favorite, renderBookmark = () => undefined }: FavoritePreviewProps) {
   const { isPremium, previewImage, title, id } = favorite;
 
   return (
@@ -25,6 +25,7 @@ function FavoritePreview({ favorite }: FavoritePreviewProps) {
         <PreviewDescriptionWrapper
           offer={favorite}
           renderTitle={() => <Link to={`${AppRoutingPath.OfferPage}/${id}`}>{title}</Link>}
+          renderBookMark={renderBookmark}
         />
       </div>
     </article>

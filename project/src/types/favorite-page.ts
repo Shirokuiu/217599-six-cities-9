@@ -7,4 +7,5 @@ export type FavoritePageListProps = {
 
 export type FavoritePreviewProps = {
   favorite: Offer;
+  renderBookmark?: () => JSX.Element | undefined;
 };

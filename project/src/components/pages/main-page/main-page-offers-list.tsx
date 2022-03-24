@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { Offer } from 'src/types/offer';
@@ -14,6 +14,7 @@ import {
   apiRemoveFavoriteOffer,
   apiSetFavoriteOffer,
 } from 'src/store/main-page-process/api-actions';
+import Bookmark from 'src/components/shared/bookmark/bookmark';
 
 function MainPageOffersList() {
   const [searchParams] = useSearchParams();
@@ -65,7 +66,12 @@ function MainPageOffersList() {
           offer={offer}
           onImgMouseEnter={handleImgMouseEnter}
           onImgMouseLeave={handleImgMouseLeave}
-          onToggleBookmark={(isActive) => handleToggleBookmark(isActive, offer.id)}
+          renderBookmark={() => (
+            <Bookmark
+              isActive={offer.isFavorite}
+              onToggleActive={(isActive) => handleToggleBookmark(isActive, offer.id)}
+            />
+          )}
         />
       ))}
     </div>

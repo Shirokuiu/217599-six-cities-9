@@ -9,9 +9,9 @@ import { AppRoutingPath } from 'src/types/app';
 
 function OfferPreview({
   offer,
+  renderBookmark = () => undefined,
   onImgMouseEnter = () => undefined,
   onImgMouseLeave = () => undefined,
-  onToggleBookmark = () => undefined,
 }: OfferPreviewProps) {
   const { isPremium, previewImage, title, id } = offer;
 
@@ -43,7 +43,7 @@ function OfferPreview({
         <PreviewDescriptionWrapper
           offer={offer}
           renderTitle={() => <Link to={`${AppRoutingPath.OfferPage}/${id}`}>{title}</Link>}
-          onToggleBookmark={onToggleBookmark}
+          renderBookMark={renderBookmark}
         />
       </div>
     </article>

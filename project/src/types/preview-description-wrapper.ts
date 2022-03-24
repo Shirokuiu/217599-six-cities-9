@@ -3,5 +3,5 @@ import { Offer } from 'src/types/offer';
 export type PreviewDescriptionWrapperProps = {
   offer: Offer;
   renderTitle?: () => JSX.Element | undefined;
-  onToggleBookmark?: (isActive: boolean) => void;
+  renderBookMark?: () => JSX.Element | undefined;
 };

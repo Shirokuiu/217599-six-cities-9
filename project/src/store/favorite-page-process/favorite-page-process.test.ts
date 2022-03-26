@@ -2,7 +2,7 @@ import { favorites } from 'src/mocks/favorites';
 import { FavoritesState } from 'src/types/favorite-process';
 import {
   clearState,
-  favoriteProcess,
+  favoritePageProcess,
   setFavorites,
   unmark,
 } from 'src/store/favorite-page-process/favorite-page-process';
@@ -22,7 +22,7 @@ describe('Проверка favoritePageProcess', () => {
       const state = initialState();
       const groupedFavorites = groupCities(favorites);
 
-      expect(favoriteProcess.reducer(state, setFavorites(favorites))).toStrictEqual({
+      expect(favoritePageProcess.reducer(state, setFavorites(favorites))).toStrictEqual({
         favorite: {
           favoriteState: FavoritesState.Filled,
           items: groupedFavorites,
@@ -33,7 +33,7 @@ describe('Проверка favoritePageProcess', () => {
     it('При передаче пустого массива, добавляет этот массив в items и ставит статус - empty', () => {
       const state = initialState();
 
-      expect(favoriteProcess.reducer(state, setFavorites([]))).toStrictEqual({
+      expect(favoritePageProcess.reducer(state, setFavorites([]))).toStrictEqual({
         favorite: {
           favoriteState: FavoritesState.Empty,
           items: groupCities([]),
@@ -53,7 +53,7 @@ describe('Проверка favoritePageProcess', () => {
       const groupedFavorites = groupCities(favorites);
       const favoritesAfterUnmark = unmarkFavorite(groupedFavorites, 1, 6);
 
-      expect(favoriteProcess.reducer(state, unmark({ id: 1, offerId: 6 }))).toStrictEqual({
+      expect(favoritePageProcess.reducer(state, unmark({ id: 1, offerId: 6 }))).toStrictEqual({
         favorite: {
           favoriteState: FavoritesState.Filled,
           items: favoritesAfterUnmark,
@@ -71,7 +71,7 @@ describe('Проверка favoritePageProcess', () => {
         },
       };
 
-      expect(favoriteProcess.reducer(state, clearState())).toEqual(initialState());
+      expect(favoritePageProcess.reducer(state, clearState())).toEqual(initialState());
     });
   });
 });

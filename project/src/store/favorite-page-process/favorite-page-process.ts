@@ -15,7 +15,7 @@ const initialState: InitialState = {
   },
 };
 
-export const favoriteProcess = createSlice({
+export const favoritePageProcess = createSlice({
   name: NameSpace.FavoritePage,
   initialState,
   reducers: {
@@ -36,4 +36,4 @@ export const favoriteProcess = createSlice({
   },
 });
 
-export const { setFavorites, unmark, clearState } = favoriteProcess.actions;
+export const { setFavorites, unmark, clearState } = favoritePageProcess.actions;

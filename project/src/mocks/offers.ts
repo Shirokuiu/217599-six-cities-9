@@ -1,6 +1,6 @@
 import { Offer } from 'src/types/offer';
 
-export const favorites: Offer[] = [
+export const offers: Offer[] = [
   {
     city: {
       name: 'Cologne',
@@ -154,13 +154,7 @@ export const favorites: Offer[] = [
     bedrooms: 1,
     maxAdults: 1,
     price: 238,
-    goods: [
-      'Breakfast',
-      'Laptop friendly workspace',
-      'Washer',
-      'Baby seat',
-      'Air conditioning',
-    ],
+    goods: ['Breakfast', 'Laptop friendly workspace', 'Washer', 'Baby seat', 'Air conditioning'],
     host: {
       id: 25,
       name: 'Angelina',
@@ -337,7 +331,7 @@ export const favorites: Offer[] = [
       avatarUrl: 'img/avatar-angelina.jpg',
     },
     description:
-      'This is a place for dreamers to reset, reflect, and create. Designed with a \'slow\' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.',
+      "This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.",
     location: {
       latitude: 50.918461,
       longitude: 6.969974,

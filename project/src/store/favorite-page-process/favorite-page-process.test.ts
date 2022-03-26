@@ -1,4 +1,4 @@
-import { favorites } from 'src/mocks/favorites';
+import { offers } from 'src/mocks/offers';
 import { FavoritesState } from 'src/types/favorite-process';
 import {
   clearState,
@@ -20,9 +20,9 @@ describe('Проверка редьюсера favoritePageProcess', () => {
   describe('Проверка экшена setFavorites', () => {
     it('При передаче не пустого массива, добавляет новые избранные элементы в items и ставит статус - filled', () => {
       const state = initialState();
-      const groupedFavorites = groupCities(favorites);
+      const groupedFavorites = groupCities(offers);
 
-      expect(favoritePageProcess.reducer(state, setFavorites(favorites))).toStrictEqual({
+      expect(favoritePageProcess.reducer(state, setFavorites(offers))).toStrictEqual({
         favorite: {
           favoriteState: FavoritesState.Filled,
           items: groupedFavorites,
@@ -47,10 +47,10 @@ describe('Проверка редьюсера favoritePageProcess', () => {
       const state = {
         favorite: {
           ...initialState().favorite,
-          items: groupCities(favorites),
+          items: groupCities(offers),
         },
       };
-      const groupedFavorites = groupCities(favorites);
+      const groupedFavorites = groupCities(offers);
       const favoritesAfterUnmark = unmarkFavorite(groupedFavorites, 1, 6);
 
       expect(favoritePageProcess.reducer(state, unmark({ id: 1, offerId: 6 }))).toStrictEqual({
@@ -67,7 +67,7 @@ describe('Проверка редьюсера favoritePageProcess', () => {
       const state = {
         favorite: {
           ...initialState().favorite,
-          items: groupCities(favorites),
+          items: groupCities(offers),
         },
       };
 

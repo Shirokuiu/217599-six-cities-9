@@ -36,4 +36,4 @@ export const favoriteProcess = createSlice({
   },
 });
 
-export const { setFavorites, unmark } = favoriteProcess.actions;
+export const { setFavorites, unmark, clearState } = favoriteProcess.actions;

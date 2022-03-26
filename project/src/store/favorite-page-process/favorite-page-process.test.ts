@@ -16,7 +16,7 @@ const initialState = () => ({
   },
 });
 
-describe('Проверка favoritePageProcess', () => {
+describe('Проверка редьюсера favoritePageProcess', () => {
   describe('Проверка экшена setFavorites', () => {
     it('При передаче не пустого массива, добавляет новые избранные элементы в items и ставит статус - filled', () => {
       const state = initialState();

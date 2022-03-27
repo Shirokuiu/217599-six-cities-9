@@ -15,17 +15,17 @@ import { getCurrentOffer } from 'src/store/main-page-process/helpers/get-current
 import { toggleFavoriteOffers } from 'src/store/main-page-process/helpers/toggle-favorite-offers';
 import { getGroupedCityIdx } from 'src/store/main-page-process/helpers/get-grouped-city-idx';
 
-const initialState = (): InitialState => ({
-  offers: [],
-  groupedCities: [],
-  currentCity: undefined,
-  currentHoveredOffer: 'unknown',
-});
-const getOffers = () => offers;
-const GROUPED_CITY_ID = 1;
-const OFFER_ID = 6;
-
 describe('Проверка редьюсера mainPageProcess', () => {
+  const initialState = (): InitialState => ({
+    offers: [],
+    groupedCities: [],
+    currentCity: undefined,
+    currentHoveredOffer: 'unknown',
+  });
+  const getOffers = () => offers;
+  const GROUPED_CITY_ID = 1;
+  const OFFER_ID = 6;
+
   describe('Проверка экшена setOffers', () => {
     it('Получая массив offers сеттит его в стор', () => {
       const state = initialState();

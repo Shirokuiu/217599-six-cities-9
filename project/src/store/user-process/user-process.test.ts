@@ -2,20 +2,20 @@ import { AuthorizationStatus } from 'src/types/auth';
 import { InitialState } from 'src/types/user-process';
 import { setAuthStatus, setMe, userProcess } from 'src/store/user-process/user-process';
 
-const initialState = (): InitialState => ({
-  authorizationStatus: AuthorizationStatus.Unknown,
-  me: undefined,
-});
-const USER = {
-  avatarUrl: 'img/1.png',
-  email: 'Oliver.conner@gmail.com',
-  id: 1,
-  isPro: false,
-  name: 'Oliver.conner',
-  token: 'T2xpdmVyLmNvbm5lckBnbWFpbC5jb20=',
-};
-
 describe('Проверка редьюсера userProcess', () => {
+  const initialState = (): InitialState => ({
+    authorizationStatus: AuthorizationStatus.Unknown,
+    me: undefined,
+  });
+  const USER = {
+    avatarUrl: 'img/1.png',
+    email: 'Oliver.conner@gmail.com',
+    id: 1,
+    isPro: false,
+    name: 'Oliver.conner',
+    token: 'T2xpdmVyLmNvbm5lckBnbWFpbC5jb20=',
+  };
+
   describe('Проверка экшена setAuthStatus', () => {
     it('Записывает в ключ authorizationStatus переданный статус auth', () => {
       const state = initialState();

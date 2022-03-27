@@ -9,16 +9,16 @@ import {
 import { groupCities } from 'src/helpers/group-cities';
 import { unmarkFavorite } from 'src/store/favorite-page-process/helpers/unmark-city-favorite';
 
-const initialState = () => ({
-  favorite: {
-    favoriteState: FavoritesState.Unknown,
-    items: [],
-  },
-});
-const GROUPED_CITY_ID = 1;
-const OFFER_ID = 6;
-
 describe('Проверка редьюсера favoritePageProcess', () => {
+  const initialState = () => ({
+    favorite: {
+      favoriteState: FavoritesState.Unknown,
+      items: [],
+    },
+  });
+  const GROUPED_CITY_ID = 1;
+  const OFFER_ID = 6;
+
   describe('Проверка экшена setFavorites', () => {
     it('При передаче не пустого массива, добавляет новые избранные элементы в items и ставит статус - filled', () => {
       const state = initialState();

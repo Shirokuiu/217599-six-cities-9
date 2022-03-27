@@ -15,6 +15,8 @@ const initialState = () => ({
     items: [],
   },
 });
+const GROUPED_CITY_ID = 1;
+const OFFER_ID = 6;
 
 describe('Проверка редьюсера favoritePageProcess', () => {
   describe('Проверка экшена setFavorites', () => {
@@ -51,9 +53,11 @@ describe('Проверка редьюсера favoritePageProcess', () => {
         },
       };
       const groupedFavorites = groupCities(offers);
-      const favoritesAfterUnmark = unmarkFavorite(groupedFavorites, 1, 6);
+      const favoritesAfterUnmark = unmarkFavorite(groupedFavorites, GROUPED_CITY_ID, OFFER_ID);
 
-      expect(favoritePageProcess.reducer(state, unmark({ id: 1, offerId: 6 }))).toStrictEqual({
+      expect(
+        favoritePageProcess.reducer(state, unmark({ id: GROUPED_CITY_ID, offerId: OFFER_ID })),
+      ).toStrictEqual({
         favorite: {
           favoriteState: FavoritesState.Filled,
           items: favoritesAfterUnmark,

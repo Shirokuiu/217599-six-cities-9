@@ -4,8 +4,8 @@ import { store } from 'src/store/index';
 import {
   markFavoriteOffer,
   setOffers,
-  unmarkFavoriteOffer
-} from 'src/store/main-page-process/main-page-process';
+  unmarkFavoriteOffer,
+} from 'src/store/main-page-process/reducer/main-page-process';
 import HotelsService from 'src/services/hotels-service/hotels-service';
 import { ActionType } from 'src/store/main-page-process/action-type';
 import { ToggleFavoriteProps } from 'src/types/main-page-process';

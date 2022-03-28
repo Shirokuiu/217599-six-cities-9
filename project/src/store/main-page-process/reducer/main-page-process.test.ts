@@ -8,7 +8,7 @@ import {
   setOffers,
   toggleHoverOffer,
   unmarkFavoriteOffer,
-} from 'src/store/main-page-process/main-page-process';
+} from 'src/store/main-page-process/reducer/main-page-process';
 import { InitialState } from 'src/types/main-page-process';
 import { groupCities } from 'src/helpers/group-cities';
 import { getCurrentOffer } from 'src/store/main-page-process/helpers/get-current-offer';

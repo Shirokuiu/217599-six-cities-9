@@ -7,7 +7,7 @@ import { Tab } from 'src/types/tabs';
 import { DEFAULT_LOCATION_TAB_NAME } from 'src/components/pages/main-page/constants/constants';
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 import { LocationTabSearchParam } from 'src/types/main-page';
-import { setCurrentCity } from 'src/store/main-page-process/main-page-process';
+import { setCurrentCity } from 'src/store/main-page-process/reducer/main-page-process';
 import MainPageLocationTabs from 'src/components/pages/main-page/main-page-location-tabs';
 
 const locationTabs: Tab[] = buildLocationTabs();

@@ -7,12 +7,12 @@ import { useAppDispatch, useAppSelector } from 'src/hooks';
 import { parseSearchParams } from 'src/helpers/parse-search-params';
 import { MainPageSortSearchParamType } from 'src/types/main-page';
 import { sortOffers } from 'src/components/pages/main-page/helpers/sort-offers';
-import { toggleHoverOffer } from 'src/store/main-page-process/main-page-process';
+import { toggleHoverOffer } from 'src/store/main-page-process/reducer/main-page-process';
 import { AuthorizationStatus } from 'src/types/auth';
 import { AppRoutingPath } from 'src/types/app';
 import {
   apiRemoveFavoriteOffer,
-  apiSetFavoriteOffer
+  apiSetFavoriteOffer,
 } from 'src/store/main-page-process/api-actions';
 import Bookmark from 'src/components/shared/bookmark/bookmark';
 

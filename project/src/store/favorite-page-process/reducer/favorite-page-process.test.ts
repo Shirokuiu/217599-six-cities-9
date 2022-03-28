@@ -5,7 +5,7 @@ import {
   favoritePageProcess,
   setFavorites,
   unmark,
-} from 'src/store/favorite-page-process/favorite-page-process/favorite-page-process';
+} from 'src/store/favorite-page-process/reducer/favorite-page-process';
 import { groupCities } from 'src/helpers/group-cities';
 import { unmarkFavorite } from 'src/store/favorite-page-process/helpers/unmark-city-favorite';
 

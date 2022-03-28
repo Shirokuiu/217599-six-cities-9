@@ -5,7 +5,7 @@ import UserService from 'src/services/user-service/user-service';
 import {
   setFavorites,
   unmark,
-} from 'src/store/favorite-page-process/favorite-page-process/favorite-page-process';
+} from 'src/store/favorite-page-process/reducer/favorite-page-process';
 import FavoritesService from 'src/services/favorites-service/favorites-service';
 import { UnmarkPayload } from 'src/types/favorite-process';
 

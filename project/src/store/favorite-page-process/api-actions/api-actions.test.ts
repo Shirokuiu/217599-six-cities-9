@@ -10,7 +10,7 @@ import { apiUnmark, fetchFavorites } from 'src/store/favorite-page-process/api-a
 import {
   setFavorites,
   unmark,
-} from 'src/store/favorite-page-process/favorite-page-process/favorite-page-process';
+} from 'src/store/favorite-page-process/reducer/favorite-page-process';
 import { SendStatus } from 'src/types/favorites-service';
 import { groupCities } from 'src/helpers/group-cities';
 import { offers } from 'src/mocks/offers';

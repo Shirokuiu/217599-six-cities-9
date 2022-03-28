@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { ActionType } from 'src/store/main-page-process/action-type';
+import { ActionType } from 'src/store/main-page-process/api-actions/action-type';
 import { getCurrentOffer } from 'src/store/main-page-process/helpers/get-current-offer';
 import { HoveredOfferState, InitialState, ToggleFavoriteProps } from 'src/types/main-page-process';
 import { NameSpace } from 'src/store/constants/constants';

@@ -13,7 +13,7 @@ import { AppRoutingPath } from 'src/types/app';
 import {
   apiRemoveFavoriteOffer,
   apiSetFavoriteOffer,
-} from 'src/store/main-page-process/api-actions';
+} from 'src/store/main-page-process/api-actions/api-actions';
 import Bookmark from 'src/components/shared/bookmark/bookmark';
 
 function MainPageOffersList() {

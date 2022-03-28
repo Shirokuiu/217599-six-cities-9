@@ -7,7 +7,7 @@ import {
   unmarkFavoriteOffer,
 } from 'src/store/main-page-process/reducer/main-page-process';
 import HotelsService from 'src/services/hotels-service/hotels-service';
-import { ActionType } from 'src/store/main-page-process/action-type';
+import { ActionType } from 'src/store/main-page-process/api-actions/action-type';
 import { ToggleFavoriteProps } from 'src/types/main-page-process';
 import FavoritesService from 'src/services/favorites-service/favorites-service';
 

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 import { switchFavoritesPageComponent } from 'src/components/pages/favorites-page/helpers/switch-favorites-page-component';
-import { fetchFavorites } from 'src/store/favorite-page-process/api-actions';
+import { fetchFavorites } from 'src/store/favorite-page-process/api-actions/api-actions';
 import { clearState } from 'src/store/favorite-page-process/favorite-page-process/favorite-page-process';
 
 function FavoritesPage() {

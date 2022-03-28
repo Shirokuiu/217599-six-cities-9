@@ -3,10 +3,10 @@ import MockAdapter from 'axios-mock-adapter';
 import { Action, ThunkDispatch } from '@reduxjs/toolkit';
 import { configureMockStore } from '@jedmao/redux-mock-store';
 
-import { api } from 'src/store';
+import { api } from 'src/store/index';
 import { State } from 'src/types/state';
 import { FavoritesRoute } from 'src/services/favorites-service/constants/constants';
-import { apiUnmark, fetchFavorites } from 'src/store/favorite-page-process/api-actions';
+import { apiUnmark, fetchFavorites } from 'src/store/favorite-page-process/api-actions/api-actions';
 import {
   setFavorites,
   unmark,

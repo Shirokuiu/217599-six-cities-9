@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import Btn from 'src/components/shared/btn/btn';
 import { BtnType } from 'src/types/btn';
 
-describe('Проверка на корректность рендера компонента btn', () => {
+describe('Проверка на корректность рендера компонента Btn', () => {
   describe('Проверка передачи параметров', () => {
     it('При не переданных параметрах компонент верно отрисовывает вариант по умолчанию', () => {
       render(<Btn />);

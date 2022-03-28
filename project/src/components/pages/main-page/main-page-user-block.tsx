@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'src/hooks';
-import { logout } from 'src/store/user-process/api-actions';
+import { logout } from 'src/store/user-process/api-actions/api-actions';
 import UserBlock from 'src/components/shared/user-block/user-block';
 
 function MainPageUserBlock() {

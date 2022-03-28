@@ -38,7 +38,7 @@ describe('Проверка асинхронных экшенов для favorite
   });
 
   describe('Проверка экшена apiUnmark', () => {
-    it('При POST запросе /favorite возвращает код ответа 200 и объявление с выключеным флагом isFavorite, после этого вызывается синхронный экшен unmark', async () => {
+    it('При удалении из ищбранного возвращает код ответа 200 и объявление с выключеным флагом isFavorite, после этого вызывается синхронный экшен unmark', async () => {
       const store = mockStore();
       const OFFER_ID = 6;
       const groupedCities = groupCities(offers);

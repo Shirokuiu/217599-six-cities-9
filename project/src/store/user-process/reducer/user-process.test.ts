@@ -1,6 +1,6 @@
 import { AuthorizationStatus } from 'src/types/auth';
 import { InitialState } from 'src/types/user-process';
-import { setAuthStatus, setMe, userProcess } from 'src/store/user-process/user-process';
+import { setAuthStatus, setMe, userProcess } from 'src/store/user-process/reducer/user-process';
 
 describe('Проверка редьюсера userProcess', () => {
   const initialState = (): InitialState => ({

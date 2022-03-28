@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AuthorizationStatus } from 'src/types/auth';
 import { LoginPageFormBody } from 'src/types/login-page';
 import Token from 'src/services/token';
-import { setAuthStatus, setMe } from 'src/store/user-process/user-process';
+import { setAuthStatus, setMe } from 'src/store/user-process/reducer/user-process';
 import UserService from 'src/services/user-service/user-service';
 import { ActionType } from 'src/store/user-process/action-type';
 

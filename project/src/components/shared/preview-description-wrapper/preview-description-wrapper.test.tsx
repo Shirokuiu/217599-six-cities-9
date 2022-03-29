@@ -5,7 +5,7 @@ import { offers } from 'src/mocks/offers';
 
 describe('Проверка на корректность рендера компонента PreviewDescriptionWrapper', () => {
   describe('Проверка передачи параметров', () => {
-    it('При не переданных параметрах компонент верно отрисовывает вариант по умолчанию', () => {
+    it('Переданных параметрах компонент верно отрисовывает вариант по умолчанию', () => {
       const offer = offers[0];
 
       const { container } = render(<PreviewDescriptionWrapper offer={offer} />);

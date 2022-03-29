@@ -21,6 +21,7 @@ function TextareaControl({
       placeholder={placeholder ?? 'Type some text'}
       defaultValue={defaultValue ?? ''}
       onChange={handleTextareaChange}
+      data-testid="textarea"
     />
   );
 }

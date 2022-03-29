@@ -8,10 +8,12 @@ describe('Проверка на корректность рендера комп
     it('Компонент верно отрисовывается', async () => {
       const formRatingItems = buildRatingItems();
 
-      render(<RatingControl />);
+      const { container } = render(<RatingControl />);
 
       const radioInputs = await screen.findAllByTestId('radio');
       const itemsLabel = await screen.findAllByTestId('label');
+
+      expect(container).toBeInTheDocument();
 
       radioInputs.forEach((item, idx) => {
         expect(item.getAttribute('value')).toBe(formRatingItems[idx].value);

@@ -9,6 +9,7 @@ function Rating({ rate, maxRate }: RatingProps) {
         style={{
           width: makeRateStyle({ rate, maxRate: maxRate ?? DEFAULT_RATE }),
         }}
+        data-testid="rate-style"
       />
       <span className="visually-hidden">Rating</span>
     </>

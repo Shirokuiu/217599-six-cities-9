@@ -22,10 +22,9 @@ import { FavoritesRoute } from 'src/services/favorites-service/constants/constan
 import { SendStatus } from 'src/types/favorites-service';
 
 describe('Проверка асинхронных экшенов для mainPageProcess', () => {
-  const mockApi = api;
-  const mockAPI = new MockAdapter(mockApi);
-  const middlewares = [thunk.withExtraArgument(mockApi)];
-  const mockStore = configureMockStore<State, Action, ThunkDispatch<State, typeof mockApi, Action>>(
+  const mockAPI = new MockAdapter(api);
+  const middlewares = [thunk.withExtraArgument(api)];
+  const mockStore = configureMockStore<State, Action, ThunkDispatch<State, typeof api, Action>>(
     middlewares,
   );
 

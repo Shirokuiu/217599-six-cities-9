@@ -11,10 +11,9 @@ import { setAuthStatus, setMe } from 'src/store/user-process/reducer/user-proces
 import { TOKEN_KEY_LOCAL_STORAGE } from 'src/services/constants/constants';
 
 describe('Проверка асинхронных экшенов для userProcess', () => {
-  const mockApi = api;
-  const mockAPI = new MockAdapter(mockApi);
-  const middlewares = [thunk.withExtraArgument(mockApi)];
-  const mockStore = configureMockStore<State, Action, ThunkDispatch<State, typeof mockApi, Action>>(
+  const mockAPI = new MockAdapter(api);
+  const middlewares = [thunk.withExtraArgument(api)];
+  const mockStore = configureMockStore<State, Action, ThunkDispatch<State, typeof api, Action>>(
     middlewares,
   );
   const USER = {

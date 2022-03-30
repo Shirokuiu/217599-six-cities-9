@@ -16,10 +16,9 @@ import { groupCities } from 'src/helpers/group-cities';
 import { offers } from 'src/mocks/offers';
 
 describe('Проверка асинхронных экшенов для favoriteProcess', () => {
-  const mockApi = api;
-  const mockAPI = new MockAdapter(mockApi);
-  const middlewares = [thunk.withExtraArgument(mockApi)];
-  const mockStore = configureMockStore<State, Action, ThunkDispatch<State, typeof mockApi, Action>>(
+  const mockAPI = new MockAdapter(api);
+  const middlewares = [thunk.withExtraArgument(api)];
+  const mockStore = configureMockStore<State, Action, ThunkDispatch<State, typeof api, Action>>(
     middlewares,
   );
 

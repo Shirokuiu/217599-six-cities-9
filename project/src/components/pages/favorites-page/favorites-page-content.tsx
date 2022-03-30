@@ -1,6 +1,6 @@
 import FavoritesPageHeader from 'src/components/pages/favorites-page/favorites-page-header';
 import FavoritesPageListContainer from 'src/components/pages/favorites-page/favorites-page-list-container';
-import FavoritesPageFooter from 'src/components/pages/favorites-page/favorites-page-footer';
+import FavoritesPageFooter from 'src/components/pages/favorites-page/favorites-page-footer/favorites-page-footer';
 
 function FavoritesPageContent() {
   return (

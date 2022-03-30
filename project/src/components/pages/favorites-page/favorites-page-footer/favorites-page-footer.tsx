@@ -4,7 +4,7 @@ import { AppRoutingPath } from 'src/types/app';
 function FavoritesPageFooter() {
   return (
     <footer className="footer container">
-      <Link to={AppRoutingPath.Index} className="footer__logo-link">
+      <Link to={AppRoutingPath.Index} className="footer__logo-link" data-testid="logo-link">
         <img
           className="footer__logo"
           src="img/logo.svg"

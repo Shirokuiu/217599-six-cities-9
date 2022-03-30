@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import UserLoggedIn from 'src/components/shared/user-logged-in/user-logged-in';
 
-describe('Проверка на корректность рендера компонента UserBlock', () => {
+describe('Проверка на корректность рендера компонента UserLoggedId', () => {
   describe('Проверка передачи параметров', () => {
     const USER = {
       avatarUrl: 'img/1.png',

@@ -1,19 +1,11 @@
-import { Navigate, useLocation } from 'react-router-dom';
-
 import { PrivateRouteProps } from 'src/types/private-route';
 import { useAppSelector } from 'src/hooks';
-import { AuthorizationStatus } from 'src/types/auth';
+import { switchNoAuthComponent } from 'src/hocs/private-no-auth-route/helpers/switch-no-auth-component';
 
 function PrivateNoAuthRoute({ children }: PrivateRouteProps) {
   const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
-  const location = useLocation();
-  const locationState = location.state as { from: string };
 
-  return authorizationStatus === AuthorizationStatus.NoAuth ? (
-    children
-  ) : (
-    <Navigate to={locationState.from} />
-  );
+  return switchNoAuthComponent(authorizationStatus, children);
 }
 
 export default PrivateNoAuthRoute;

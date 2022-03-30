@@ -6,7 +6,7 @@ import { offers } from 'src/mocks/offers';
 
 describe('Проверка на корректность рендера компонента OfferPreview', () => {
   describe('Проверка передачи параметров', () => {
-    it('Компонент верно отрисовывает в switch другой компонент при AuthorizationStatus NoAuth', async () => {
+    it('Компонент верно отрисовывается при переданных параметрах', async () => {
       const { container } = render(
         <BrowserRouter>
           <OfferPreview offer={offers[0]} />

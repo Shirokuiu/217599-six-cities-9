@@ -14,7 +14,9 @@ function UserLoggedIn({ user, onLogoutClick = () => undefined }: UserLoggedInPro
       </li>
       <li className="header__nav-item">
         <a onClick={onLogoutClick} className="header__nav-link">
-          <span className="header__signout">Sign out</span>
+          <span className="header__signout" data-testid="logged-signout">
+            Sign out
+          </span>
         </a>
       </li>
     </>

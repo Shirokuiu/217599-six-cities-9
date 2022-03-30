@@ -12,7 +12,9 @@ function UserLoggedOut() {
         state={{ from: location.pathname }}
         className="header__nav-link"
       >
-        <span className="header__signout">Sign in</span>
+        <span className="header__signout" data-testid="logout-signout">
+          Sign in
+        </span>
       </Link>
     </li>
   );

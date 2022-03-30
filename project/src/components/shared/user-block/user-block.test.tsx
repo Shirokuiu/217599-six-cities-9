@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 
 import UserBlock from 'src/components/shared/user-block/user-block';
 import { AuthorizationStatus } from 'src/types/auth';
-import { BrowserRouter } from 'react-router-dom';
 
 describe('Проверка на корректность рендера компонента UserBlock', () => {
   describe('Проверка передачи параметров', () => {

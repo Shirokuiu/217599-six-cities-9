@@ -15,11 +15,7 @@ describe('Проверка на корректность рендера комп
     };
 
     it('Компонент верно отрисовывается c переданными параметрами', async () => {
-      const { container } = render(
-        <BrowserRouter>
-          <UserLoggedIn user={USER} />
-        </BrowserRouter>,
-      );
+      const { container } = render(<UserLoggedIn user={USER} />, { wrapper: BrowserRouter });
 
       expect(container).toBeInTheDocument();
       expect(screen.getByTestId('user-name')).toHaveTextContent(USER.name);

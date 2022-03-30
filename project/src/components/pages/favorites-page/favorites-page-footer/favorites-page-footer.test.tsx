@@ -7,11 +7,7 @@ import { AppRoutingPath } from 'src/types/app';
 describe('Проверка на корректность рендера компонента FavoritesPageFooter', () => {
   describe('Проверка передачи параметров', () => {
     it('Компонент верно отрисовывается', async () => {
-      const { container } = render(
-        <BrowserRouter>
-          <FavoritesPageFooter />
-        </BrowserRouter>,
-      );
+      const { container } = render(<FavoritesPageFooter />, { wrapper: BrowserRouter });
 
       expect(container).toBeInTheDocument();
       expect(screen.getByTestId('logo-link').getAttribute('href')).toBe(AppRoutingPath.Index);

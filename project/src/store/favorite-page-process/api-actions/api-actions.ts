@@ -4,7 +4,7 @@ import { ActionType } from 'src/store/favorite-page-process/api-actions/action-t
 import UserService from 'src/services/user-service/user-service';
 import {
   setFavorites,
-  unmark,
+  unmark
 } from 'src/store/favorite-page-process/reducer/favorite-page-process';
 import FavoritesService from 'src/services/favorites-service/favorites-service';
 import { UnmarkPayload } from 'src/types/favorite-process';

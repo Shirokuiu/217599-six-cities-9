@@ -10,12 +10,12 @@ import { offers } from 'src/mocks/offers';
 import {
   apiRemoveFavoriteOffer,
   apiSetFavoriteOffer,
-  getOffers,
+  getOffers
 } from 'src/store/main-page-process/api-actions/api-actions';
 import {
   markFavoriteOffer,
   setOffers,
-  unmarkFavoriteOffer,
+  unmarkFavoriteOffer
 } from 'src/store/main-page-process/reducer/main-page-process';
 import { groupCities } from 'src/helpers/group-cities';
 import { FavoritesRoute } from 'src/services/favorites-service/constants/constants';

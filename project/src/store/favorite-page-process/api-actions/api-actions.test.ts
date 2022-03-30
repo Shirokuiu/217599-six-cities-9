@@ -9,7 +9,7 @@ import { FavoritesRoute } from 'src/services/favorites-service/constants/constan
 import { apiUnmark, fetchFavorites } from 'src/store/favorite-page-process/api-actions/api-actions';
 import {
   setFavorites,
-  unmark,
+  unmark
 } from 'src/store/favorite-page-process/reducer/favorite-page-process';
 import { SendStatus } from 'src/types/favorites-service';
 import { groupCities } from 'src/helpers/group-cities';

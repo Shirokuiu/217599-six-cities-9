@@ -28,8 +28,7 @@
       "htmlacademy/react-typescript"
     ],
     "rules": {
-      "no-console": "warn",
-      "comma-dangle": "warn"
+      "no-console": "warn"
     }
   },
   "browserslist": {

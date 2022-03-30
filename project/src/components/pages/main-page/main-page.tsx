@@ -6,7 +6,7 @@ import MainPageHeader from 'src/components/pages/main-page/main-page-header';
 import { getOffers } from 'src/store/main-page-process/api-actions/api-actions';
 import {
   clearState,
-  groupCitiesAction
+  groupCitiesAction,
 } from 'src/store/main-page-process/reducer/main-page-process';
 import MainPageOffersContainer from 'src/components/pages/main-page/main-page-offers-container';
 
@@ -25,7 +25,7 @@ function MainPage() {
   }, []);
 
   return (
-    <div className="page page--gray page--main">
+    <div className="page page--gray page--main" data-testid="main-page">
       <MainPageHeader />
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>

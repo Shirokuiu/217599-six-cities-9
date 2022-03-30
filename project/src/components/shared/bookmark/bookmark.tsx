@@ -4,11 +4,15 @@ import { BookmarkProps } from 'src/types/bookmark';
 import { getAriaText } from 'src/components/shared/bookmark/helpers/get-aria-text';
 import { toggleActiveBookmarkClass } from 'src/components/shared/bookmark/helpers/toogle-active-bookmark-class';
 
-function Bookmark({ isActive: inBookmark }: BookmarkProps) {
+function Bookmark({ isActive: inBookmark, onToggleActive = () => undefined }: BookmarkProps) {
   const [isActive, setIsActive] = useState(inBookmark);
 
   const handleBookmarkClick = () => {
-    setIsActive((prevState) => !prevState);
+    setIsActive((prevState) => {
+      onToggleActive(!prevState);
+
+      return !prevState;
+    });
   };
 
   return (

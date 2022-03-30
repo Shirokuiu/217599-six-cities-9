@@ -1,24 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'src/hooks';
-import { AuthorizationStatus } from 'src/types/auth';
-import UserLoggedIn from 'src/components/shared/user-logged-in/user-logged-in';
-import UserLoggedOut from 'src/components/shared/user-logged-out/user-logged-out';
-import { User } from 'src/types/user';
-import { logout } from 'src/store/api-actions/user/user';
-
-const switchAuthUserComponent = (
-  authStatus: AuthorizationStatus,
-  cb: () => void,
-  me?: User,
-): JSX.Element => {
-  switch (authStatus) {
-    case AuthorizationStatus.Auth:
-      return <UserLoggedIn user={me} onLogoutClick={cb} />;
-    case AuthorizationStatus.NoAuth:
-      return <UserLoggedOut />;
-    default:
-      return <UserLoggedOut />;
-  }
-};
+import { logout } from 'src/store/user-process/api-actions';
+import UserBlock from 'src/components/shared/user-block/user-block';
 
 function MainPageUserBlock() {
   const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
@@ -30,9 +12,11 @@ function MainPageUserBlock() {
   };
 
   return (
-    <ul className="header__nav-list">
-      {switchAuthUserComponent(authorizationStatus, handleLogoutClick, me)}
-    </ul>
+    <UserBlock
+      authorizationStatus={authorizationStatus}
+      me={me}
+      onLogoutClick={handleLogoutClick}
+    />
   );
 }
 

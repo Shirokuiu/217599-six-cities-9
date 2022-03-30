@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Bookmark from 'src/components/shared/bookmark/bookmark';
 import Rating from 'src/components/shared/rating/rating';
 import { PreviewDescriptionWrapperProps } from 'src/types/preview-description-wrapper';
 
 function PreviewDescriptionWrapper({
   offer,
   renderTitle = () => undefined,
+  renderBookMark = () => undefined,
 }: PreviewDescriptionWrapperProps) {
-  const { price, isFavorite, rating, type } = offer;
+  const { price, rating, type } = offer;
 
   return (
     <>
@@ -17,7 +17,7 @@ function PreviewDescriptionWrapper({
           <b className="place-card__price-value">€{price}</b>
           <span className="place-card__price-text">/&nbsp;night</span>
         </div>
-        <Bookmark isActive={isFavorite} />
+        {renderBookMark()}
       </div>
       <div className="place-card__rating rating">
         <div className="place-card__stars rating__stars">

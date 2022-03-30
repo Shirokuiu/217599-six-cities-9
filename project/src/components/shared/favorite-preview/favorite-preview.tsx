@@ -1,21 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { FavoritePreviewProps } from 'src/types/favorite-preview';
+import { FavoritePreviewProps } from 'src/types/favorite-page';
 import PreviewImageWrapper from 'src/components/shared/preview-image-wrapper/preview-image-wrapper';
 import PreviewDescriptionWrapper from 'src/components/shared/preview-description-wrapper/preview-description-wrapper';
 import { WrapperClass } from 'src/types/preview-image-wrapper';
 import { AppRoutingPath } from 'src/types/app';
-import { Link } from 'react-router-dom';
 
-function FavoritePreview({ offer }: FavoritePreviewProps) {
-  const { isPremium, previewImage, title, id } = offer;
+function FavoritePreview({ favorite, renderBookmark = () => undefined }: FavoritePreviewProps) {
+  const { isPremium, previewImage, title, id } = favorite;
 
   return (
-    <article key={offer.id} className="favorites__card place-card">
-      <PreviewImageWrapper
-        isPremium={isPremium}
-        wrapperClass={WrapperClass.FavoritePreview}
-      >
+    <article key={favorite.id} className="favorites__card place-card">
+      <PreviewImageWrapper isPremium={isPremium} wrapperClass={WrapperClass.FavoritePreview}>
         <img
           className="place-card__image"
           src={previewImage}
@@ -26,10 +23,9 @@ function FavoritePreview({ offer }: FavoritePreviewProps) {
       </PreviewImageWrapper>
       <div className="favorites__card-info place-card__info">
         <PreviewDescriptionWrapper
-          offer={offer}
-          renderTitle={() => (
-            <Link to={`${AppRoutingPath.OfferPage}/${id}`}>{title}</Link>
-          )}
+          offer={favorite}
+          renderTitle={() => <Link to={`${AppRoutingPath.OfferPage}/${id}`}>{title}</Link>}
+          renderBookMark={renderBookmark}
         />
       </div>
     </article>

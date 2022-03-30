@@ -1,6 +1,12 @@
 export enum ActionType {
-  GroupCities = 'groupCities',
+  GroupCitiesAction = 'groupCitiesAction',
   SetCurrentCity = 'setCurrentCity',
-  SetCurrentOffer = 'setCurrentOffer',
+  ToggleHoverOffer = 'toggleHoverOffer',
   SetOffers = 'setOffers',
+  GetOffers = 'getOffers',
+  ApiSetFavoriteOffer = 'ApiSetFavoriteOffer',
+  ApiRemoveFavoriteOffer = 'ApiRemoveFavoriteOffer',
+  MarkFavoriteOffer = 'markFavoriteOffer',
+  UnmarkFavoriteOffer = 'unmarkFavoriteOffer',
+  ClearStore = 'clearStore',
 }

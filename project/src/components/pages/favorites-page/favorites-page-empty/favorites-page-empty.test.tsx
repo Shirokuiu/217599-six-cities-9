@@ -8,7 +8,7 @@ import { AuthorizationStatus } from 'src/types/auth';
 import { FavoritesState } from 'src/types/favorite-process';
 import FavoritesPageEmpty from 'src/components/pages/favorites-page/favorites-page-empty/favorites-page-empty';
 
-describe('Проверка на корректность рендера компонента FavoritesPageContent', () => {
+describe('Проверка на корректность рендера компонента FavoritesPageEmpty', () => {
   const mockStore = configureMockStore();
   const USER = {
     avatarUrl: 'img/1.png',

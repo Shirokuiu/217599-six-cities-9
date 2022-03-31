@@ -18,7 +18,7 @@ function FavoritesPageList({ favorites }: FavoritePageListProps) {
   };
 
   return (
-    <ul className="favorites__list">
+    <ul className="favorites__list" data-testid="list">
       {favorites.map(({ id, offers, city }: GroupedCity) => (
         <li key={id} className="favorites__locations-items">
           <div className="favorites__locations locations locations--current">

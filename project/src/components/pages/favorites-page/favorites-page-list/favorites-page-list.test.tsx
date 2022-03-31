@@ -8,10 +8,11 @@ import { groupCities } from 'src/helpers/group-cities';
 import { offers } from 'src/mocks/offers';
 
 describe('Проверка на корректность рендера компонента FavoritesPageList', () => {
+  const mockStore = configureMockStore();
+
   describe('Проверка передачи параметров', () => {
     it('Компонент верно отрисовывается', () => {
       const groupedFavorites = groupCities(offers);
-      const mockStore = configureMockStore();
 
       const { container } = render(
         <Provider store={mockStore()}>

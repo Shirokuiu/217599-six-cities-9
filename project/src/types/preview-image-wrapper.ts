@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react';
 
 export type PreviewImageWrapperProps = PropsWithChildren<{
-  wrapperClass: WrapperClass;
-  isPremium: boolean;
+  wrapperClass?: WrapperClass;
+  isPremium?: boolean;
   onImgMouseEnter?: () => void;
   onImgMouseLeave?: () => void;
 }>;

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { ActionType } from 'src/store/main-page-process/action-type';
-import { getCurrentOffer } from 'src/store/helpers/get-current-offer';
+import { ActionType } from 'src/store/main-page-process/api-actions/action-type';
+import { getCurrentOffer } from 'src/store/main-page-process/helpers/get-current-offer';
 import { HoveredOfferState, InitialState, ToggleFavoriteProps } from 'src/types/main-page-process';
 import { NameSpace } from 'src/store/constants/constants';
 import { Offer } from 'src/types/offer';
@@ -20,13 +20,6 @@ export const mainPageProcess = createSlice({
   name: NameSpace.MainPage,
   initialState,
   reducers: {
-    [ActionType.ClearStore](state) {
-      // NOTE Хз как по другому почистить стор
-      // state = initialState или функцию передавать ничего не происходит
-      state.offers = [];
-      state.groupedCities = [];
-      state.currentCity = undefined;
-    },
     [ActionType.SetOffers](state, { payload: offers }: { payload: Offer[] }) {
       state.offers = offers;
     },
@@ -71,6 +64,13 @@ export const mainPageProcess = createSlice({
         false,
       );
     },
+    [ActionType.ClearState](state) {
+      // NOTE Хз как по другому почистить стор
+      // state = initialState или функцию передавать ничего не происходит
+      state.offers = [];
+      state.groupedCities = [];
+      state.currentCity = undefined;
+    },
   },
 });
 
@@ -81,5 +81,5 @@ export const {
   toggleHoverOffer,
   markFavoriteOffer,
   unmarkFavoriteOffer,
-  clearStore,
+  clearState,
 } = mainPageProcess.actions;

@@ -19,6 +19,7 @@ function FavoritePreview({ favorite, renderBookmark = () => undefined }: Favorit
           width="150"
           height="110"
           alt="Place image"
+          data-testid="place-image"
         />
       </PreviewImageWrapper>
       <div className="favorites__card-info place-card__info">

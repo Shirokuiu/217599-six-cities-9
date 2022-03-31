@@ -4,7 +4,7 @@ import { APIErrorCode, BACKEND_URL, REQUEST_TIMEOUT } from 'src/services/constan
 import Token from 'src/services/token';
 import { store } from 'src/store';
 import { AuthorizationStatus } from 'src/types/auth';
-import { setAuthStatus, setMe } from 'src/store/user-process/user-process';
+import { setAuthStatus, setMe } from 'src/store/user-process/reducer/user-process';
 
 export const createAPI = (): AxiosInstance => {
   const api = axios.create({

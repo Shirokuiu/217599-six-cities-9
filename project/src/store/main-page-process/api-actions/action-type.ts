@@ -8,5 +8,5 @@ export enum ActionType {
   ApiRemoveFavoriteOffer = 'ApiRemoveFavoriteOffer',
   MarkFavoriteOffer = 'markFavoriteOffer',
   UnmarkFavoriteOffer = 'unmarkFavoriteOffer',
-  ClearStore = 'clearStore',
+  ClearState = 'clearState',
 }

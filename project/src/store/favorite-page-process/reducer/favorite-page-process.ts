@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { FavoritesState, InitialState, UnmarkPayload } from 'src/types/favorite-process';
 import { NameSpace } from 'src/store/constants/constants';
-import { ActionType } from 'src/store/favorite-page-process/action-type';
+import { ActionType } from 'src/store/favorite-page-process/api-actions/action-type';
 import { Favorite } from 'src/types/favorite';
 import { groupCities } from 'src/helpers/group-cities';
 import { getFavoriteState } from 'src/store/favorite-page-process/helpers/get-favorite-state';
@@ -15,7 +15,7 @@ const initialState: InitialState = {
   },
 };
 
-export const favoriteProcess = createSlice({
+export const favoritePageProcess = createSlice({
   name: NameSpace.FavoritePage,
   initialState,
   reducers: {
@@ -36,4 +36,4 @@ export const favoriteProcess = createSlice({
   },
 });
 
-export const { setFavorites, unmark } = favoriteProcess.actions;
+export const { setFavorites, unmark, clearState } = favoritePageProcess.actions;

@@ -1,36 +1,35 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { store } from 'src/store/index';
 import {
   markFavoriteOffer,
   setOffers,
   unmarkFavoriteOffer
-} from 'src/store/main-page-process/main-page-process';
+} from 'src/store/main-page-process/reducer/main-page-process';
 import HotelsService from 'src/services/hotels-service/hotels-service';
-import { ActionType } from 'src/store/main-page-process/action-type';
+import { ActionType } from 'src/store/main-page-process/api-actions/action-type';
 import { ToggleFavoriteProps } from 'src/types/main-page-process';
 import FavoritesService from 'src/services/favorites-service/favorites-service';
 
-export const getOffers = createAsyncThunk(ActionType.GetOffers, async () => {
+export const getOffers = createAsyncThunk(ActionType.GetOffers, async (_arg, { dispatch }) => {
   const data = await HotelsService.getOffers();
 
-  store.dispatch(setOffers(data));
+  dispatch(setOffers(data));
 });
 
 export const apiSetFavoriteOffer = createAsyncThunk(
   ActionType.ApiSetFavoriteOffer,
-  async ({ groupedCityId, offerId }: ToggleFavoriteProps) => {
+  async ({ groupedCityId, offerId }: ToggleFavoriteProps, { dispatch }) => {
     await FavoritesService.set(offerId);
 
-    store.dispatch(markFavoriteOffer({ groupedCityId, offerId }));
+    dispatch(markFavoriteOffer({ groupedCityId, offerId }));
   },
 );
 
 export const apiRemoveFavoriteOffer = createAsyncThunk(
   ActionType.ApiRemoveFavoriteOffer,
-  async ({ groupedCityId, offerId }: ToggleFavoriteProps) => {
+  async ({ groupedCityId, offerId }: ToggleFavoriteProps, { dispatch }) => {
     await FavoritesService.remove(offerId);
 
-    store.dispatch(unmarkFavoriteOffer({ groupedCityId, offerId }));
+    dispatch(unmarkFavoriteOffer({ groupedCityId, offerId }));
   },
 );

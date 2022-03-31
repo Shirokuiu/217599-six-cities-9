@@ -1,5 +1,5 @@
 export type TextareaProps = {
-  id: string;
+  id?: string;
   name?: string;
   placeholder?: string;
   defaultValue?: string;

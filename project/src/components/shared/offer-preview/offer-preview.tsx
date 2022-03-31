@@ -37,6 +37,7 @@ function OfferPreview({
           width="260"
           height="200"
           alt="Place image"
+          data-testid="place-image"
         />
       </PreviewImageWrapper>
       <div className="place-card__info">

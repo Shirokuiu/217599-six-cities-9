@@ -3,9 +3,9 @@ import { ChangeEvent, Fragment } from 'react';
 import { buildRatingItems } from 'src/components/shared/rating-control/helpers/build-rating-items';
 import { FormRatingProps } from 'src/types/form-rating';
 
-function RatingControl({ onRatingChange = () => undefined }: FormRatingProps) {
-  const formRatingItems = buildRatingItems();
+const formRatingItems = buildRatingItems();
 
+function RatingControl({ onRatingChange = () => undefined }: FormRatingProps) {
   const handleRatingChange = (evt: ChangeEvent<HTMLInputElement>) => {
     onRatingChange(evt.target.value);
   };
@@ -21,14 +21,16 @@ function RatingControl({ onRatingChange = () => undefined }: FormRatingProps) {
             id={id}
             type="radio"
             onChange={handleRatingChange}
+            data-testid="radio"
           />
           <label
             htmlFor={id}
             className="reviews__rating-label form__rating-label"
             title={labelTitle}
+            data-testid="label"
           >
             <svg className="form__star-image" width="37" height="33">
-              <use xlinkHref="#icon-star"></use>
+              <use xlinkHref="#icon-star" />
             </svg>
           </label>
         </Fragment>

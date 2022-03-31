@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { PreviewImageWrapperProps } from 'src/types/preview-image-wrapper';
+import { PreviewImageWrapperProps, WrapperClass } from 'src/types/preview-image-wrapper';
 
 function PreviewImageWrapper({
-  isPremium,
-  wrapperClass,
+  isPremium = false,
+  wrapperClass = WrapperClass.OfferPreview,
   children,
   onImgMouseEnter = () => undefined,
   onImgMouseLeave = () => undefined,
@@ -26,11 +26,11 @@ function PreviewImageWrapper({
   return (
     <>
       {isPremium && (
-        <div className="place-card__mark">
+        <div className="place-card__mark" data-testid="mark">
           <span>Premium</span>
         </div>
       )}
-      <div className={wrapperClass}>
+      <div className={wrapperClass} data-testid="link-wrapper">
         <a onMouseEnter={handleImgMouseEnter} onMouseLeave={handleMouseLeave}>
           {children}
         </a>

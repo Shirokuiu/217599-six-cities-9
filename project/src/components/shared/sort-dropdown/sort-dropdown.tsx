@@ -4,28 +4,12 @@ import Dropdown from 'src/components/shared/dropdown/dropdown';
 import { SortDropdownProps } from 'src/types/sort-dropdown';
 import { DropdownItem } from 'src/types/dropdown';
 import { useClickOutside } from 'src/hooks/use-click-outside';
+import { setActiveDropdownItem } from 'src/components/shared/sort-dropdown/helpers/set-active-dropdown-item';
 
-const setActiveDropdownItem = ({
-  dropdownItems,
-  currentItem,
-}: {
-  dropdownItems: DropdownItem[];
-  currentItem: DropdownItem;
-}): DropdownItem[] =>
-  dropdownItems.map((dropdownItem: DropdownItem) => ({
-    ...dropdownItem,
-    isActive: currentItem.id === dropdownItem.id,
-  }));
-
-function SortDropdown({
-  items,
-  onDropdownItemClick = () => undefined,
-}: SortDropdownProps) {
+function SortDropdown({ items, onDropdownItemClick = () => undefined }: SortDropdownProps) {
   const [isShow, toggleShow] = useState<boolean>(false);
   const [activeValue, setActiveValue] = useState<string>('');
-  const [dropdownItems, setActiveDropdownItems] = useState<DropdownItem[]>([
-    ...items,
-  ]);
+  const [dropdownItems, setActiveDropdownItems] = useState<DropdownItem[]>([...items]);
   const ref = useRef<HTMLFormElement>(null);
 
   useClickOutside(ref, () => {
@@ -75,12 +59,7 @@ function SortDropdown({
           <use xlinkHref="#icon-arrow-select" />
         </svg>
       </span>
-      {isShow && (
-        <Dropdown
-          items={dropdownItems}
-          onDropdownItemClick={handleDropdownItemCLick}
-        />
-      )}
+      {isShow && <Dropdown items={dropdownItems} onDropdownItemClick={handleDropdownItemCLick} />}
     </form>
   );
 }

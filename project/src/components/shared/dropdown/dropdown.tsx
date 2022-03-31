@@ -2,7 +2,10 @@ import { DropdownItem, DropdownProps } from 'src/types/dropdown';
 
 function Dropdown({ items, onDropdownItemClick = () => undefined }: DropdownProps) {
   return (
-    <ul className="places__options places__options--custom places__options--opened">
+    <ul
+      className="places__options places__options--custom places__options--opened"
+      data-testid="dropdown"
+    >
       {items.map((dropdownItem: DropdownItem) => (
         <li
           key={dropdownItem.id}
@@ -11,6 +14,7 @@ function Dropdown({ items, onDropdownItemClick = () => undefined }: DropdownProp
             .filter(Boolean)
             .join(' ')}
           tabIndex={0}
+          data-testid={`dropdown-item-${dropdownItem.text}`}
         >
           {dropdownItem.text}
         </li>

@@ -48,11 +48,14 @@ function SortDropdown({ items, onDropdownItemClick = () => undefined }: SortDrop
 
   return (
     <form ref={ref} className="places__sorting" action="#" method="get">
-      <span className="places__sorting-caption">Sort by</span>
+      <span className="places__sorting-caption" data-testid="caption">
+        Sort by
+      </span>
       <span
         onClick={handleSortClick}
         className="places__sorting-type"
         tabIndex={0}
+        data-testid="value"
       >
         {activeValue}
         <svg className="places__sorting-arrow" width={7} height={4}>

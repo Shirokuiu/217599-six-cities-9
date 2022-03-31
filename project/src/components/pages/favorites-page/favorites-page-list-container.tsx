@@ -1,10 +1,10 @@
 import { useAppSelector } from 'src/hooks';
-import FavoritePageList from 'src/components/pages/favorites-page/favorite-page-list';
+import FavoritesPageList from 'src/components/pages/favorites-page/favorites-page-list/favorites-page-list';
 
 function FavoritesPageListContainer() {
   const favoriteItems = useAppSelector((state) => state.FAVORITE_PAGE.favorite.items);
 
-  return <FavoritePageList favorites={favoriteItems} />;
+  return <FavoritesPageList favorites={favoriteItems} />;
 }
 
 export default FavoritesPageListContainer;

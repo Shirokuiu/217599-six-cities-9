@@ -8,7 +8,7 @@ import Bookmark from 'src/components/shared/bookmark/bookmark';
 import { useAppDispatch } from 'src/hooks';
 import { apiUnmark } from 'src/store/favorite-page-process/api-actions/api-actions';
 
-function FavoritePageList({ favorites }: FavoritePageListProps) {
+function FavoritesPageList({ favorites }: FavoritePageListProps) {
   const dispatch = useAppDispatch();
 
   const handleUnmark = (isActive: boolean, id: number, offerId: number) => {
@@ -48,4 +48,4 @@ function FavoritePageList({ favorites }: FavoritePageListProps) {
   );
 }
 
-export default FavoritePageList;
+export default FavoritesPageList;

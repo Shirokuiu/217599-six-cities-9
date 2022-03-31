@@ -8,7 +8,9 @@ import { AppRoutingPath } from 'src/types/app';
 import PrivateNoAuthRoute from 'src/hocs/private-no-auth-route/private-no-auth-route';
 
 const LoginPage = lazy(() => import('src/components/pages/login-page/login-page'));
-const FavoritesPage = lazy(() => import('src/components/pages/favorites-page/favorites-page'));
+const FavoritesPage = lazy(
+  () => import('src/components/pages/favorites-page/favorites-page/favorites-page'),
+);
 const OfferPage = lazy(() => import('src/components/pages/offer-page/offer-page'));
 
 function AppRouting() {

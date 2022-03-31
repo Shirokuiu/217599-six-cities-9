@@ -32,7 +32,6 @@ describe('Проверка на корректность рендера комп
         [NameSpace.FavoritePage]: {
           favorite: {
             favoriteState: FavoritesState.Filled,
-
             items: groupedFavorites,
           },
         },

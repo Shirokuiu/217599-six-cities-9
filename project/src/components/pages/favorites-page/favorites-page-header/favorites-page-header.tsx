@@ -1,5 +1,5 @@
 import LogoLink from 'src/components/shared/logo-link/logo-link';
-import FavoritesPageUserBlock from 'src/components/pages/favorites-page/favorites-page-user-block';
+import FavoritesPageUserBlock from 'src/components/pages/favorites-page/favorites-page-user-block/favorites-page-user-block';
 
 function FavoritesPageHeader() {
   return (

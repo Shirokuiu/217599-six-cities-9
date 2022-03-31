@@ -3,7 +3,7 @@ import { UserBlockProps } from 'src/types/user-block';
 
 function UserBlock({ authorizationStatus, me, onLogoutClick = () => undefined }: UserBlockProps) {
   return (
-    <ul className="header__nav-list">
+    <ul className="header__nav-list" data-testid="nav-list">
       {switchUserComponent(authorizationStatus, onLogoutClick, me)}
     </ul>
   );

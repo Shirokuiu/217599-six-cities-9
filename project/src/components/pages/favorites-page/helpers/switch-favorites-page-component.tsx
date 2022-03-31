@@ -1,5 +1,5 @@
 import Loader from 'src/components/shared/loader/loader';
-import FavoritesPageEmpty from 'src/components/pages/favorites-page/favorites-page-empty';
+import FavoritesPageEmpty from 'src/components/pages/favorites-page/favorites-page-empty/favorites-page-empty';
 import FavoritesPageContent from 'src/components/pages/favorites-page/favorites-page-content/favorites-page-content';
 import { FavoritesState } from 'src/types/favorite-process';
 

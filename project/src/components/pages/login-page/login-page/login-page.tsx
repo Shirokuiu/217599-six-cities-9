@@ -1,5 +1,5 @@
 import LogoLink from 'src/components/shared/logo-link/logo-link';
-import LoginPageForm from 'src/components/pages/login-page/login-page-form';
+import LoginPageForm from 'src/components/pages/login-page/login-page-form/login-page-form';
 
 function LoginPage() {
   return (

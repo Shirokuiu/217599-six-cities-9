@@ -40,7 +40,7 @@ function LoginPageForm() {
           onPasswordChange={(value) => handleFormChange({ key: LoginPageFormKey.Password, value })}
         />
       </div>
-      <button className="login__submit form__submit button" type="submit">
+      <button className="login__submit form__submit button" type="submit" data-testid="submit">
         Sign in
       </button>
     </form>

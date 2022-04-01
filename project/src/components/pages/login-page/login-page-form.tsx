@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import LoginPageEmailControl from 'src/components/pages/login-page/login-page-email-control';
+import LoginPageEmailControl from 'src/components/pages/login-page/login-page-email-control/login-page-email-control';
 import LoginPagePasswordControl from 'src/components/pages/login-page/login-page-password-control';
 import { LoginPageFormKey } from 'src/types/login-page';
 import { buildDefaultForm } from 'src/components/pages/login-page/helpers/build-default-form';

@@ -1,7 +1,7 @@
 import MainPagePlacesFound from 'src/components/pages/main-page/main-page-places-found';
 import MainPageSortOffersWrap from 'src/components/pages/main-page/main-page-sort-offers-wrap';
 import MainPageOffersList from 'src/components/pages/main-page/main-page-offers-list';
-import MainPageMap from 'src/components/pages/main-page/main-page-map';
+import MainPageMap from 'src/components/pages/main-page/main-page-map/main-page-map';
 
 export function MainPageOffers() {
   return (

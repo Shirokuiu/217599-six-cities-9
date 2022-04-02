@@ -8,7 +8,7 @@ import {
   clearState,
   groupCitiesAction,
 } from 'src/store/main-page-process/reducer/main-page-process';
-import MainPageOffersContainer from 'src/components/pages/main-page/main-page-offers-container';
+import MainPageOffersContainer from 'src/components/pages/main-page/main-page-offers-container/main-page-offers-container';
 
 function MainPage() {
   const dispatch = useAppDispatch();

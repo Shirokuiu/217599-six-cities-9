@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import MainPageLocationTabsWrap from 'src/components/pages/main-page/main-page-location-tabs-wrap';
+import MainPageLocationTabsWrap from 'src/components/pages/main-page/main-page-location-tabs-wrap/main-page-location-tabs-wrap';
 import { useAppDispatch } from 'src/hooks';
 import MainPageHeader from 'src/components/pages/main-page/main-page-header/main-page-header';
 import { getOffers } from 'src/store/main-page-process/api-actions/api-actions';

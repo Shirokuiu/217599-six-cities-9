@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
-import MainPage from 'src/components/pages/main-page/main-page';
+import MainPage from 'src/components/pages/main-page/main-page/main-page';
 import NotFoundPage from 'src/components/pages/not-found-page/not-found-page';
 import PrivateAuthRoute from 'src/hocs/private-auth-route/private-auth-route';
 import { AppRoutingPath } from 'src/types/app';

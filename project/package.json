@@ -17,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --passWithNoTests --watchAll=false --onlyChanged",
+    "test": "react-scripts test --passWithNoTests --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .tsx --ext .ts src/"
   },
@@ -28,8 +28,7 @@
       "htmlacademy/react-typescript"
     ],
     "rules": {
-      "no-console": "warn",
-      "comma-dangle": "warn"
+      "no-console": "warn"
     }
   },
   "browserslist": {

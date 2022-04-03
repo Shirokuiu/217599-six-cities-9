@@ -1,4 +1,4 @@
-import MainPageUserBlock from 'src/components/pages/main-page/main-page-user-block';
+import MainPageUserBlock from 'src/components/pages/main-page/main-page-user-block/main-page-user-block';
 import LogoLink from 'src/components/shared/logo-link/logo-link';
 
 function MainPageHeader() {

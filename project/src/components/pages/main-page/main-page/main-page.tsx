@@ -6,7 +6,7 @@ import MainPageHeader from 'src/components/pages/main-page/main-page-header/main
 import { getOffers } from 'src/store/main-page-process/api-actions/api-actions';
 import {
   clearState,
-  groupCitiesAction,
+  groupCitiesAction
 } from 'src/store/main-page-process/reducer/main-page-process';
 import MainPageOffersContainer from 'src/components/pages/main-page/main-page-offers-container/main-page-offers-container';
 

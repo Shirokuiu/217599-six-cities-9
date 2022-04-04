@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
+import { memo } from 'react';
+
 import Tabs from 'src/components/shared/tabs/tabs';
 import { MainPageLocationTabsProps } from 'src/types/main-page';
-import { memo } from 'react';
 
 export function MainPageLocationTabs({ locationTabs, currentCountry }: MainPageLocationTabsProps) {
   return (

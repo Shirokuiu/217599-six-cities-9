@@ -6,7 +6,7 @@ import { DropdownItem } from 'src/types/dropdown';
 import { parseSearchParams } from 'src/helpers/parse-search-params';
 import { MainPageSortSearchParamType } from 'src/types/main-page';
 import { DEFAULT_SORTING_OFFER_TYPE } from 'src/components/pages/main-page/constants/constants';
-import MainPageSortOffers from 'src/components/pages/main-page/main-page-sort-offers';
+import MainPageSortOffers from 'src/components/pages/main-page/main-page-sort-offers/main-page-sort-offers';
 
 const buildedDropdownItems: DropdownItem[] = buildDropdownItems();
 

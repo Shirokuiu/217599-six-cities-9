@@ -1,4 +1,4 @@
-import FavoritesPageHeader from 'src/components/pages/favorites-page/favorites-page-header';
+import FavoritesPageHeader from 'src/components/pages/favorites-page/favorites-page-header/favorites-page-header';
 import FavoritesPageFooter from 'src/components/pages/favorites-page/favorites-page-footer/favorites-page-footer';
 
 function FavoritesPageEmpty() {

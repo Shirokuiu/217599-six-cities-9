@@ -1,5 +1,6 @@
 import LogoLink from 'src/components/shared/logo-link/logo-link';
 import LoginPageForm from 'src/components/pages/login-page/login-page-form/login-page-form';
+import LoginPageRandomLocation from 'src/components/pages/login-page/login-page-random-location';
 
 function LoginPage() {
   return (
@@ -21,13 +22,7 @@ function LoginPage() {
             </h1>
             <LoginPageForm />
           </section>
-          <section className="locations locations--login locations--current">
-            <div className="locations__item">
-              <a className="locations__item-link" href="#">
-                <span>Amsterdam</span>
-              </a>
-            </div>
-          </section>
+          <LoginPageRandomLocation />
         </div>
       </main>
     </div>

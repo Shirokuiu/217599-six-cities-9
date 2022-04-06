@@ -12,9 +12,9 @@ import { AuthorizationStatus } from 'src/types/auth';
 import { AppRoutingPath } from 'src/types/app';
 import {
   apiRemoveFavoriteOffer,
-  apiSetFavoriteOffer
+  apiSetFavoriteOffer,
 } from 'src/store/main-page-process/api-actions/api-actions';
-import Bookmark from 'src/components/shared/bookmark/bookmark';
+import Bookmark from 'src/components/shared/bookmark/bookmark/bookmark';
 
 function MainPageOffersList() {
   const [searchParams] = useSearchParams();

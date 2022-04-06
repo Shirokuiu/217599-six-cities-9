@@ -9,6 +9,7 @@ export enum ActionType {
   AddComment = 'addComment',
   GetNearOffers = 'getNearOffers',
   SetNearOffers = 'setNearOffers',
+  ToggleHoverOffer = 'toggleHoverOffer',
   ToggleCommentsStatus = 'toggleCommentsStatus',
   ToggleOfferStatus = 'toggleOfferStatus',
   ClearState = 'clearState',

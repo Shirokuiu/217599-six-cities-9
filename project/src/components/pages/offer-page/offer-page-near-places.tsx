@@ -1,18 +1,21 @@
 import React from 'react';
 
-import { useAppSelector } from 'src/hooks';
+import { useAppDispatch, useAppSelector } from 'src/hooks';
 import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
 import Bookmark from 'src/components/shared/bookmark/bookmark/bookmark';
+import { Offer } from 'src/types/offer';
+import { toggleHoverOffer } from 'src/store/offer-page-process/reducer/offer-page-process';
 
 function OfferPageNearPlaces() {
   const nearOffers = useAppSelector((state) => state.OFFER_PAGE.nearOffers);
+  const dispatch = useAppDispatch();
 
-  const handleImgMouseEnter = () => {
-    console.log('handleImgMouseEnter');
+  const handleImgMouseEnter = (offer: Offer) => {
+    dispatch(toggleHoverOffer(offer));
   };
 
   const handleImgMouseLeave = () => {
-    console.log('handleImgMouseLeave');
+    dispatch(toggleHoverOffer(undefined));
   };
 
   const handleToggleBookmark = (isActive: boolean, offerId: number) => {

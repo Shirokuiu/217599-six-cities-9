@@ -8,6 +8,7 @@ import { Comment } from 'src/types/comment';
 
 const initialState: InitialState = {
   offer: undefined,
+  currentHoveredOffer: undefined,
   nearOffers: [],
   offerStatus: OfferStatus.Unknown,
   comments: [],
@@ -41,9 +42,16 @@ export const offerPageProcess = createSlice({
     [ActionType.SetNearOffers](state, { payload: nearOffers }: { payload: Offer[] }) {
       state.nearOffers = nearOffers;
     },
+    [ActionType.ToggleHoverOffer](
+      state,
+      { payload: currentOffer }: { payload: Offer | undefined },
+    ) {
+      state.currentHoveredOffer = currentOffer;
+    },
     [ActionType.ClearState](state) {
       state.offerStatus = OfferStatus.Unknown;
       state.offer = undefined;
+      state.currentHoveredOffer = undefined;
       state.comments = [];
       state.commentsStatus = CommentsStatus.Unknown;
     },
@@ -57,5 +65,6 @@ export const {
   toggleCommentsStatus,
   addComment,
   setNearOffers,
+  toggleHoverOffer,
   clearState,
 } = offerPageProcess.actions;

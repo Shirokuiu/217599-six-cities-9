@@ -7,6 +7,7 @@ export type InitialState = {
   comments: Comment[];
   nearOffers: Offer[];
   offer?: Offer;
+  currentHoveredOffer?: Offer;
 };
 
 export enum OfferStatus {

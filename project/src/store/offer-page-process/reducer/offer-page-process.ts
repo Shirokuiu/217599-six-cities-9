@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { CommentsStatus, InitialState, OfferStatus } from 'src/types/offer-page-process';
 import { NameSpace } from 'src/store/constants/constants';
-import { ActionType } from 'src/store/offer-page-process/api-actions/action-type';
+import { ActionType } from 'src/store/offer-page-process/action-type';
 import { Offer } from 'src/types/offer';
 import { Comment } from 'src/types/comment';
 

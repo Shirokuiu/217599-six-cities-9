@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ActionType } from 'src/store/offer-page-process/api-actions/action-type';
+import { ActionType } from 'src/store/offer-page-process/action-type';
 import HotelsService from 'src/services/hotels-service/hotels-service';
 import {
   addComment,

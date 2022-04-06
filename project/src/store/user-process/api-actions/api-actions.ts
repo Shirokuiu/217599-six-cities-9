@@ -5,7 +5,7 @@ import { LoginPageFormBody } from 'src/types/login-page';
 import Token from 'src/services/token';
 import { setAuthStatus, setMe } from 'src/store/user-process/reducer/user-process';
 import UserService from 'src/services/user-service/user-service';
-import { ActionType } from 'src/store/user-process/api-actions/action-type';
+import { ActionType } from 'src/store/user-process/action-type';
 
 export const checkAuth = createAsyncThunk(ActionType.CheckAuth, async (_arg, { dispatch }) => {
   const data = await UserService.checkAuth();

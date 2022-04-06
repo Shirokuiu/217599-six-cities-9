@@ -2,6 +2,7 @@ import ReviewForm from 'src/components/shared/review-form/review-form';
 import { useAppSelector } from 'src/hooks';
 import OfferPageDescriptionName from 'src/components/pages/offer-page/offer-page-description-name';
 import OfferPageDescriptionRating from 'src/components/pages/offer-page/offer-page-description-rating';
+import OfferPageDescriptionFeatures from 'src/components/pages/offer-page/offer-page-description-features';
 
 function OfferPageDescription() {
   const offer = useAppSelector((state) => state.OFFER_PAGE.offer);
@@ -17,13 +18,9 @@ function OfferPageDescription() {
           )}
           <OfferPageDescriptionName offer={offer} />
           <OfferPageDescriptionRating rating={offer.rating} />
-          <ul className="property__features">
-            <li className="property__feature property__feature--entire">Apartment</li>
-            <li className="property__feature property__feature--bedrooms">3 Bedrooms</li>
-            <li className="property__feature property__feature--adults">Max 4 adults</li>
-          </ul>
+          <OfferPageDescriptionFeatures offer={offer} />
           <div className="property__price">
-            <b className="property__price-value">€120</b>
+            <b className="property__price-value">€ {offer.price}</b>
             <span className="property__price-text">&nbsp;night</span>
           </div>
           <div className="property__inside">

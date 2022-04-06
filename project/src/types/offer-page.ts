@@ -12,3 +12,7 @@ export type OfferPageDescriptionNameProps = {
 export type OfferPageDescriptionRatingProps = {
   rating: number;
 };
+
+export type OfferPageDescriptionFeaturesProps = {
+  offer: Offer;
+};

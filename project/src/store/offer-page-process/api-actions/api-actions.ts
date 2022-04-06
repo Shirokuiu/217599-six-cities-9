@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ActionType } from 'src/store/offer-page-process/api-actions/action-type';
 import HotelsService from 'src/services/hotels-service/hotels-service';
 import {
+  addComment,
   setComments,
   setOffer,
   toggleCommentsStatus,
@@ -11,6 +12,7 @@ import {
 import { CommentsStatus, OfferStatus } from 'src/types/offer-page-process';
 import FavoritesService from 'src/services/favorites-service/favorites-service';
 import CommentsService from 'src/services/comments/comments-service';
+import { CommentBody } from 'src/types/comments-service';
 
 export const getOffer = createAsyncThunk(
   ActionType.GetOffer,
@@ -49,5 +51,14 @@ export const getComments = createAsyncThunk(
     const data = await CommentsService.get(offerId);
 
     dispatch(setComments(data));
+  },
+);
+
+export const apiAddComment = createAsyncThunk(
+  ActionType.ApiAddComment,
+  async ({ offerId, body }: { offerId: number; body: CommentBody }, { dispatch }) => {
+    const data = await CommentsService.add(offerId, body);
+
+    dispatch(addComment(data));
   },
 );

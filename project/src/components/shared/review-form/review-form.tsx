@@ -5,25 +5,33 @@ import TextareaControl from 'src/components/shared/textarea-control/textarea-con
 import Btn from 'src/components/shared/btn/btn';
 import { BtnType } from 'src/types/btn';
 import { checkValidityReviewForm } from 'src/components/shared/review-form/helpers/check-validity-review-form';
+import { calculateMinCharacters } from 'src/components/shared/review-form/helpers/calculate-min-characters';
+import {
+  MAX_CHARACTER_LENGTH,
+  MIN_CHARACTER_LENGTH,
+} from 'src/components/shared/review-form/constants/constants';
+import { ReviewFormProps } from 'src/types/review-form';
 
-function ReviewForm() {
+function ReviewForm({ onFormSubmit = () => undefined }: ReviewFormProps) {
   const [rating, setRating] = useState<string | undefined>(undefined);
   const [isDisabled, setDisabled] = useState<boolean>(true);
   const [textareaValue, setTextareaValue] = useState<string>('');
 
   const handleSubmitForm = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
+
+    const comment = textareaValue;
+    const parsedRating = rating ? +rating : 0;
+
+    onFormSubmit({ comment, rating: parsedRating });
   };
 
   const handleRatingChange = (currentRating: string) => {
     setRating(currentRating);
 
-    checkValidityReviewForm(
-      { rating: currentRating, textareaValue },
-      (isValid) => {
-        setDisabled(!isValid);
-      },
-    );
+    checkValidityReviewForm({ rating: currentRating, textareaValue }, (isValid) => {
+      setDisabled(!isValid);
+    });
   };
 
   const handleTextareaChange = (value: string) => {
@@ -51,9 +59,16 @@ function ReviewForm() {
 
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
-          To submit review please make sure to set{' '}
-          <span className="reviews__star">rating</span> and describe your stay
-          with at least <b className="reviews__text-amount">50 characters</b>.
+          To submit review please make sure to set <span className="reviews__star">rating</span> and
+          describe your stay with at least{' '}
+          <b className="reviews__text-amount">
+            {calculateMinCharacters(textareaValue.trim().length)}/{MIN_CHARACTER_LENGTH} characters
+          </b>
+          , and max&nbsp;
+          <b className="reviews__text-amount">
+            {textareaValue.trim().length}/{MAX_CHARACTER_LENGTH} characters
+          </b>
+          .
         </p>
         <Btn
           classNames={['reviews__submit', 'form__submit']}

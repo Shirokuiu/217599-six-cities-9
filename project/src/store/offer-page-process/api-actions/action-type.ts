@@ -5,6 +5,8 @@ export enum ActionType {
   ApiRemoveFavoriteOffer = 'ApiRemoveFavoriteOffer',
   GetComments = 'getComments',
   SetComments = 'setComments',
+  ApiAddComment = 'apiAddComment',
+  AddComment = 'addComment',
   ToggleCommentsStatus = 'toggleCommentsStatus',
   ToggleOfferStatus = 'toggleOfferStatus',
   ClearState = 'clearState',

@@ -34,6 +34,9 @@ export const offerPageProcess = createSlice({
     ) {
       state.commentsStatus = commentsStatus;
     },
+    [ActionType.AddComment](state, { payload: comments }: { payload: Comment[] }) {
+      state.comments = comments;
+    },
     [ActionType.ClearState](state) {
       state.offerStatus = OfferStatus.Unknown;
       state.offer = undefined;
@@ -43,5 +46,11 @@ export const offerPageProcess = createSlice({
   },
 });
 
-export const { setOffer, toggleOfferStatus, setComments, toggleCommentsStatus, clearState } =
-  offerPageProcess.actions;
+export const {
+  setOffer,
+  toggleOfferStatus,
+  setComments,
+  toggleCommentsStatus,
+  addComment,
+  clearState,
+} = offerPageProcess.actions;

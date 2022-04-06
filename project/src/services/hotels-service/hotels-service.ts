@@ -8,6 +8,12 @@ class HotelsService {
 
     return data;
   }
+
+  static async getOffer(offerId: number): Promise<Offer> {
+    const { data } = await api.get<Offer>(`${HotelsRoute.Hotels}/${offerId}`);
+
+    return data;
+  }
 }
 
 export default HotelsService;

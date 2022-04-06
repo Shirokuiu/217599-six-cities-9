@@ -1,5 +1,6 @@
 import OfferPageGallery from 'src/components/pages/offer-page/offer-page-gallery';
 import OfferPageDescription from 'src/components/pages/offer-page/offer-page-description';
+import OfferPageMap from 'src/components/pages/offer-page/offer-page-map';
 
 function OfferPageContent() {
   return (
@@ -7,7 +8,7 @@ function OfferPageContent() {
       <section className="property">
         <OfferPageGallery />
         <OfferPageDescription />
-        <section className="property__map map" />
+        <OfferPageMap />
       </section>
       <div className="container">
         <section className="near-places places">

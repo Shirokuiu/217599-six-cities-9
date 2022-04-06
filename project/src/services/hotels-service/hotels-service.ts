@@ -14,6 +14,12 @@ class HotelsService {
 
     return data;
   }
+
+  static async getNearOffers(offerId: number): Promise<Offer[]> {
+    const { data } = await api.get<Offer[]>(`${HotelsRoute.Hotels}/${offerId}/nearby`);
+
+    return data;
+  }
 }
 
 export default HotelsService;

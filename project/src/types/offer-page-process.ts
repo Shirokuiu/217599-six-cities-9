@@ -5,6 +5,7 @@ export type InitialState = {
   offerStatus: OfferStatus;
   commentsStatus: CommentsStatus;
   comments: Comment[];
+  nearOffers: Offer[];
   offer?: Offer;
 };
 

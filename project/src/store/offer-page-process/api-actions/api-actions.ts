@@ -5,6 +5,7 @@ import HotelsService from 'src/services/hotels-service/hotels-service';
 import {
   addComment,
   setComments,
+  setNearOffers,
   setOffer,
   toggleCommentsStatus,
   toggleOfferStatus,
@@ -60,5 +61,14 @@ export const apiAddComment = createAsyncThunk(
     const data = await CommentsService.add(offerId, body);
 
     dispatch(addComment(data));
+  },
+);
+
+export const getNearOffers = createAsyncThunk(
+  ActionType.GetNearOffers,
+  async (offerId: number, { dispatch }) => {
+    const data = await HotelsService.getNearOffers(offerId);
+
+    dispatch(setNearOffers(data));
   },
 );

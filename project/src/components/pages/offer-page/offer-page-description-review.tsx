@@ -1,5 +1,6 @@
 import Rating from 'src/components/shared/rating/rating';
 import { OfferPageDescriptionReviewProps } from 'src/types/offer-page';
+import { formatDate } from 'src/helpers/format-date';
 
 function OfferPageDescriptionReview({ comment: commentData }: OfferPageDescriptionReviewProps) {
   const { user, comment, rating, date } = commentData;
@@ -26,7 +27,7 @@ function OfferPageDescriptionReview({ comment: commentData }: OfferPageDescripti
         </div>
         <p className="reviews__text">{comment}</p>
         <time className="reviews__time" dateTime="2019-04-24">
-          {date}
+          {formatDate(date)}
         </time>
       </div>
     </li>

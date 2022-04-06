@@ -7,7 +7,7 @@ import {
   setCurrentCity,
   setOffers,
   toggleHoverOffer,
-  unmarkFavoriteOffer
+  unmarkFavoriteOffer,
 } from 'src/store/main-page-process/reducer/main-page-process';
 import { InitialState } from 'src/types/main-page-process';
 import { groupCities } from 'src/helpers/group-cities';

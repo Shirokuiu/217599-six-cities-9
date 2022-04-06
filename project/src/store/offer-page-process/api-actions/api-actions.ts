@@ -57,10 +57,24 @@ export const getComments = createAsyncThunk(
 
 export const apiAddComment = createAsyncThunk(
   ActionType.ApiAddComment,
-  async ({ offerId, body }: { offerId: number; body: CommentBody }, { dispatch }) => {
-    const data = await CommentsService.add(offerId, body);
+  async (
+    {
+      offerId,
+      body,
+      resolveCb = () => undefined,
+      rejectCb = () => undefined,
+    }: { offerId: number; body: CommentBody; resolveCb?: () => void; rejectCb?: () => void },
+    { dispatch },
+  ) => {
+    try {
+      const data = await CommentsService.add(offerId, body);
 
-    dispatch(addComment(data));
+      dispatch(addComment(data));
+
+      resolveCb();
+    } catch (e) {
+      rejectCb();
+    }
   },
 );
 

@@ -3,5 +3,6 @@ export type TextareaProps = {
   name?: string;
   placeholder?: string;
   defaultValue?: string;
+  isDisabled?: boolean;
   onTextareaValueChange?: (value: string) => void;
 };

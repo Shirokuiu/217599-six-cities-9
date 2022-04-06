@@ -16,6 +16,9 @@ function OfferPageDescriptionReviews() {
   const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
   const dispatch = useAppDispatch();
   const [parsedComments, setParsedComments] = useState<Comment[]>([]);
+  const [disabled, setDisabled] = useState<boolean>(false);
+  const [isReset, setIsReset] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const sortedComments = sortAndSliceComments(comments);
@@ -23,8 +26,25 @@ function OfferPageDescriptionReviews() {
     setParsedComments(sortedComments);
   }, [comments]);
 
-  const handleFormSubmit = (formData: FormData) => {
-    dispatch(apiAddComment({ offerId: params.id ? +params.id : 0, body: formData }));
+  const handleFormSubmit = async (formData: FormData) => {
+    setDisabled(true);
+    setErrorMsg(undefined);
+    setIsReset(false);
+
+    dispatch(
+      apiAddComment({
+        offerId: params.id ? +params.id : 0,
+        body: formData,
+        resolveCb() {
+          setDisabled(false);
+          setIsReset(true);
+        },
+        rejectCb() {
+          setDisabled(false);
+          setErrorMsg('An error occurred while sending the message. Please, try again');
+        },
+      }),
+    );
   };
 
   return (
@@ -38,8 +58,13 @@ function OfferPageDescriptionReviews() {
         ))}
       </ul>
       {authorizationStatus === AuthorizationStatus.Auth && (
-        <ReviewForm onFormSubmit={handleFormSubmit} />
+        <ReviewForm
+          isFormDisabled={disabled}
+          isFormReset={isReset}
+          onFormSubmit={handleFormSubmit}
+        />
       )}
+      {errorMsg && <div>{errorMsg}</div>}
     </section>
   );
 }

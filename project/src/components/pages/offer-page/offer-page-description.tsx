@@ -3,6 +3,7 @@ import { useAppSelector } from 'src/hooks';
 import OfferPageDescriptionName from 'src/components/pages/offer-page/offer-page-description-name';
 import OfferPageDescriptionRating from 'src/components/pages/offer-page/offer-page-description-rating';
 import OfferPageDescriptionFeatures from 'src/components/pages/offer-page/offer-page-description-features';
+import OfferPageDescriptionInside from 'src/components/pages/offer-page/offer-page-description-inside';
 
 function OfferPageDescription() {
   const offer = useAppSelector((state) => state.OFFER_PAGE.offer);
@@ -23,22 +24,7 @@ function OfferPageDescription() {
             <b className="property__price-value">€ {offer.price}</b>
             <span className="property__price-text">&nbsp;night</span>
           </div>
-          <div className="property__inside">
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
-            <h2 className="property__inside-title">What's inside</h2>
-            <ul className="property__inside-list">
-              <li className="property__inside-item">Wi-Fi</li>
-              <li className="property__inside-item">Washing machine</li>
-              <li className="property__inside-item">Towels</li>
-              <li className="property__inside-item">Heating</li>
-              <li className="property__inside-item">Coffee machine</li>
-              <li className="property__inside-item">Baby seat</li>
-              <li className="property__inside-item">Kitchen</li>
-              <li className="property__inside-item">Dishwasher</li>
-              <li className="property__inside-item">Cabel TV</li>
-              <li className="property__inside-item">Fridge</li>
-            </ul>
-          </div>
+          <OfferPageDescriptionInside goods={offer.goods} />
           <div className="property__host">
             <h2 className="property__host-title">Meet the host</h2>
             <div className="property__host-user user">

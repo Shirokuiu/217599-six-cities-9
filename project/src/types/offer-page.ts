@@ -5,6 +5,11 @@ export type Image = {
   src: string;
 };
 
+export type Good = {
+  id: number;
+  text: string;
+};
+
 export type OfferPageDescriptionNameProps = {
   offer: Offer;
 };
@@ -15,4 +20,8 @@ export type OfferPageDescriptionRatingProps = {
 
 export type OfferPageDescriptionFeaturesProps = {
   offer: Offer;
+};
+
+export type OfferPageDescriptionInsideProps = {
+  goods: string[];
 };

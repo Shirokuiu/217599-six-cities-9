@@ -1,13 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { InitialState, OfferStatus } from 'src/types/offer-page-process';
+import { CommentsStatus, InitialState, OfferStatus } from 'src/types/offer-page-process';
 import { NameSpace } from 'src/store/constants/constants';
 import { ActionType } from 'src/store/offer-page-process/api-actions/action-type';
 import { Offer } from 'src/types/offer';
+import { Comment } from 'src/types/comment';
 
 const initialState: InitialState = {
   offer: undefined,
   offerStatus: OfferStatus.Unknown,
+  comments: [],
+  commentsStatus: CommentsStatus.Unknown,
 };
 
 export const offerPageProcess = createSlice({
@@ -21,11 +24,24 @@ export const offerPageProcess = createSlice({
     [ActionType.ToggleOfferStatus](state, { payload: offerStatus }: { payload: OfferStatus }) {
       state.offerStatus = offerStatus;
     },
+    [ActionType.SetComments](state, { payload: comments }: { payload: Comment[] }) {
+      state.comments = comments;
+      state.commentsStatus = comments.length ? CommentsStatus.Filled : CommentsStatus.Empty;
+    },
+    [ActionType.ToggleCommentsStatus](
+      state,
+      { payload: commentsStatus }: { payload: CommentsStatus },
+    ) {
+      state.commentsStatus = commentsStatus;
+    },
     [ActionType.ClearState](state) {
       state.offerStatus = OfferStatus.Unknown;
       state.offer = undefined;
+      state.comments = [];
+      state.commentsStatus = CommentsStatus.Unknown;
     },
   },
 });
 
-export const { setOffer, toggleOfferStatus, clearState } = offerPageProcess.actions;
+export const { setOffer, toggleOfferStatus, setComments, toggleCommentsStatus, clearState } =
+  offerPageProcess.actions;

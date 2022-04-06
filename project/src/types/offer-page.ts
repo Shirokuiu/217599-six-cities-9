@@ -1,4 +1,5 @@
 import { Offer } from 'src/types/offer';
+import { Comment } from 'src/types/comment';
 
 export type Image = {
   id: number;
@@ -28,4 +29,8 @@ export type OfferPageDescriptionInsideProps = {
 
 export type OfferPageDescriptionHostProps = {
   offer: Offer;
+};
+
+export type OfferPageDescriptionReviewProps = {
+  comment: Comment;
 };

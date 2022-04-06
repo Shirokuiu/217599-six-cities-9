@@ -8,3 +8,7 @@ export type Image = {
 export type OfferPageDescriptionNameProps = {
   offer: Offer;
 };
+
+export type OfferPageDescriptionRatingProps = {
+  rating: number;
+};

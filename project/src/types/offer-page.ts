@@ -25,3 +25,7 @@ export type OfferPageDescriptionFeaturesProps = {
 export type OfferPageDescriptionInsideProps = {
   goods: string[];
 };
+
+export type OfferPageDescriptionHostProps = {
+  offer: Offer;
+};

@@ -4,7 +4,11 @@ import { useParams } from 'react-router-dom';
 import OfferPageHeader from 'src/components/pages/offer-page/offer-page-header';
 import OfferPageContentWrap from 'src/components/pages/offer-page/offer-page-content-wrap';
 import { useAppDispatch } from 'src/hooks';
-import { getComments, getOffer } from 'src/store/offer-page-process/api-actions/api-actions';
+import {
+  getComments,
+  getNearOffers,
+  getOffer,
+} from 'src/store/offer-page-process/api-actions/api-actions';
 import { clearState } from 'src/store/offer-page-process/reducer/offer-page-process';
 
 function OfferPage() {
@@ -15,12 +19,13 @@ function OfferPage() {
     if (params.id) {
       dispatch(getOffer(+params.id));
       dispatch(getComments(+params.id));
+      dispatch(getNearOffers(+params.id));
     }
 
     return () => {
       dispatch(clearState());
     };
-  }, []);
+  }, [params.id]);
 
   return (
     <div className="page">

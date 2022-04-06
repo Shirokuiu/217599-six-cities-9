@@ -1,14 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 import OfferPreview from 'src/components/shared/offer-preview/offer-preview';
 import Bookmark from 'src/components/shared/bookmark/bookmark/bookmark';
 import { Offer } from 'src/types/offer';
 import { toggleHoverOffer } from 'src/store/offer-page-process/reducer/offer-page-process';
+import {
+  apiRemoveFavoriteOffer,
+  apiSetFavoriteOffer,
+} from 'src/store/offer-page-process/api-actions/api-actions';
+import { AuthorizationStatus } from 'src/types/auth';
+import { AppRoutingPath } from 'src/types/app';
 
 function OfferPageNearPlaces() {
+  const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
   const nearOffers = useAppSelector((state) => state.OFFER_PAGE.nearOffers);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleImgMouseEnter = (offer: Offer) => {
     dispatch(toggleHoverOffer(offer));
@@ -19,7 +28,13 @@ function OfferPageNearPlaces() {
   };
 
   const handleToggleBookmark = (isActive: boolean, offerId: number) => {
-    console.log('handleToggleBookmark');
+    if (authorizationStatus === AuthorizationStatus.NoAuth) {
+      navigate(AppRoutingPath.Login);
+
+      return;
+    }
+
+    isActive ? dispatch(apiSetFavoriteOffer(offerId)) : dispatch(apiRemoveFavoriteOffer(offerId));
   };
 
   return (

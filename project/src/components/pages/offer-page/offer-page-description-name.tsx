@@ -1,20 +1,30 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { OfferPageDescriptionNameProps } from 'src/types/offer-page';
 import Bookmark from 'src/components/shared/bookmark/bookmark/bookmark';
 import { StyleMode } from 'src/types/bookmark';
-import { useAppDispatch } from 'src/hooks';
+import { useAppDispatch, useAppSelector } from 'src/hooks';
 import {
   apiRemoveFavoriteOffer,
   apiSetFavoriteOffer,
 } from 'src/store/offer-page-process/api-actions/api-actions';
+import { AuthorizationStatus } from 'src/types/auth';
+import { AppRoutingPath } from 'src/types/app';
 
 function OfferPageDescriptionName({ offer }: OfferPageDescriptionNameProps) {
+  const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
   const params = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleToggleActiveMark = (isActive: boolean) => {
+    if (authorizationStatus === AuthorizationStatus.NoAuth) {
+      navigate(AppRoutingPath.Login);
+
+      return;
+    }
+
     if (params.id) {
       dispatch(isActive ? apiSetFavoriteOffer(+params.id) : apiRemoveFavoriteOffer(+params.id));
     }

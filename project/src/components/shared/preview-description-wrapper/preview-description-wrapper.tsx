@@ -23,7 +23,7 @@ function PreviewDescriptionWrapper({
       </div>
       <div className="place-card__rating rating">
         <div className="place-card__stars rating__stars">
-          <Rating rate={rating} />
+          <Rating rate={rating} round />
         </div>
       </div>
       <h2 className="place-card__name">{renderTitle()}</h2>

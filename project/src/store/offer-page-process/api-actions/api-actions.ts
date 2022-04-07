@@ -8,7 +8,7 @@ import {
   setNearOffers,
   setOffer,
   toggleCommentsStatus,
-  toggleOfferStatus,
+  toggleOfferStatus
 } from 'src/store/offer-page-process/reducer/offer-page-process';
 import { CommentsStatus, OfferStatus } from 'src/types/offer-page-process';
 import FavoritesService from 'src/services/favorites-service/favorites-service';

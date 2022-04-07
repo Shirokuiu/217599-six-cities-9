@@ -7,7 +7,7 @@ import { useAppDispatch } from 'src/hooks';
 import {
   getComments,
   getNearOffers,
-  getOffer,
+  getOffer
 } from 'src/store/offer-page-process/api-actions/api-actions';
 import { clearState } from 'src/store/offer-page-process/reducer/offer-page-process';
 

@@ -9,7 +9,7 @@ import {
   setOffer,
   toggleCommentsStatus,
   toggleHoverOffer,
-  toggleOfferStatus,
+  toggleOfferStatus
 } from 'src/store/offer-page-process/reducer/offer-page-process';
 import { comments } from 'src/mocks/comments';
 

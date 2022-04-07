@@ -8,7 +8,7 @@ import { Offer } from 'src/types/offer';
 import { toggleHoverOffer } from 'src/store/offer-page-process/reducer/offer-page-process';
 import {
   apiRemoveFavoriteOffer,
-  apiSetFavoriteOffer,
+  apiSetFavoriteOffer
 } from 'src/store/offer-page-process/api-actions/api-actions';
 import { AuthorizationStatus } from 'src/types/auth';
 import { AppRoutingPath } from 'src/types/app';

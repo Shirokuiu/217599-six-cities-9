@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   markFavoriteOffer,
   setOffers,
-  unmarkFavoriteOffer,
+  unmarkFavoriteOffer
 } from 'src/store/main-page-process/reducer/main-page-process';
 import HotelsService from 'src/services/hotels-service/hotels-service';
 import { ActionType } from 'src/store/main-page-process/action-type';

@@ -8,7 +8,7 @@ import { checkValidityReviewForm } from 'src/components/shared/review-form/helpe
 import { calculateMinCharacters } from 'src/components/shared/review-form/helpers/calculate-min-characters';
 import {
   MAX_CHARACTER_LENGTH,
-  MIN_CHARACTER_LENGTH,
+  MIN_CHARACTER_LENGTH
 } from 'src/components/shared/review-form/constants/constants';
 import { ReviewFormProps } from 'src/types/review-form';
 

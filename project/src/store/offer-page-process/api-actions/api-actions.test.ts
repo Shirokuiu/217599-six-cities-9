@@ -16,13 +16,13 @@ import {
   apiRemoveFavoriteOffer,
   getComments,
   apiAddComment,
-  getNearOffers,
+  getNearOffers
 } from 'src/store/offer-page-process/api-actions/api-actions';
 import {
   addComment,
   setComments,
   setNearOffers,
-  setOffer,
+  setOffer
 } from 'src/store/offer-page-process/reducer/offer-page-process';
 import { CommentsRoute } from 'src/services/comments/constants/constants';
 import { comments } from 'src/mocks/comments';

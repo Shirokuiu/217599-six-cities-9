@@ -7,7 +7,7 @@ import { StyleMode } from 'src/types/bookmark';
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 import {
   apiRemoveFavoriteOffer,
-  apiSetFavoriteOffer,
+  apiSetFavoriteOffer
 } from 'src/store/offer-page-process/api-actions/api-actions';
 import { AuthorizationStatus } from 'src/types/auth';
 import { AppRoutingPath } from 'src/types/app';

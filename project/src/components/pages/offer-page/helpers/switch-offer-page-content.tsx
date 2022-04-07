@@ -1,6 +1,6 @@
 import { OfferStatus } from 'src/types/offer-page-process';
 import Loader from 'src/components/shared/loader/loader';
-import OfferPageContent from 'src/components/pages/offer-page/offer-page-content';
+import OfferPageContent from 'src/components/pages/offer-page/offer-page-content/offer-page-content';
 import { Navigate } from 'react-router-dom';
 import { AppRoutingPath } from 'src/types/app';
 

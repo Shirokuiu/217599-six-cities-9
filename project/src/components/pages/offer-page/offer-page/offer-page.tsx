@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import OfferPageHeader from 'src/components/pages/offer-page/offer-page-header';
-import OfferPageContentWrap from 'src/components/pages/offer-page/offer-page-content-wrap';
+import OfferPageHeader from 'src/components/pages/offer-page/offer-page-header/offer-page-header';
+import OfferPageContentWrap from 'src/components/pages/offer-page/offer-page-content-wrap/offer-page-content-wrap';
 import { useAppDispatch } from 'src/hooks';
 import {
   getComments,

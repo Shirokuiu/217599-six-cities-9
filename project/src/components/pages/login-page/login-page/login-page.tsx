@@ -1,6 +1,6 @@
 import LogoLink from 'src/components/shared/logo-link/logo-link';
 import LoginPageForm from 'src/components/pages/login-page/login-page-form/login-page-form';
-import LoginPageRandomLocation from 'src/components/pages/login-page/login-page-random-location';
+import LoginPageRandomLocation from 'src/components/pages/login-page/login-page-random-location/login-page-random-location';
 
 function LoginPage() {
   return (

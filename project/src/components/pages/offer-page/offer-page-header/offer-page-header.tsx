@@ -1,5 +1,5 @@
 import LogoLink from 'src/components/shared/logo-link/logo-link';
-import OfferPageUserBlock from 'src/components/pages/offer-page/offer-page-user-block';
+import OfferPageUserBlock from 'src/components/pages/offer-page/offer-page-user-block/offer-page-user-block';
 
 function OfferPageHeader() {
   return (

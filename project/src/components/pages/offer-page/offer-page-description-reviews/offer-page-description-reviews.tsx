@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import ReviewForm from 'src/components/shared/review-form/review-form';
 import { useAppDispatch, useAppSelector } from 'src/hooks';
-import OfferPageDescriptionReview from 'src/components/pages/offer-page/offer-page-description-review';
+import OfferPageDescriptionReview from 'src/components/pages/offer-page/offer-page-description-review/offer-page-description-review';
 import { AuthorizationStatus } from 'src/types/auth';
 import { FormData } from 'src/types/review-form';
 import { apiAddComment } from 'src/store/offer-page-process/api-actions/api-actions';

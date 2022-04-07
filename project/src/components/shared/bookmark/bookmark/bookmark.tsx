@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BookmarkProps, StyleMode } from 'src/types/bookmark';
 import { getAriaText } from 'src/components/shared/bookmark/helpers/get-aria-text';
 import { toggleActiveBookmarkClass } from 'src/components/shared/bookmark/helpers/toogle-active-bookmark-class';
-import BookmarkIcon from 'src/components/shared/bookmark/bookmark-icon';
+import BookmarkIcon from 'src/components/shared/bookmark/bookmark-icon/bookmark-icon';
 
 function Bookmark({
   isActive: inBookmark,

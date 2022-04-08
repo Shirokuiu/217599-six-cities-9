@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { AuthorizationStatus } from 'src/types/auth';
 import { NameSpace } from 'src/store/constants/constants';
-import { ActionType } from 'src/store/user-process/api-actions/action-type';
+import { ActionType } from 'src/store/user-process/action-type';
 import { User } from 'src/types/user';
 import { InitialState } from 'src/types/user-process';
 

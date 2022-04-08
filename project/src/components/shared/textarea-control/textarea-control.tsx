@@ -7,6 +7,7 @@ function TextareaControl({
   name,
   placeholder,
   defaultValue,
+  isDisabled = false,
   onTextareaValueChange = () => undefined,
 }: TextareaProps) {
   const handleTextareaChange = (evt: ChangeEvent<HTMLTextAreaElement>) => {
@@ -17,11 +18,12 @@ function TextareaControl({
     <textarea
       className="reviews__textarea form__textarea"
       id={id ?? 'textarea'}
+      value={defaultValue ?? ''}
       name={name ?? 'textarea'}
       placeholder={placeholder ?? 'Type some text'}
-      defaultValue={defaultValue ?? ''}
       onChange={handleTextareaChange}
       data-testid="textarea"
+      disabled={isDisabled}
     />
   );
 }

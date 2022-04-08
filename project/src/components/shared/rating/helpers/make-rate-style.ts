@@ -1,17 +1,11 @@
-import { MAX_PERCENT } from 'src/components/shared/rating/constants/constants';
-
-const getPercentRate = ({
-  rate,
-  maxRate,
-}: {
-  rate: number;
-  maxRate: number;
-}): number => (rate * MAX_PERCENT) / maxRate;
+import { getPercentRate } from 'src/components/shared/rating/helpers/get-percent-rate';
 
 export const makeRateStyle = ({
   rate,
   maxRate,
+  round,
 }: {
   rate: number;
   maxRate: number;
-}): string => `${getPercentRate({ rate, maxRate })}%`;
+  round: boolean;
+}): string => `${getPercentRate({ rate, maxRate, round })}%`;

@@ -4,7 +4,7 @@ import { GroupedCity } from 'src/types/main-page';
 import { Offer } from 'src/types/offer';
 import FavoritePreview from 'src/components/shared/favorite-preview/favorite-preview';
 import { FavoritePageListProps } from 'src/types/favorite-page';
-import Bookmark from 'src/components/shared/bookmark/bookmark';
+import Bookmark from 'src/components/shared/bookmark/bookmark/bookmark';
 import { useAppDispatch } from 'src/hooks';
 import { apiUnmark } from 'src/store/favorite-page-process/api-actions/api-actions';
 

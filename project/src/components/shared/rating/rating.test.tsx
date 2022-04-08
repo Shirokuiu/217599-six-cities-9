@@ -8,7 +8,7 @@ describe('Проверка на корректность рендера комп
   describe('Проверка передачи параметров', () => {
     it('Переданных параметрах компонент верно отрисовывается', () => {
       const { container } = render(<Rating rate={3} />);
-      const rate = makeRateStyle({ rate: 3, maxRate: DEFAULT_RATE });
+      const rate = makeRateStyle({ rate: 3, maxRate: DEFAULT_RATE, round: false });
 
       expect(container).toBeInTheDocument();
       expect(screen.getByTestId('rate-style').style.width).toBe(rate);

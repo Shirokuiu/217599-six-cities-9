@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Bookmark from 'src/components/shared/bookmark/bookmark';
+import Bookmark from 'src/components/shared/bookmark/bookmark/bookmark';
 import { toggleActiveBookmarkClass } from 'src/components/shared/bookmark/helpers/toogle-active-bookmark-class';
 import { getAriaText } from 'src/components/shared/bookmark/helpers/get-aria-text';
 
@@ -12,7 +12,9 @@ describe('Проверка на корректность рендера комп
 
       render(<Bookmark isActive={isActive} />);
 
-      expect(screen.getByTestId('bookmark')).toHaveClass(toggleActiveBookmarkClass({ isActive }));
+      expect(screen.getByTestId('bookmark')).toHaveClass(
+        toggleActiveBookmarkClass({ isActive, className: 'place-card__bookmark-button' }),
+      );
     });
 
     it('При переданных параметрах компонент верно генерирует ariaText', () => {
@@ -33,7 +35,7 @@ describe('Проверка на корректность рендера комп
       userEvent.click(screen.getByTestId('bookmark'));
 
       expect(screen.getByTestId('bookmark')).toHaveClass(
-        toggleActiveBookmarkClass({ isActive: false }),
+        toggleActiveBookmarkClass({ isActive: false, className: 'place-card__bookmark-button' }),
       );
     });
 

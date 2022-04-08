@@ -1,25 +1,36 @@
-import { ChangeEvent, Fragment } from 'react';
+import { ChangeEvent, Fragment, useEffect } from 'react';
 
 import { buildRatingItems } from 'src/components/shared/rating-control/helpers/build-rating-items';
 import { FormRatingProps } from 'src/types/form-rating';
 
-const formRatingItems = buildRatingItems();
+let formRatingItems = buildRatingItems();
 
-function RatingControl({ onRatingChange = () => undefined }: FormRatingProps) {
+function RatingControl({
+  isDisabled = false,
+  isReset = false,
+  onRatingChange = () => undefined,
+}: FormRatingProps) {
+  useEffect(() => {
+    if (isReset) {
+      formRatingItems = buildRatingItems();
+    }
+  }, [isReset]);
+
   const handleRatingChange = (evt: ChangeEvent<HTMLInputElement>) => {
     onRatingChange(evt.target.value);
   };
 
   return (
     <div className="reviews__rating-form form__rating">
-      {formRatingItems.map(({ value, id, labelTitle }) => (
-        <Fragment key={id}>
+      {formRatingItems.map(({ value, id, key, labelTitle }) => (
+        <Fragment key={key}>
           <input
             className="form__rating-input visually-hidden"
             name="rating"
             value={value}
             id={id}
             type="radio"
+            disabled={isDisabled}
             onChange={handleRatingChange}
             data-testid="radio"
           />

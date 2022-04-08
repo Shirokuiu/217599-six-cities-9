@@ -1,0 +1,2 @@
+export const MIN_CHARACTER_LENGTH = 50;
+export const MAX_CHARACTER_LENGTH = 300;

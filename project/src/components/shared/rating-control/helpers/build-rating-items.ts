@@ -13,6 +13,7 @@ const ratingValues = ['5', '4', '3', '2', '1'];
 export const buildRatingItems = (): FormRatingItem[] =>
   ratingValues.map((value: string) => ({
     id: `${value}-stars`,
+    key: Math.random(),
     value,
     labelTitle: LabelTitles[value],
   }));

@@ -1,12 +1,7 @@
 export const toggleActiveBookmarkClass = ({
   isActive,
+  className,
 }: {
   isActive: boolean;
-}): string =>
-  [
-    'place-card__bookmark-button',
-    isActive && 'place-card__bookmark-button--active',
-    'button',
-  ]
-    .filter(Boolean)
-    .join(' ');
+  className: string;
+}): string => [className, isActive && `${className}--active`, 'button'].filter(Boolean).join(' ');

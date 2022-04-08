@@ -14,7 +14,7 @@ import {
   apiRemoveFavoriteOffer,
   apiSetFavoriteOffer
 } from 'src/store/main-page-process/api-actions/api-actions';
-import Bookmark from 'src/components/shared/bookmark/bookmark';
+import Bookmark from 'src/components/shared/bookmark/bookmark/bookmark';
 
 function MainPageOffersList() {
   const [searchParams] = useSearchParams();

@@ -1,0 +1,16 @@
+export enum ActionType {
+  GetOffer = 'getOffer',
+  SetOffer = 'setOffer',
+  ApiSetFavoriteOffer = 'ApiSetFavoriteOffer',
+  ApiRemoveFavoriteOffer = 'ApiRemoveFavoriteOffer',
+  GetComments = 'getComments',
+  SetComments = 'setComments',
+  ApiAddComment = 'apiAddComment',
+  AddComment = 'addComment',
+  GetNearOffers = 'getNearOffers',
+  SetNearOffers = 'setNearOffers',
+  ToggleHoverOffer = 'toggleHoverOffer',
+  ToggleCommentsStatus = 'toggleCommentsStatus',
+  ToggleOfferStatus = 'toggleOfferStatus',
+  ClearState = 'clearState',
+}

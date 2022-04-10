@@ -3,14 +3,17 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   markFavoriteOffer,
   setOffers,
+  toggleOffersLoadingStatus,
   unmarkFavoriteOffer
 } from 'src/store/main-page-process/reducer/main-page-process';
 import HotelsService from 'src/services/hotels-service/hotels-service';
 import { ActionType } from 'src/store/main-page-process/action-type';
-import { ToggleFavoriteProps } from 'src/types/main-page-process';
+import { OffersLoadingStatus, ToggleFavoriteProps } from 'src/types/main-page-process';
 import FavoritesService from 'src/services/favorites-service/favorites-service';
 
 export const getOffers = createAsyncThunk(ActionType.GetOffers, async (_arg, { dispatch }) => {
+  dispatch(toggleOffersLoadingStatus(OffersLoadingStatus.Loading));
+
   const data = await HotelsService.getOffers();
 
   dispatch(setOffers(data));

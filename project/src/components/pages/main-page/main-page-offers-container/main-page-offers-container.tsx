@@ -2,9 +2,9 @@ import { useAppSelector } from 'src/hooks';
 import { switchMainPageComponents } from 'src/components/pages/main-page/helpers/switch-main-page-components';
 
 export function MainPageOffersContainer() {
-  const currentCity = useAppSelector((state) => state.MAIN_PAGE.currentCity);
+  const offersLoadingStatus = useAppSelector((state) => state.MAIN_PAGE.offersLoadingStatus);
 
-  return switchMainPageComponents(currentCity?.offers);
+  return switchMainPageComponents(offersLoadingStatus);
 }
 
 export default MainPageOffersContainer;

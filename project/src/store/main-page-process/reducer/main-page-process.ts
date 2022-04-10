@@ -2,7 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { ActionType } from 'src/store/main-page-process/action-type';
 import { getCurrentOffer } from 'src/store/main-page-process/helpers/get-current-offer';
-import { HoveredOfferState, InitialState, ToggleFavoriteProps } from 'src/types/main-page-process';
+import {
+  HoveredOfferState,
+  InitialState,
+  OffersLoadingStatus,
+  ToggleFavoriteProps
+} from 'src/types/main-page-process';
 import { NameSpace } from 'src/store/constants/constants';
 import { Offer } from 'src/types/offer';
 import { getGroupedCityIdx } from 'src/store/main-page-process/helpers/get-grouped-city-idx';
@@ -11,6 +16,7 @@ import { groupCities } from 'src/helpers/group-cities';
 
 const initialState: InitialState = {
   offers: [],
+  offersLoadingStatus: OffersLoadingStatus.Unknown,
   groupedCities: [],
   currentCity: undefined,
   currentHoveredOffer: 'unknown',
@@ -22,6 +28,9 @@ export const mainPageProcess = createSlice({
   reducers: {
     [ActionType.SetOffers](state, { payload: offers }: { payload: Offer[] }) {
       state.offers = offers;
+      state.offersLoadingStatus = offers.length
+        ? OffersLoadingStatus.Filled
+        : OffersLoadingStatus.Empty;
     },
     [ActionType.GroupCitiesAction](state) {
       state.groupedCities = groupCities(state.offers);
@@ -64,6 +73,12 @@ export const mainPageProcess = createSlice({
         false,
       );
     },
+    [ActionType.ToggleOffersLoadingStatus](
+      state,
+      { payload: loadingStatus }: { payload: OffersLoadingStatus },
+    ) {
+      state.offersLoadingStatus = loadingStatus;
+    },
     [ActionType.ClearState](state) {
       // NOTE Хз как по другому почистить стор
       // state = initialState или функцию передавать ничего не происходит
@@ -81,5 +96,6 @@ export const {
   toggleHoverOffer,
   markFavoriteOffer,
   unmarkFavoriteOffer,
+  toggleOffersLoadingStatus,
   clearState,
 } = mainPageProcess.actions;

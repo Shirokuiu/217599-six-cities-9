@@ -7,6 +7,7 @@ type NoHoveredOffer = undefined; // NOTE undefined - когда увели хо�
 
 export type InitialState = {
   offers: Offer[];
+  offersLoadingStatus: OffersLoadingStatus;
   groupedCities: GroupedCity[];
   currentHoveredOffer: HoveredOfferState;
   currentCity?: GroupedCity;
@@ -17,3 +18,10 @@ export type ToggleFavoriteProps = {
   groupedCityId: number;
   offerId: number;
 };
+
+export enum OffersLoadingStatus {
+  Unknown = 'unknown',
+  Loading = 'loading',
+  Filled = 'filled',
+  Empty = 'empty',
+}

@@ -11,7 +11,4 @@ const rect: IconRect = {
   },
 };
 
-// eslint-disable-next-line
-export const getIconRect = (styleMode: StyleMode) => {
-  return rect[styleMode];
-};
+export const getIconRect = (styleMode: StyleMode) => rect[styleMode];

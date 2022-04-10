@@ -2,6 +2,7 @@ import React from 'react';
 
 import Rating from 'src/components/shared/rating/rating';
 import { PreviewDescriptionWrapperProps } from 'src/types/preview-description-wrapper';
+import { capitalize } from 'src/helpers/capitalize';
 
 function PreviewDescriptionWrapper({
   offer,
@@ -28,7 +29,7 @@ function PreviewDescriptionWrapper({
       </div>
       <h2 className="place-card__name">{renderTitle()}</h2>
       <p className="place-card__type" data-testid="type">
-        {type}
+        {capitalize(type)}
       </p>
     </>
   );

@@ -4,4 +4,5 @@ export const TOKEN_KEY_LOCAL_STORAGE = 'authToken';
 
 export enum APIErrorCode {
   Unauthorized = 401,
+  NotFound = 404,
 }

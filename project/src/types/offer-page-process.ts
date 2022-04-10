@@ -15,6 +15,7 @@ export enum OfferStatus {
   Loading = 'loading',
   Filled = 'filled',
   NotFound = 'notFound',
+  ApiError = 'apiError'
 }
 
 export enum CommentsStatus {

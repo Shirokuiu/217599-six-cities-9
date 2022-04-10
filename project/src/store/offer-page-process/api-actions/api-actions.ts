@@ -14,6 +14,7 @@ import { CommentsStatus, OfferStatus } from 'src/types/offer-page-process';
 import FavoritesService from 'src/services/favorites-service/favorites-service';
 import CommentsService from 'src/services/comments/comments-service';
 import { CommentBody } from 'src/types/comments-service';
+import { APIErrorCode } from 'src/services/constants/constants';
 
 export const getOffer = createAsyncThunk(
   ActionType.GetOffer,
@@ -24,8 +25,17 @@ export const getOffer = createAsyncThunk(
       const data = await HotelsService.getOffer(offerId);
 
       dispatch(setOffer(data));
-    } catch (e) {
-      dispatch(toggleOfferStatus(OfferStatus.NotFound));
+    } catch (e: any) {
+      const { status } = e;
+
+      switch (status as APIErrorCode) {
+        case APIErrorCode.NotFound:
+          dispatch(toggleOfferStatus(OfferStatus.NotFound));
+          break;
+        default:
+          dispatch(toggleOfferStatus(OfferStatus.ApiError));
+          break;
+      }
     }
   },
 );

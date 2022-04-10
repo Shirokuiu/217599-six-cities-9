@@ -11,9 +11,10 @@ import {
 } from 'src/store/offer-page-process/api-actions/api-actions';
 import { AuthorizationStatus } from 'src/types/auth';
 import { AppRoutingPath } from 'src/types/app';
+import { getAuthorizationStatus } from 'src/store/user-process/selectors';
 
 function OfferPageDescriptionName({ offer }: OfferPageDescriptionNameProps) {
-  const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
+  const authorizationStatus = useAppSelector(getAuthorizationStatus);
   const params = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();

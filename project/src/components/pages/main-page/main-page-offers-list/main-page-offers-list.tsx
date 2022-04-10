@@ -15,12 +15,14 @@ import {
   apiSetFavoriteOffer
 } from 'src/store/main-page-process/api-actions/api-actions';
 import Bookmark from 'src/components/shared/bookmark/bookmark/bookmark';
+import { getCurrentCity } from 'src/store/main-page-process/selectors';
+import { getAuthorizationStatus } from 'src/store/user-process/selectors';
 
 function MainPageOffersList() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const currentCity = useAppSelector((state) => state.MAIN_PAGE.currentCity);
-  const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
+  const currentCity = useAppSelector(getCurrentCity);
+  const authorizationStatus = useAppSelector(getAuthorizationStatus);
   const dispatch = useAppDispatch();
   const [sortedOffers, setSortedOffers] = useState<Offer[]>([]);
   const parsedSearchParams = parseSearchParams<MainPageSortSearchParamType>(searchParams);

@@ -1,8 +1,9 @@
 import { useAppSelector } from 'src/hooks';
 import { switchOfferPageContent } from 'src/components/pages/offer-page/helpers/switch-offer-page-content';
+import { getOfferStatus } from 'src/store/offer-page-process/selectors';
 
 function OfferPageContentWrap() {
-  const offerStatus = useAppSelector((state) => state.OFFER_PAGE.offerStatus);
+  const offerStatus = useAppSelector(getOfferStatus);
 
   return switchOfferPageContent(offerStatus);
 }

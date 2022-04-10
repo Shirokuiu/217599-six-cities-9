@@ -9,13 +9,14 @@ import { useAppDispatch, useAppSelector } from 'src/hooks';
 import { LocationTabSearchParam } from 'src/types/main-page';
 import { setCurrentCity } from 'src/store/main-page-process/reducer/main-page-process';
 import MainPageLocationTabs from 'src/components/pages/main-page/main-page-location-tabs/main-page-location-tabs';
+import { getGroupedCities } from 'src/store/main-page-process/selectors';
 
 const locationTabs: Tab[] = buildLocationTabs();
 
 function MainPageLocationTabsWrap() {
   // NOTE Уточнить, как оптимизировать searchParams, который перерендеривает компонент на любое изменение строки, даже из другого компонента
   const [searchParams, setSearchParams] = useSearchParams({});
-  const groupedCities = useAppSelector((state) => state.MAIN_PAGE.groupedCities);
+  const groupedCities = useAppSelector(getGroupedCities);
   const dispatch = useAppDispatch();
   const parsedSearchParams = parseSearchParams<LocationTabSearchParam>(searchParams);
 

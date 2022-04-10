@@ -1,9 +1,10 @@
 import { useAppSelector } from 'src/hooks';
 import { buildImages } from 'src/components/pages/offer-page/helpers/build-images';
 import { Image } from 'src/types/offer-page';
+import { getSelectorOffer } from 'src/store/offer-page-process/selectors';
 
 function OfferPageGallery() {
-  const offer = useAppSelector((state) => state.OFFER_PAGE.offer);
+  const offer = useAppSelector(getSelectorOffer);
   const images: Image[] = buildImages(offer?.images);
 
   return (

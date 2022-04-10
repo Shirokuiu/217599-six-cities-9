@@ -9,11 +9,13 @@ import { FormData } from 'src/types/review-form';
 import { apiAddComment } from 'src/store/offer-page-process/api-actions/api-actions';
 import { Comment } from 'src/types/comment';
 import { sortAndSliceComments } from 'src/components/pages/offer-page/helpers/sort-and-slice-comments';
+import { getSelectorComments } from 'src/store/offer-page-process/selectors';
+import { getAuthorizationStatus } from 'src/store/user-process/selectors';
 
 function OfferPageDescriptionReviews() {
   const params = useParams<{ id: string }>();
-  const comments = useAppSelector((state) => state.OFFER_PAGE.comments);
-  const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
+  const comments = useAppSelector(getSelectorComments);
+  const authorizationStatus = useAppSelector(getAuthorizationStatus);
   const dispatch = useAppDispatch();
   const [parsedComments, setParsedComments] = useState<Comment[]>([]);
   const [disabled, setDisabled] = useState<boolean>(false);

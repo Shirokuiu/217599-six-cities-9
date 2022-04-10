@@ -5,9 +5,10 @@ import OfferPageDescriptionFeatures from 'src/components/pages/offer-page/offer-
 import OfferPageDescriptionInside from 'src/components/pages/offer-page/offer-page-description-inside/offer-page-description-inside';
 import OfferPageDescriptionHost from 'src/components/pages/offer-page/offer-page-description-host/offer-page-description-host';
 import OfferPageDescriptionReviewsWrap from 'src/components/pages/offer-page/offer-page-description-reviews-wrap/offer-page-description-reviews-wrap';
+import { getSelectorOffer } from 'src/store/offer-page-process/selectors';
 
 function OfferPageDescription() {
-  const offer = useAppSelector((state) => state.OFFER_PAGE.offer);
+  const offer = useAppSelector(getSelectorOffer);
 
   return (
     <div className="property__container container">

@@ -12,10 +12,12 @@ import {
 } from 'src/store/offer-page-process/api-actions/api-actions';
 import { AuthorizationStatus } from 'src/types/auth';
 import { AppRoutingPath } from 'src/types/app';
+import { getNearOffers } from 'src/store/offer-page-process/selectors';
+import { getAuthorizationStatus } from 'src/store/user-process/selectors';
 
 function OfferPageNearPlaces() {
-  const authorizationStatus = useAppSelector((state) => state.USER.authorizationStatus);
-  const nearOffers = useAppSelector((state) => state.OFFER_PAGE.nearOffers);
+  const authorizationStatus = useAppSelector(getAuthorizationStatus);
+  const nearOffers = useAppSelector(getNearOffers);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 

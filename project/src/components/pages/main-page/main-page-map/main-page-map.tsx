@@ -5,10 +5,11 @@ import { MapLPoint } from 'src/types/map-l';
 import MapL from 'src/components/shared/map-l/map-l';
 import { useAppSelector } from 'src/hooks';
 import { setActiveMapLPoint } from 'src/components/pages/main-page/helpers/set-active-map-l-point';
+import { getCurrentCity, getCurrentHoveredOffer } from 'src/store/main-page-process/selectors';
 
 function MainPageMap() {
-  const currentCity = useAppSelector((state) => state.MAIN_PAGE.currentCity);
-  const currentHoveredOffer = useAppSelector((state) => state.MAIN_PAGE.currentHoveredOffer);
+  const currentCity = useAppSelector(getCurrentCity);
+  const currentHoveredOffer = useAppSelector(getCurrentHoveredOffer);
   const [points, setPoints] = useState<MapLPoint[]>([]);
 
   useEffect(() => {

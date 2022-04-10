@@ -8,10 +8,14 @@ import UserService from 'src/services/user-service/user-service';
 import { ActionType } from 'src/store/user-process/action-type';
 
 export const checkAuth = createAsyncThunk(ActionType.CheckAuth, async (_arg, { dispatch }) => {
-  const data = await UserService.checkAuth();
+  try {
+    const data = await UserService.checkAuth();
 
-  dispatch(setAuthStatus(AuthorizationStatus.Auth));
-  dispatch(setMe(data));
+    dispatch(setAuthStatus(AuthorizationStatus.Auth));
+    dispatch(setMe(data));
+  } catch (e) {
+    dispatch(setAuthStatus(AuthorizationStatus.ApiError));
+  }
 });
 
 export const login = createAsyncThunk(

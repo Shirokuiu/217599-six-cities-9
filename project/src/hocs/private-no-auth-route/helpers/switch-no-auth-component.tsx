@@ -12,6 +12,8 @@ export const switchNoAuthComponent = (
       return <Loader />;
     case AuthorizationStatus.NoAuth:
       return children;
+    case AuthorizationStatus.ApiError:
+      return children;
     default:
       return <Navigate to={-1 as unknown as string} replace />;
   }

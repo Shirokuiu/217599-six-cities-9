@@ -35,6 +35,8 @@ export const createAPI = (): AxiosInstance => {
           store.dispatch(setMe(undefined));
           break;
       }
+
+      return Promise.reject(err);
     },
   );
 

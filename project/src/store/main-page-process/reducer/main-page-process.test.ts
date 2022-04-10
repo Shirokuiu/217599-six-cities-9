@@ -1,4 +1,4 @@
-import { offers } from 'src/mocks/offers';
+import {offers} from 'src/mocks/offers';
 import {
   clearState,
   groupCitiesAction,
@@ -9,15 +9,16 @@ import {
   toggleHoverOffer,
   unmarkFavoriteOffer
 } from 'src/store/main-page-process/reducer/main-page-process';
-import { InitialState } from 'src/types/main-page-process';
-import { groupCities } from 'src/helpers/group-cities';
-import { getCurrentOffer } from 'src/store/main-page-process/helpers/get-current-offer';
-import { toggleFavoriteOffers } from 'src/store/main-page-process/helpers/toggle-favorite-offers';
-import { getGroupedCityIdx } from 'src/store/main-page-process/helpers/get-grouped-city-idx';
+import {InitialState, OffersLoadingStatus} from 'src/types/main-page-process';
+import {groupCities} from 'src/helpers/group-cities';
+import {getCurrentOffer} from 'src/store/main-page-process/helpers/get-current-offer';
+import {toggleFavoriteOffers} from 'src/store/main-page-process/helpers/toggle-favorite-offers';
+import {getGroupedCityIdx} from 'src/store/main-page-process/helpers/get-grouped-city-idx';
 
 describe('Проверка редьюсера mainPageProcess', () => {
   const initialState = (): InitialState => ({
     offers: [],
+    offersLoadingStatus: OffersLoadingStatus.Unknown,
     groupedCities: [],
     currentCity: undefined,
     currentHoveredOffer: 'unknown',
@@ -34,6 +35,7 @@ describe('Проверка редьюсера mainPageProcess', () => {
       expect(mainPageProcess.reducer(state, setOffers(offersMock))).toEqual({
         ...initialState(),
         offers: offersMock,
+        offersLoadingStatus: OffersLoadingStatus.Filled,
       });
     });
   });

@@ -12,7 +12,7 @@ describe('Проверка на корректность рендера комп
 
       expect(container).toBeInTheDocument();
       expect(screen.getByTestId('price-value')).toHaveTextContent('€154');
-      expect(screen.getByTestId('type')).toHaveTextContent('house');
+      expect(screen.getByTestId('type')).toHaveTextContent('House');
     });
   });
 });

@@ -26,7 +26,7 @@ export const getOffer = createAsyncThunk(
 
       dispatch(setOffer(data));
     } catch (e: any) {
-      const { status } = e;
+      const { response: {status} } = e;
 
       switch (status as APIErrorCode) {
         case APIErrorCode.NotFound:

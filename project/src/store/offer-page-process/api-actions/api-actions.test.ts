@@ -60,7 +60,7 @@ describe('Проверка асинхронных экшенов для offerPag
         .onPost(`${FavoritesRoute.favorite}/${OFFER_ID}/${SendStatus.AddFavorite}`)
         .reply(200, groupedCities[0].offers[1]);
 
-      await store.dispatch(apiSetFavoriteOffer(OFFER_ID));
+      await store.dispatch(apiSetFavoriteOffer({ offerId: OFFER_ID }));
     });
   });
 
@@ -74,7 +74,7 @@ describe('Проверка асинхронных экшенов для offerPag
         .onPost(`${FavoritesRoute.favorite}/${OFFER_ID}/${SendStatus.RemoveFavorite}`)
         .reply(200, groupedCities[0].offers[1]);
 
-      await store.dispatch(apiRemoveFavoriteOffer(OFFER_ID));
+      await store.dispatch(apiRemoveFavoriteOffer({ offerId: OFFER_ID }));
     });
   });
 

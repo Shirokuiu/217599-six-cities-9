@@ -4,11 +4,15 @@ import { ActionType } from 'src/store/offer-page-process/action-type';
 import HotelsService from 'src/services/hotels-service/hotels-service';
 import {
   addComment,
+  markNearOffer,
+  markOffer,
   setComments,
   setNearOffers,
   setOffer,
   toggleCommentsStatus,
-  toggleOfferStatus
+  toggleOfferStatus,
+  unMarkNearOffer,
+  unMarkOffer
 } from 'src/store/offer-page-process/reducer/offer-page-process';
 import { CommentsStatus, OfferStatus } from 'src/types/offer-page-process';
 import FavoritesService from 'src/services/favorites-service/favorites-service';
@@ -26,7 +30,9 @@ export const getOffer = createAsyncThunk(
 
       dispatch(setOffer(data));
     } catch (e: any) {
-      const { response: {status} } = e;
+      const {
+        response: { status },
+      } = e;
 
       switch (status as APIErrorCode) {
         case APIErrorCode.NotFound:
@@ -42,15 +48,39 @@ export const getOffer = createAsyncThunk(
 
 export const apiSetFavoriteOffer = createAsyncThunk(
   ActionType.ApiSetFavoriteOffer,
-  async (offerId: number, { dispatch }) => {
+  async (
+    { offerId, type = 'currentOffer' }: { offerId: number; type?: 'currentOffer' | 'nearOffer' },
+    { dispatch },
+  ) => {
     await FavoritesService.set(offerId);
+
+    switch (type) {
+      case 'nearOffer':
+        dispatch(markNearOffer(offerId));
+        break;
+      case 'currentOffer':
+        dispatch(markOffer());
+        break;
+    }
   },
 );
 
 export const apiRemoveFavoriteOffer = createAsyncThunk(
   ActionType.ApiRemoveFavoriteOffer,
-  async (offerId: number, { dispatch }) => {
+  async (
+    { offerId, type = 'currentOffer' }: { offerId: number; type?: 'currentOffer' | 'nearOffer' },
+    { dispatch },
+  ) => {
     await FavoritesService.remove(offerId);
+
+    switch (type) {
+      case 'nearOffer':
+        dispatch(unMarkNearOffer(offerId));
+        break;
+      case 'currentOffer':
+        dispatch(unMarkOffer());
+        break;
+    }
   },
 );
 

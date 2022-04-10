@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { BookmarkProps, StyleMode } from 'src/types/bookmark';
 import { getAriaText } from 'src/components/shared/bookmark/helpers/get-aria-text';
@@ -12,7 +12,11 @@ function Bookmark({
   styleMode = StyleMode.Default,
   onToggleActive = () => undefined,
 }: BookmarkProps) {
-  const [isActive, setIsActive] = useState(inBookmark);
+  const [isActive, setIsActive] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsActive(inBookmark);
+  }, [inBookmark]);
 
   const handleBookmarkClick = () => {
     setIsActive((prevState) => {

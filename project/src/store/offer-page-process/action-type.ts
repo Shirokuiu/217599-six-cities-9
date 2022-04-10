@@ -12,5 +12,10 @@ export enum ActionType {
   ToggleHoverOffer = 'toggleHoverOffer',
   ToggleCommentsStatus = 'toggleCommentsStatus',
   ToggleOfferStatus = 'toggleOfferStatus',
+  ResetNearOffersFavorites = 'resetNearOffersFavorites',
+  MarkNearOffer = 'markNearOffer',
+  UnMarkNearOffer = 'unMarkNearOffer',
+  MarkOffer = 'markOffer',
+  UnMarkOffer = 'unMarkOffer',
   ClearState = 'clearState',
 }

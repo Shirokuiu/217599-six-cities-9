@@ -36,7 +36,9 @@ function OfferPageNearPlaces() {
       return;
     }
 
-    isActive ? dispatch(apiSetFavoriteOffer(offerId)) : dispatch(apiRemoveFavoriteOffer(offerId));
+    isActive
+      ? dispatch(apiSetFavoriteOffer({ offerId, type: 'nearOffer' }))
+      : dispatch(apiRemoveFavoriteOffer({ offerId, type: 'nearOffer' }));
   };
 
   return (

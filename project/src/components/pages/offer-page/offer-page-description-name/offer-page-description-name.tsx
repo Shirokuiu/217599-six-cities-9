@@ -27,7 +27,11 @@ function OfferPageDescriptionName({ offer }: OfferPageDescriptionNameProps) {
     }
 
     if (params.id) {
-      dispatch(isActive ? apiSetFavoriteOffer(+params.id) : apiRemoveFavoriteOffer(+params.id));
+      dispatch(
+        isActive
+          ? apiSetFavoriteOffer({ offerId: +params.id })
+          : apiRemoveFavoriteOffer({ offerId: +params.id }),
+      );
     }
   };
 

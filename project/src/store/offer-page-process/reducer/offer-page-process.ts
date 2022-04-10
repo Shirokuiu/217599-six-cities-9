@@ -48,6 +48,28 @@ export const offerPageProcess = createSlice({
     ) {
       state.currentHoveredOffer = currentOffer;
     },
+    [ActionType.MarkNearOffer](state, { payload: offerId }: { payload: number }) {
+      const idx = state.nearOffers.findIndex(({ id }) => id === offerId);
+
+      state.nearOffers[idx].isFavorite = true;
+    },
+    [ActionType.UnMarkNearOffer](state, { payload: offerId }: { payload: number }) {
+      const idx = state.nearOffers.findIndex(({ id }) => id === offerId);
+
+      state.nearOffers[idx].isFavorite = false;
+    },
+    [ActionType.MarkOffer](state) {
+      (state.offer as Offer).isFavorite = true;
+    },
+    [ActionType.UnMarkOffer](state) {
+      (state.offer as Offer).isFavorite = false;
+    },
+    [ActionType.ResetNearOffersFavorites](state) {
+      state.nearOffers = state.nearOffers.map((offer) => ({
+        ...offer,
+        isFavorite: false,
+      }));
+    },
     [ActionType.ClearState](state) {
       state.offerStatus = OfferStatus.Unknown;
       state.offer = undefined;
@@ -66,5 +88,10 @@ export const {
   addComment,
   setNearOffers,
   toggleHoverOffer,
+  resetNearOffersFavorites,
+  markNearOffer,
+  unMarkNearOffer,
+  markOffer,
+  unMarkOffer,
   clearState,
 } = offerPageProcess.actions;

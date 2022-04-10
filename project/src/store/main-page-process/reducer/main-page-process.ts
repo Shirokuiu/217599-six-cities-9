@@ -79,6 +79,14 @@ export const mainPageProcess = createSlice({
     ) {
       state.offersLoadingStatus = loadingStatus;
     },
+    [ActionType.ResetFavorites](state) {
+      state.groupedCities.forEach((groupedCity, idx) => {
+        state.groupedCities[idx].offers = state.groupedCities[idx].offers.map((offer) => ({
+          ...offer,
+          isFavorite: false,
+        }));
+      });
+    },
     [ActionType.ClearState](state) {
       // NOTE Хз как по другому почистить стор
       // state = initialState или функцию передавать ничего не происходит
@@ -97,5 +105,6 @@ export const {
   markFavoriteOffer,
   unmarkFavoriteOffer,
   toggleOffersLoadingStatus,
+  resetFavorites,
   clearState,
 } = mainPageProcess.actions;

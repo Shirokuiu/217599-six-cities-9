@@ -9,5 +9,6 @@ export enum ActionType {
   MarkFavoriteOffer = 'markFavoriteOffer',
   UnmarkFavoriteOffer = 'unmarkFavoriteOffer',
   ToggleOffersLoadingStatus = 'toggleOffersLoadingStatus',
+  ResetFavorites = 'resetFavorites',
   ClearState = 'clearState',
 }

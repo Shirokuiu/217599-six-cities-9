@@ -64,12 +64,19 @@ describe('Проверка асинхронных экшенов для userProc
     });
   });
 
-  it('При разлогине, удаляется из localeStorage токен авторизации и вызывается 2 синхронных метода setAuthStatus, setMe', async () => {
+  it('При разлогине вызывается 2 синхронных метода setAuthStatus, setMe', async () => {
     const store = mockStore();
     const token = { token: 'authToken' };
+    const authBodyData = {
+      email: 'asd@mail.ru',
+      password: '123ds',
+    };
 
     mockAPI.onPost(UserRoute.Login).reply(200, token);
-    Storage.prototype.removeItem = jest.fn();
+
+    await store.dispatch(login(authBodyData));
+
+    mockAPI.onDelete(UserRoute.Login).reply(204);
 
     await store.dispatch(logout());
 
@@ -77,8 +84,5 @@ describe('Проверка асинхронных экшенов для userProc
 
     expect(actions).toContain(setAuthStatus.toString());
     expect(actions).toContain(setMe.toString());
-
-    expect(Storage.prototype.removeItem).toBeCalledTimes(1);
-    expect(Storage.prototype.removeItem).toBeCalledWith(TOKEN_KEY_LOCAL_STORAGE);
   });
 });

@@ -2,6 +2,7 @@ import MainPageOffers from 'src/components/pages/main-page/main-page-offers/main
 import MainPageOffersEmpty from 'src/components/pages/main-page/main-page-offers-empty/main-page-offers-empty';
 import { OffersLoadingStatus } from 'src/types/main-page-process';
 import Loader from 'src/components/shared/loader/loader';
+import ErrorApiMsg from 'src/components/shared/error-api-msg/error-api-msg';
 
 export const switchMainPageComponents = (offersLoadingStatus: OffersLoadingStatus): JSX.Element => {
   switch (offersLoadingStatus) {
@@ -11,6 +12,8 @@ export const switchMainPageComponents = (offersLoadingStatus: OffersLoadingStatu
       return <MainPageOffers />;
     case OffersLoadingStatus.Empty:
       return <MainPageOffersEmpty />;
+    case OffersLoadingStatus.ApiError:
+      return <ErrorApiMsg />;
     default:
       return <Loader />;
   }

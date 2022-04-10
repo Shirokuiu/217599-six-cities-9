@@ -14,9 +14,13 @@ import FavoritesService from 'src/services/favorites-service/favorites-service';
 export const getOffers = createAsyncThunk(ActionType.GetOffers, async (_arg, { dispatch }) => {
   dispatch(toggleOffersLoadingStatus(OffersLoadingStatus.Loading));
 
-  const data = await HotelsService.getOffers();
+  try {
+    const data = await HotelsService.getOffers();
 
-  dispatch(setOffers(data));
+    dispatch(setOffers(data));
+  } catch (e) {
+    dispatch(toggleOffersLoadingStatus(OffersLoadingStatus.ApiError));
+  }
 });
 
 export const apiSetFavoriteOffer = createAsyncThunk(

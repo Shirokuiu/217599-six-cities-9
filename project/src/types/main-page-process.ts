@@ -24,4 +24,5 @@ export enum OffersLoadingStatus {
   Loading = 'loading',
   Filled = 'filled',
   Empty = 'empty',
+  ApiError = 'apiError',
 }
